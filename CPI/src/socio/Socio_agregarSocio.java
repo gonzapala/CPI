@@ -93,8 +93,10 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Datos Personales");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Datos Profesionales");
 
         ComboBoxCategoriaSocio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Profesional", "Idoneo", "Auxiliar Informatico" }));
@@ -153,12 +155,12 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCuilSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,9 +186,9 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
                     .addComponent(txtTelefonoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDomicilioSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmailSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel10)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
@@ -210,6 +212,10 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoSocioActionPerformed
 
+    private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
+
     private void btnGuardarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocioActionPerformed
         try {
             connection = conexion.getConnection();
@@ -219,11 +225,10 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
             preparedStatement.setString(3, txtDNISocio.getText());
             preparedStatement.setString(4, txtTelefonoSocio.getText());
             preparedStatement.setString(5, txtDomicilioSocio.getText());
-            preparedStatement.setString(6, ComboBoxCategoriaSocio.getPrototypeDisplayValue());
+            preparedStatement.setString(6, ComboBoxCategoriaSocio.getSelectedItem().toString());
             preparedStatement.setString(7, txtCuilSocio.getText());
             preparedStatement.setString(8, txtEmailSocio.getText());
-            
-            
+
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Socio Guardado");
@@ -238,12 +243,8 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-    }//GEN-LAST:event_btnGuardarSocioActionPerformed
 
-    private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
+    }//GEN-LAST:event_btnGuardarSocioActionPerformed
 
     /**
      * @param args the command line arguments
