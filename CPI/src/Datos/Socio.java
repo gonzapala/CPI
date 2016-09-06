@@ -5,11 +5,18 @@
  */
 package Datos;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Gonzalo
  */
-public class socio {
+public class Socio {
     private int id_socio;
     private String legajo_socio;
     private String nombre;
@@ -22,6 +29,9 @@ public class socio {
     private String estado;
     private String cuilcuit;
     private String email;
+    
+    private Statement sentencia;
+    private ResultSet rsDatos;
 
     /**
      * @return the id_socio
@@ -183,5 +193,68 @@ public class socio {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public Socio BuscarX(String Legajo) throws ClassNotFoundException
+    {   
+        Socio nuevoSocio=new Socio();
+        try {
+            
+            Connection cn = Conexion.Cadena();
+        
+            String SQL = "SELECT * FROM socio"+ " WHERE legajo_socio ='"+Legajo+"' ";
+            System.out.println(SQL);
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            
+            rsDatos = sentencia.executeQuery(SQL);
+            System.out.println("Correcto");
+            //cn.commit();
+            
+            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email;
+            int dni_socio, leg,tel;
+            if(rsDatos.first()){    
+                nom=rsDatos.getString("nombre");
+                ape=rsDatos.getString("apellido");
+                estado_pago=rsDatos.getString("estado_pago");
+                categ=rsDatos.getString("categoria");
+                estado=rsDatos.getString("estado");
+                cuilcuit=rsDatos.getString("cuilcuit");
+                email=rsDatos.getString("email");
+                dni_socio=rsDatos.getInt("dni");
+                leg=rsDatos.getInt("legajo_socio");
+                tel=rsDatos.getInt("telefono");
+                
+//                System.out.println(nom);
+//                System.out.println(ape);
+//                System.out.println(categ);
+//                System.out.println(leg);
+//                System.out.println(tel);
+                
+                nuevoSocio.nombre=nom;
+                nuevoSocio.apellido=ape;
+                nuevoSocio.dni=dni_socio;
+                nuevoSocio.estado_pago=estado_pago;
+                nuevoSocio.categoria=categ;
+                nuevoSocio.estado=estado;
+                nuevoSocio.cuilcuit=cuilcuit;
+                nuevoSocio.setLegajo_socio(leg);
+                nuevoSocio.telefono=tel;
+                
+                
+                       
+            }else{
+                System.out.println("es nulo");
+            }
+            
+            
+        } catch (SQLException ex) {
+            System.out.println("No Correcto");
+            Logger.getLogger(Socio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nuevoSocio;
+    }
+
+    private void setLegajo_socio(int leg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
