@@ -209,8 +209,8 @@ public class Socio {
             System.out.println("Correcto");
             //cn.commit();
             
-            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email;
-            int dni_socio, leg,tel;
+            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg;
+            int dni_socio,tel;
             if(rsDatos.first()){    
                 nom=rsDatos.getString("nombre");
                 ape=rsDatos.getString("apellido");
@@ -220,7 +220,7 @@ public class Socio {
                 cuilcuit=rsDatos.getString("cuilcuit");
                 email=rsDatos.getString("email");
                 dni_socio=rsDatos.getInt("dni");
-                leg=rsDatos.getInt("legajo_socio");
+                leg=rsDatos.getString("legajo_socio");
                 tel=rsDatos.getInt("telefono");
                 
 //                System.out.println(nom);
@@ -253,8 +253,6 @@ public class Socio {
         return nuevoSocio;
     }
 
-    private void setLegajo_socio(int leg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 }

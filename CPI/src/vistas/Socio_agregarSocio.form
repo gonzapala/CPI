@@ -328,7 +328,7 @@
                           </Group>
                           <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -356,12 +356,17 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelApellido" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelNombre" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="262" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="labelApellido" pref="49" max="32767" attributes="0"/>
+                              <Component id="labelNombre" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -369,9 +374,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="labelNombre" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="labelApellido" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -380,12 +391,22 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="labelNombre">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="nombre"/>
+                    <Property name="text" type="java.lang.String" value=".."/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labelApellido">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="apellido"/>
+                    <Property name="text" type="java.lang.String" value=".."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nombre: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apellido: "/>
                   </Properties>
                 </Component>
               </SubComponents>

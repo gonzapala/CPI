@@ -71,6 +71,8 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         labelNombre = new javax.swing.JLabel();
         labelApellido = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         btnBuscarSocio = new javax.swing.JButton();
         txtBuscarSocio = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -233,28 +235,40 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel2);
 
-        labelNombre.setText("nombre");
+        labelNombre.setText("..");
 
-        labelApellido.setText("apellido");
+        labelApellido.setText("..");
+
+        jLabel14.setText("Nombre: ");
+
+        jLabel15.setText("Apellido: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelApellido)
-                    .addComponent(labelNombre))
-                .addContainerGap(262, Short.MAX_VALUE))
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(218, 218, 218))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelNombre)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
-                .addComponent(labelApellido)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelApellido)
+                    .addComponent(jLabel15))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -283,7 +297,7 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
                                 .addComponent(btnBuscarSocio)))
                         .addGap(169, 169, 169))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,6 +384,7 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarSocioActionPerformed
     //dsdsdsdsdsd
+    //dsdsdsdsdsd
     public ResultSet mostrarSocios() throws ClassNotFoundException
     {
         try {
@@ -393,7 +408,7 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
          try {
                 Datos.Socio nuevoSocio = new Socio();
                 nuevoSocio=nuevoSocio.BuscarX(txtBuscarSocio.getText());
-
+                System.out.println(nuevoSocio.getNombre());
                 labelNombre.setText(nuevoSocio.getNombre());
                 labelApellido.setText(nuevoSocio.getApellido());
                 
@@ -446,6 +461,8 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
