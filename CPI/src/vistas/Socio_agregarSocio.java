@@ -369,7 +369,7 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnGuardarSocioActionPerformed
-    
+    //dsdsdsdsdsd
     public ResultSet mostrarSocios() throws ClassNotFoundException
     {
         try {
