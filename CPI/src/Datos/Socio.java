@@ -193,7 +193,7 @@ public class Socio {
     public void setEmail(String email) {
         this.email = email;
     }
-
+//comentario nuevo
     public Socio BuscarX(String Legajo) throws ClassNotFoundException
     {   
         Socio nuevoSocio=new Socio();

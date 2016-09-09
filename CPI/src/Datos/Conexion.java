@@ -32,6 +32,7 @@ public class Conexion {
 //
 //        return connection;
 //    }
+    //comentario
      public static Connection Cadena() throws ClassNotFoundException, SQLException
     {
          // Esta Función Establece la Conexion
