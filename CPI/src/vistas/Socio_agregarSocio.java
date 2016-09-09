@@ -408,7 +408,7 @@ public class Socio_agregarSocio extends javax.swing.JFrame {
          try {
                 Datos.Socio nuevoSocio = new Socio();
                 nuevoSocio=nuevoSocio.BuscarX(txtBuscarSocio.getText());
-                System.out.println(nuevoSocio.getNombre());
+                //System.out.println(nuevoSocio.getNombre());
                 labelNombre.setText(nuevoSocio.getNombre());
                 labelApellido.setText(nuevoSocio.getApellido());
                 
