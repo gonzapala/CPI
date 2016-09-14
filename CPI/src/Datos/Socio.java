@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -200,11 +201,9 @@ public class Socio {
         try {
             
             Connection cn = Conexion.Cadena();
-        
             String SQL = "SELECT * FROM socio"+ " WHERE legajo_socio ='"+Legajo+"' ";
             System.out.println(SQL);
             sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            
             rsDatos = sentencia.executeQuery(SQL);
             System.out.println("Correcto");
             //cn.commit();
@@ -251,6 +250,47 @@ public class Socio {
             Logger.getLogger(Socio.class.getName()).log(Level.SEVERE, null, ex);
         }
         return nuevoSocio;
+    }
+    
+    public Socio mostrarSocios() throws ClassNotFoundException, SQLException{
+        Socio socios =new Socio();
+        
+        Connection cn = Conexion.Cadena();
+        String SQL = "SELECT * FROM socio";
+        sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        rsDatos = sentencia.executeQuery(SQL);
+        System.out.println("Correcto");
+        int i=0;
+//        for(i=0;i<rsDatos.last();i++){
+//        
+//        }
+        return socios;
+    }
+    
+    public ArrayList<Socio> listarSocios(){
+        ArrayList listaSocio = new ArrayList();
+        Socio socio;
+        try {
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM socio";
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rsDatos = sentencia.executeQuery(SQL);
+            System.out.println("Correcto");
+            
+            while (rsDatos.next()) {                
+                socio = new Socio();
+                socio.setLegajo_socio(rsDatos.getString(2));
+                socio.setNombre(rsDatos.getString(3));
+                socio.setApellido(rsDatos.getString(4));
+                socio.setDni(rsDatos.getInt(5));
+                socio.setEstado(rsDatos.getString(10));
+                listaSocio.add(socio);
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        return listaSocio;
     }
 
 
