@@ -26,4 +26,22 @@ public class ConexionResolucion {
          return conectar;
      }
     
+     
+     public ResultSet SeleccionarUsuario(String estado){
+     
+     Connection cn;
+     PreparedStatement pst;
+     ResultSet rs= null;
+     
+         try {
+             cn= conectar();
+             pst= cn.prepareStatement("SELECT * FROM socios Where estado_socio=?");
+             pst.setString(1,estado);
+             rs= pst.executeQuery();
+         } catch (Exception e) {
+         }
+         return rs;
+     }
+     
+     
 }

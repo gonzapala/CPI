@@ -17,12 +17,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Datos.ConexionResolucion;
+import java.util.ArrayList;
+import Datos.Socio;
 
 /**
  *
  * @author Bruno Matias
  */
-public class resolucion {
+public class Resolucion {
     
     private int id_socio;
     private String legajo_socio;
@@ -234,10 +236,64 @@ public class resolucion {
     //---------------------------------------- FIn metodos
     
     
+   
+
+
+
     /*
-     public resolucion BuscarX(String Estado) throws ClassNotFoundException
+
+    Connection cn;
+    
+    public void CargarTabla(JTable tabla, String cadena) throws ClassNotFoundException{
+    DefaultTableModel modelo;
+    String[] titulo={"Nombre", "Apellido", "Estado", "Pago"}; // lo que yo quieoro que apastesca 
+    
+    modelo = new DefaultTableModel (null, titulo);
+    
+    String [] registros = new String[4];
+    
+    String SQL = "SELECT * FROM socio WHERE CONCAT (nombre,' ', apellido, ' ',estado) LIKE '%"+cadena+"%'";
+     
+    ConexionResolucion con = new ConexionResolucion();
+    
+    cn=con.conectar();
+    
+     
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            
+            while (rs.next()) {
+                for (int i=0; i<4; i++)
+                   registros[i]=rs.getString(i+1);
+                   modelo.addRow(registros);
+                
+            }
+            
+            tabla.setModel(modelo);
+            
+            
+            
+        } catch (SQLException ex) {
+            
+           JOptionPane.showMessageDialog(null,"Error:"+ex);
+            
+        }
+    
+    
+    }
+
+    
+    
+
+    
+    */
+    
+    
+     
+     public Resolucion BuscarX(String Estado) throws ClassNotFoundException
     {   
-        resolucion nuevaResolucion=new resolucion();
+        Resolucion nuevaResolucion=new Resolucion();
         try {
             
             Connection cn = Conexion.Cadena();
@@ -292,59 +348,51 @@ public class resolucion {
         }
         return nuevaResolucion;
     }
-
-*/
-
-    /*
-
-    Connection cn;
-    
-    public void CargarTabla(JTable tabla, String cadena) throws ClassNotFoundException{
-    DefaultTableModel modelo;
-    String[] titulo={"Nombre", "Apellido", "Estado", "Pago"}; // lo que yo quieoro que apastesca 
-    
-    modelo = new DefaultTableModel (null, titulo);
-    
-    String [] registros = new String[4];
-    
-    String SQL = "SELECT * FROM socio WHERE CONCAT (nombre,' ', apellido, ' ',estado) LIKE '%"+cadena+"%'";
+        
      
-    ConexionResolucion con = new ConexionResolucion();
     
-    cn=con.conectar();
+    public Resolucion mostrarSocios() throws ClassNotFoundException, SQLException{
+        Resolucion resoluciones =new Resolucion();
+        
+        Connection cn = Conexion.Cadena();
+        String SQL = "SELECT * FROM socio";
+        sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        rsDatos = sentencia.executeQuery(SQL);
+        System.out.println("Correcto");
+        int i=0;
+//        for(i=0;i<rsDatos.last();i++){
+//        
+//        }
+        return resoluciones;
+    }
     
-     
+    public ArrayList<Resolucion> listarSocios(){
+        ArrayList listaSocio = new ArrayList();
+        Resolucion resolucion;
         try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM socio";
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rsDatos = sentencia.executeQuery(SQL);
+            System.out.println("Correcto");
             
-            while (rs.next()) {
-                for (int i=0; i<4; i++)
-                   registros[i]=rs.getString(i+1);
-                   modelo.addRow(registros);
-                
+            while (rsDatos.next()) {                
+                resolucion = new Resolucion();
+                resolucion.setLegajo_socio(rsDatos.getString(2));
+                resolucion.setNombre(rsDatos.getString(3));
+                resolucion.setApellido(rsDatos.getString(4));
+                resolucion.setDni(rsDatos.getInt(5));
+                resolucion.setEstado(rsDatos.getString(10));
+                listaSocio.add(resolucion);
             }
             
-            tabla.setModel(modelo);
-            
-            
-            
-        } catch (SQLException ex) {
-            
-           JOptionPane.showMessageDialog(null,"Error:"+ex);
-            
+        } catch (Exception e) {
         }
-    
-    
+        
+        return listaSocio;
     }
-
-    
-    
-
-    
-    */
     
     
     
 
-} // fin class resolucion
+} // fin class Resolucion
