@@ -161,10 +161,10 @@ public class Gestionar_Resoluciones extends javax.swing.JFrame {
     private void btnBuscarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSocioActionPerformed
        String estado = this.txtBuscarSocio.getText().toString();
        Conexion cn = new Conexion();
-       Resultset rs = cn.SeleccionarUsuario(estado);
+//       Resultset rs = cn.SeleccionarUsuario(estado);
         DefaultTableModel dfmbuscar= new DefaultTableModel();
         this.tabla.setModel(dfmbuscar);
-        dfmbuscar.setColumnIdentifiers(new Object[]{legajo_socio,nombre, apellido,dni, telefono, estado_pago,categoria,estado,cuilcuit,email});
+       // dfmbuscar.setColumnIdentifiers(new Object[]{legajo_socio,nombre, apellido,dni, telefono, estado_pago,categoria,estado,cuilcuit,email});
         try {
             
         } catch (Exception e) {

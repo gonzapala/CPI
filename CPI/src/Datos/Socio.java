@@ -209,8 +209,9 @@ public class Socio {
             //cn.commit();
             
             String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg;
-            int dni_socio,tel;
-            if(rsDatos.first()){    
+            int dni_socio,tel,idS;
+            if(rsDatos.first()){
+                idS=rsDatos.getInt("id_socio");
                 nom=rsDatos.getString("nombre");
                 ape=rsDatos.getString("apellido");
                 estado_pago=rsDatos.getString("estado_pago");
@@ -237,6 +238,7 @@ public class Socio {
                 nuevoSocio.cuilcuit=cuilcuit;
                 nuevoSocio.setLegajo_socio(leg);
                 nuevoSocio.telefono=tel;
+                nuevoSocio.id_socio=idS;
                 
                 
                        

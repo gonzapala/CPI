@@ -39,7 +39,7 @@ public class Conexion {
         Class.forName("com.mysql.jdbc.Driver");
         String conStr = "jdbc:mysql://localhost/sgcpi";
 
-        Connection cn=DriverManager.getConnection(conStr, "root", "");
+        Connection cn=DriverManager.getConnection(conStr, "root", "1234");
         //cn.setAutoCommit(false);       //  si no especifican esto el autocommit
                                          //  es por defecto true entonces no es necesario
                                          //  hacer los commit despues de las insersiones,
