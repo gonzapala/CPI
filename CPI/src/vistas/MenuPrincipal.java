@@ -5,7 +5,6 @@
  */
 package vistas;
 
-
 import Datos.Socio;
 import Datos.Socio_Crud;
 import java.awt.Panel;
@@ -225,8 +224,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 //        ventana.setVisible(true);
         gestionarSocios ventana = new gestionarSocios();
         pane1.add(ventana);
-        Socio socio;
-        socio = new Socio();
+        Socio socio = new Socio();
         Socio_Crud controlaC = new Socio_Crud(ventana, socio);
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
