@@ -16,7 +16,7 @@ import java.awt.Panel;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form MenuPrincipal
+     * Creates new form MenuPrincip
      */
     public MenuPrincipal() {
         initComponents();
