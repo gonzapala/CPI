@@ -262,6 +262,11 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         btnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checklist.png"))); // NOI18N
         btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
         Tabla_Socios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -596,7 +601,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 String anio= Integer.toString(año);
                 String leg="";
                 leg=leg.concat(anio);
-                preparedStatement = connection.prepareStatement("INSERT INTO socio (nombre, apellido,dni,telefono,domicilio,categoria,cuilcuit,email,legajo_socio,fechaNac) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                preparedStatement = connection.prepareStatement("INSERT INTO socio (nombre, apellido,dni,telefono,domicilio,categoria,cuilcuit,email,legajo_socio) VALUES (?,?,?,?,?,?,?,?,?)");
                 preparedStatement.setString(1, txtNombreSocio.getText());
                 preparedStatement.setString(2, txtApellidoSocio.getText());
                 preparedStatement.setString(3, txtDNISocio.getText());
@@ -635,6 +640,10 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
