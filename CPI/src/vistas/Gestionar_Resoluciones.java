@@ -12,7 +12,7 @@ package vistas;
  */
 import Datos.Conexion;
 import Datos.Socio;
-import Datos.resolucion;
+import Datos.Resolucion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
