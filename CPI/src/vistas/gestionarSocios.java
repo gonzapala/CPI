@@ -606,7 +606,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 preparedStatement.setString(7, txtCuilSocio.getText());
                 preparedStatement.setString(8, txtEmailSocio.getText());
                 preparedStatement.setString(9, leg);
-                preparedStatement.setDate(10, DateP_fechaN_Socio.getDate());
+                //preparedStatement.setDate(10, DateP_fechaN_Socio.getDate());
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
