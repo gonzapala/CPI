@@ -30,6 +30,7 @@ public class Socio {
     private String estado;
     private String cuilcuit;
     private String email;
+    private String fechaNac;
     
     private Statement sentencia;
     private ResultSet rsDatos;
@@ -208,7 +209,7 @@ public class Socio {
             System.out.println("Correcto");
             //cn.commit();
             
-            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg;
+            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg,fNac;
             int dni_socio,tel,idS;
             if(rsDatos.first()){
                 idS=rsDatos.getInt("id_socio");
@@ -222,6 +223,7 @@ public class Socio {
                 dni_socio=rsDatos.getInt("dni");
                 leg=rsDatos.getString("legajo_socio");
                 tel=rsDatos.getInt("telefono");
+                fNac=rsDatos.getString("fechaNac");
                 
 //                System.out.println(nom);
 //                System.out.println(ape);
@@ -239,6 +241,7 @@ public class Socio {
                 nuevoSocio.setLegajo_socio(leg);
                 nuevoSocio.telefono=tel;
                 nuevoSocio.id_socio=idS;
+                nuevoSocio.setFechaNac(fNac);
                 
                 
                        
@@ -293,6 +296,20 @@ public class Socio {
         }
         
         return listaSocio;
+    }
+
+    /**
+     * @return the fechaNac
+     */
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    /**
+     * @param fechaNac the fechaNac to set
+     */
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
 
