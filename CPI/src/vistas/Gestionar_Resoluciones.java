@@ -188,13 +188,17 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         modeloT.addColumn("Apellido");
         modeloT.addColumn("Nombre");
         modeloT.addColumn("DNI");
-        modeloT.addColumn("Socio");
+        modeloT.addColumn("Estado");
         
         Object[] columna = new Object[5];
         
         int numeroRegistros= modelo_socios.listarSocios().size();
         System.out.println(numeroRegistros);
         for ( int i=0; i<numeroRegistros;i++){
+            String estado_pago=modelo_socios.listarSocios().get(i).getEstado_pago();
+            verficarPago(modelo_socios.listarSocios().get(i).getLegajo_socio());
+            if(estado_pago.compareTo("moroso")){
+            }
             columna[0]=modelo_socios.listarSocios().get(i).getLegajo_socio();
             columna[1]=modelo_socios.listarSocios().get(i).getApellido();
             columna[2]=modelo_socios.listarSocios().get(i).getNombre();
@@ -205,7 +209,13 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         }
         
     }//FIn-LlenarTabla
-    
+    public void verfificarPago(String leg) throws ClassNotFoundException{
+        Socio nSocio = new Socio();
+        nSocio=nSocio.BuscarX(leg);
+        
+        
+        
+    }
     private void btnBuscarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSocioActionPerformed
         String estado = this.txtBuscarSocio.getText().toString();
         Conexion cn = new Conexion();
@@ -250,4 +260,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
     private org.jdesktop.swingx.JXTable jXTable_morosos;
     private javax.swing.JTextField txtBuscarSocio;
     // End of variables declaration//GEN-END:variables
+
+    private void verficarPago(String legajo_socio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
