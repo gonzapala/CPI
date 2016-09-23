@@ -76,6 +76,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(42, 42, 42));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(1200, 740));
         setResizable(false);
 
         btnSalir.setText("Salir");
@@ -86,7 +87,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         pane1.setToolTipText("");
-        pane1.setPreferredSize(new java.awt.Dimension(750, 670));
+        pane1.setPreferredSize(new java.awt.Dimension(1000, 700));
 
         javax.swing.GroupLayout pane1Layout = new javax.swing.GroupLayout(pane1);
         pane1.setLayout(pane1Layout);
@@ -125,7 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("Resoluciones de Matricula");
+        jMenuItem3.setText("Resoluciones de Suspencion");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -134,6 +135,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5.add(jMenuItem3);
 
         jMenuItem1.setText("Resoluciones de Expulsion");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem1);
 
         jMenuItem4.setText("Resoluciones de Renuncia");
@@ -185,7 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSalir)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pane1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +221,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        Gestionar_Resoluciones ventana = new Gestionar_Resoluciones();
+        pane1.add(ventana);
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -239,6 +247,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pane1.add(ventana);
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
    
 
