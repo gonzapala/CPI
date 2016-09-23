@@ -64,6 +64,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+=======
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
@@ -71,6 +80,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_listar_morosos" alignment="0" min="-2" max="-2" attributes="0"/>
+>>>>>>> master
                               </Group>
                               <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -83,7 +93,11 @@
                               </Group>
                           </Group>
                       </Group>
+<<<<<<< HEAD
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
+=======
                       <EmptySpace pref="70" max="32767" attributes="0"/>
+>>>>>>> master
                   </Group>
               </Group>
             </DimensionLayout>
@@ -97,15 +111,24 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+=======
                           <Component id="btn_listar_morosos" min="-2" max="-2" attributes="0"/>
+>>>>>>> master
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBuscarSocio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnBuscarSocio" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <Component id="jScrollPane1" min="-2" pref="146" max="-2" attributes="0"/>
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
+=======
                       <Component id="jScrollPane2" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace pref="113" max="32767" attributes="0"/>
+>>>>>>> master
                   </Group>
               </Group>
             </DimensionLayout>
@@ -120,6 +143,8 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBuscarSocio">
+<<<<<<< HEAD
+=======
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -138,6 +163,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar Por legajo"/>
               </Properties>
+>>>>>>> master
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
@@ -160,6 +186,24 @@
                 </Component>
               </SubComponents>
             </Container>
+<<<<<<< HEAD
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Socios Morosos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar Por legajo"/>
+              </Properties>
+            </Component>
+=======
+>>>>>>> master
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
