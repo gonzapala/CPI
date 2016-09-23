@@ -6,6 +6,7 @@
 package vistas;
 
 import Datos.Conexion;
+import Datos.Pagos;
 import Datos.Socio;
 
 
@@ -180,7 +181,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
 //        //this.vistaCRUD.btnRegistrar.addActionListener(this);
 //        this.vista.btn_listar_morosos.addActionListener(this);
     //}
-    public void LlenarTabla(JXTable tabla_morosos){
+    public void LlenarTabla(JXTable tabla_morosos) throws ClassNotFoundException{
         DefaultTableModel modeloT = new DefaultTableModel();
         tabla_morosos.setModel(modeloT);
         
@@ -193,12 +194,14 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         Object[] columna = new Object[5];
         
         int numeroRegistros= modelo_socios.listarSocios().size();
-        System.out.println(numeroRegistros);
+//        System.out.println(numeroRegistros);
         for ( int i=0; i<numeroRegistros;i++){
             String estado_pago=modelo_socios.listarSocios().get(i).getEstado_pago();
-            verficarPago(modelo_socios.listarSocios().get(i).getLegajo_socio());
-            if(estado_pago.compareTo("moroso")){
-            }
+            System.out.println(estado_pago);
+            verfificarPago(modelo_socios.listarSocios().get(i).getId_socio());
+            
+//            if(estado_pago.compareTo("moroso")){
+//            }
             columna[0]=modelo_socios.listarSocios().get(i).getLegajo_socio();
             columna[1]=modelo_socios.listarSocios().get(i).getApellido();
             columna[2]=modelo_socios.listarSocios().get(i).getNombre();
@@ -209,9 +212,13 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         }
         
     }//FIn-LlenarTabla
-    public void verfificarPago(String leg) throws ClassNotFoundException{
+    public void verfificarPago(int id_socio) throws ClassNotFoundException{
         Socio nSocio = new Socio();
-        nSocio=nSocio.BuscarX(leg);
+        Pagos ultpago = new Pagos();
+        //nSocio=nSocio.BuscarX(id_socio);
+        
+        ultpago=ultpago.buscarUltimoPago(id_socio);
+        
         
         
         
@@ -242,8 +249,12 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarSocioActionPerformed
 
     private void btn_listar_morososActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_morososActionPerformed
-        // TODO add your handling code here:
-        LlenarTabla(jXTable_morosos);
+        try {
+            // TODO add your handling code here:
+            LlenarTabla(jXTable_morosos);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gestionar_Resoluciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_listar_morososActionPerformed
 
 
@@ -261,7 +272,5 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarSocio;
     // End of variables declaration//GEN-END:variables
 
-    private void verficarPago(String legajo_socio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }
