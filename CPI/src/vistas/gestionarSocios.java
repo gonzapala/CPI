@@ -112,6 +112,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         setBorder(null);
         setClosable(true);
+        setPreferredSize(new java.awt.Dimension(900, 700));
         setVisible(false);
 
         jLabel13.setText("Gestionar Socios");
