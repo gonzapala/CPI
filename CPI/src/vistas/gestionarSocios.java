@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -67,7 +68,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         txtTelefonoSocio = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         btnGuardarSocio2 = new javax.swing.JButton();
-        DateP_fechaN_Socio = new org.jdesktop.swingx.JXDatePicker();
+        fechaNac_socio = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -101,6 +102,8 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         labelEstado = new javax.swing.JLabel();
         labelCategoria = new javax.swing.JLabel();
         labelEstado_pago = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        labelFechaNacc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -210,7 +213,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                             .addComponent(txtDNISocio, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31)
                             .addComponent(btnGuardarSocio2)
-                            .addComponent(DateP_fechaN_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fechaNac_socio, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(301, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -238,11 +241,12 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                     .addComponent(jLabel27)
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefonoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDomicilioSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmailSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DateP_fechaN_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTelefonoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDomicilioSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmailSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaNac_socio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel28)
                 .addGap(18, 18, 18)
@@ -253,7 +257,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCuilSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxCategoriaSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnGuardarSocio2)
                 .addGap(190, 190, 190))
         );
@@ -330,6 +334,8 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Estado: ");
 
+        jLabel15.setText("Fecha Nac.:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -348,14 +354,9 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelTel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(LabelDom, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(labelLegajo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
@@ -371,9 +372,24 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(labelCuil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel36)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel36))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(labelTel, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(66, 66, 66))
+                                            .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel15)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(65, 65, 65)
+                                        .addComponent(labelFechaNacc)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -416,7 +432,9 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(labelTel)
                     .addComponent(jLabel9)
-                    .addComponent(labelEmail))
+                    .addComponent(labelEmail)
+                    .addComponent(jLabel15)
+                    .addComponent(labelFechaNacc))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel10)
                 .addGap(7, 7, 7)
@@ -540,7 +558,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         try {
             Datos.Socio nuevoSocio = new Socio();
             nuevoSocio=nuevoSocio.BuscarX(txtBuscarSocio.getText());
-            System.out.println(nuevoSocio.getNombre());
+            
             labelNombre.setText(nuevoSocio.getNombre());
             labelApellido.setText(nuevoSocio.getApellido());
             labelLegajo.setText(nuevoSocio.getLegajo_socio());
@@ -554,6 +572,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
             labelEstado_pago.setText(nuevoSocio.getEstado_pago());
             String tel= Integer.toString(nuevoSocio.getTelefono());
             labelTel.setText(tel);
+            labelFechaNacc.setText(nuevoSocio.getFechaNac());
             
             Date fechaActual = new Date();
             System.out.println(fechaActual);
@@ -594,19 +613,40 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 int minuto = fecha.get(Calendar.MINUTE);
                 int segundo = fecha.get(Calendar.SECOND);
                 String anio= Integer.toString(año);
-                String leg="";
-                leg=leg.concat(anio);
+                
+                int numCat=0;
+                String cat =ComboBoxCategoriaSocio.getSelectedItem().toString().toLowerCase();
+                switch(cat){
+                        case "profesional":
+                            numCat=01;
+                        break;
+                        case "idoneo":
+                            numCat=02;
+                        break;
+                        case "auxiliar informatico":
+                            numCat=03;
+                        break;      
+                }
+                
+                String numCateg = Integer.toString(numCat);
+                String dniSocio = txtDNISocio.getText();
+                String leg =dniSocio+"/"+numCateg+"/"+anio;//el legajo es una concatencacion de el num. de categoria y el año + Dni + año
+                System.out.println("leg: "+leg);
                 preparedStatement = connection.prepareStatement("INSERT INTO socio (nombre, apellido,dni,telefono,domicilio,categoria,cuilcuit,email,legajo_socio,fechaNac) VALUES (?,?,?,?,?,?,?,?,?,?)");
                 preparedStatement.setString(1, txtNombreSocio.getText());
                 preparedStatement.setString(2, txtApellidoSocio.getText());
-                preparedStatement.setString(3, txtDNISocio.getText());
+                preparedStatement.setString(3, dniSocio);
                 preparedStatement.setString(4, txtTelefonoSocio.getText());
                 preparedStatement.setString(5, txtDomicilioSocio.getText());
                 preparedStatement.setString(6, ComboBoxCategoriaSocio.getSelectedItem().toString());
                 preparedStatement.setString(7, txtCuilSocio.getText());
                 preparedStatement.setString(8, txtEmailSocio.getText());
                 preparedStatement.setString(9, leg);
-                //preparedStatement.setDate(10, DateP_fechaN_Socio.getDate());
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaNac = formatoFecha.format(fechaNac_socio.getDate());
+                preparedStatement.setString(10,fechaNac);
+                
+                
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
@@ -639,13 +679,13 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxCategoriaSocio;
-    private org.jdesktop.swingx.JXDatePicker DateP_fechaN_Socio;
     private javax.swing.JLabel LabelDNI;
     private javax.swing.JLabel LabelDom;
     public org.jdesktop.swingx.JXTable Tabla_Socios;
     public javax.swing.JButton btnBuscarSocio;
     private javax.swing.JButton btnGuardarSocio2;
     public javax.swing.JButton btnListar;
+    private com.toedter.calendar.JDateChooser fechaNac_socio;
     public javax.swing.JButton jButton5;
     public javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
@@ -654,6 +694,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -688,6 +729,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelEstado;
     private javax.swing.JLabel labelEstado_pago;
+    private javax.swing.JLabel labelFechaNacc;
     private javax.swing.JLabel labelLegajo;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel labelTel;
