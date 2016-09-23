@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Datos.Resolucion;
 
 /**
  *
@@ -300,6 +301,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 System.out.println(NS.getId_socio());
                 NS.setEstado("socio");
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
+                
+                Resolucion nuevaR = new Resolucion();
+                nuevaR.GenerarResolucionMatricula(NS);
+            
                
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
