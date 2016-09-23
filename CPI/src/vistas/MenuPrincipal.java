@@ -76,6 +76,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(42, 42, 42));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(1200, 740));
         setResizable(false);
 
         btnSalir.setText("Salir");
@@ -86,7 +87,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         pane1.setToolTipText("");
-        pane1.setPreferredSize(new java.awt.Dimension(750, 670));
+        pane1.setPreferredSize(new java.awt.Dimension(1000, 700));
 
         javax.swing.GroupLayout pane1Layout = new javax.swing.GroupLayout(pane1);
         pane1.setLayout(pane1Layout);
@@ -190,7 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSalir)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pane1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
