@@ -131,17 +131,19 @@ public class Pagos {
     }
     public Pagos buscarUltimoPago(int id_socio){
         Pagos ultimoPago = new Pagos();
-            try {
+        try {
             Connection cn = Conexion.Cadena();
             String SQL = "SELECT * FROM pago"+ " WHERE id_socio ='"+id_socio+"' ";
-            System.out.println(SQL);
+            //System.out.println(SQL);
             Statement sentencia = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rsDatos = sentencia.executeQuery(SQL);
-            System.out.println("Correcto");
+            //System.out.println("Correcto");
             int num_pago;
             if (rsDatos.last()) {
                     num_pago=rsDatos.getInt("numero_pago");
-                    System.out.println( num_pago);
+                    System.out.println("num pago: "+ num_pago);
+                    String ultimaFecha=rsDatos.getString("fecha");
+                    System.out.println("Fecha del ultimo pago: "+ ultimaFecha);
                 }
             
             
