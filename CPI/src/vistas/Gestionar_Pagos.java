@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Datos.Resolucion;
 
 /**
  *
@@ -561,8 +562,13 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             if (res > 0) {
                 System.out.println(NS.getId_socio());
                 NS.setEstado("socio");
+                Resolucion nuevaR = new Resolucion();
+                nuevaR.GenerarResolucionMatricula(NS);
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
-
+                
+                
+            
+               
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
                 //LimpiarCajas();

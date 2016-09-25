@@ -9,7 +9,10 @@ import Datos.Conexion;
 import Datos.Pagos;
 import Datos.Socio;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 import Datos.Resolucion;
 import Datos.Socio_Crud;
 import java.sql.Connection;
