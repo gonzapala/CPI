@@ -4,12 +4,16 @@
  * and open the template in the editor.
  */
 package Datos;
-import Datos.Socio;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -28,7 +32,7 @@ public class Resolucion {
     private Statement sentencia;
     private ResultSet rsDatos;
     
-     Connection connection;//para la Conexion
+    Connection connection;//para la Conexion
     PreparedStatement preparedStatement;//para preparar las querys
     ResultSet resultSet;
 
@@ -109,25 +113,34 @@ public class Resolucion {
         this.legajo_socio = legajo_socio;
     }
   
-
-    
-    
-public void GenerarResolucionMatricula(Socio socioX){
+    /**
+     *
+     * @param socioX
+     */
+    public void GenerarResolucionMatricula(Socio socioX){
   
-
     try {
+        
+        System.out.println("Hola entre");
         String Legajo = socioX.getLegajo_socio();
-        connection = Conexion.Cadena();
-
-        int año = 2016; // PRUEBA!!
-        String nResolucion = (new StringBuilder()).append("12 ").append(año).toString();
+        connection = Conexion.Cadena();    
+        String nResolucion = "123";
         String Estado = "Socio";
         String descripcionS = "Solicitud de Matriculacion";
         String descripcionR = "Matriculacion Aceptada";
-        String Tipo = "Matriculacion";
+        String Tipo = "Matriculacion";        
 
-        preparedStatement = connection.prepareStatement("INSERT INTO resolucion (numero_resolucion,tipo,estado,descripcion_solicitud,descripcion_resolucion,fecha_resolucion,legajo_socio) VALUES (nResolucion,Tipo,Estado,descripconS,descripcionR,año,Legajo)");
-
+        preparedStatement = connection.prepareStatement("INSERT INTO resolucion (numero_resolucion,tipo,estado,descripcion_solicitud,descripcion_resolucion) VALUES (?, ?, ?, ?, ?)");
+                preparedStatement.setString(1, nResolucion);
+                preparedStatement.setString(2, Tipo);
+                preparedStatement.setString(3, Estado);
+                preparedStatement.setString(4, descripcionS);
+                preparedStatement.setString(5, descripcionR);
+                //preparedStatement.setString(6, null);       ,fecha_resolucion,legajo_socio       
+                //preparedStatement.setString(7, Legajo); , ?, ?
+             
+              
+        
         int res = preparedStatement.executeUpdate();
         if (res > 0) {
             JOptionPane.showMessageDialog(null, "Resolucion Guardada");
