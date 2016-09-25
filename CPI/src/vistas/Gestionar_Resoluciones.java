@@ -197,8 +197,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
 //        System.out.println(numeroRegistros);
         for ( int i=0; i<numeroRegistros;i++){
             String estado_pago=modelo_socios.listarSocios().get(i).getEstado_pago();
-            System.out.println(estado_pago);
-            verfificarPago(modelo_socios.listarSocios().get(i).getId_socio());
+            System.out.println("estado pago: "+estado_pago);
+            verfificarPago(modelo_socios.listarSocios().get(i).getLegajo_socio());
             
 //            if(estado_pago.compareTo("moroso")){
 //            }
@@ -207,20 +207,18 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
             columna[2]=modelo_socios.listarSocios().get(i).getNombre();
             columna[3]=modelo_socios.listarSocios().get(i).getDni();
             columna[4]=modelo_socios.listarSocios().get(i).getEstado();
+            System.out.println(modelo_socios.listarSocios().get(i).getEstado());
             modeloT.addRow(columna);
         
         }
         
     }//FIn-LlenarTabla
-    public void verfificarPago(int id_socio) throws ClassNotFoundException{
+    public void verfificarPago(String leg) throws ClassNotFoundException{
         Socio nSocio = new Socio();
         Pagos ultpago = new Pagos();
-        //nSocio=nSocio.BuscarX(id_socio);
+        nSocio=nSocio.BuscarX(leg);
         
-        ultpago=ultpago.buscarUltimoPago(id_socio);
-        
-        
-        
+        ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
         
     }
     private void btnBuscarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSocioActionPerformed
