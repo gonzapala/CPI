@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -203,10 +204,10 @@ public class Socio {
             
             Connection cn = Conexion.Cadena();
             String SQL = "SELECT * FROM socio"+ " WHERE legajo_socio ='"+Legajo+"' ";
-            System.out.println(SQL);
+            //System.out.println(SQL);
             sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rsDatos = sentencia.executeQuery(SQL);
-            System.out.println("Correcto");
+            //System.out.println("Correcto");
             //cn.commit();
             
             String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg,fNac;
@@ -223,8 +224,8 @@ public class Socio {
                 dni_socio=rsDatos.getInt("dni");
                 leg=rsDatos.getString("legajo_socio");
                 tel=rsDatos.getInt("telefono");
-                fNac=rsDatos.getString("fechaNac");
-                
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                fNac = formatoFecha.format(rsDatos.getDate("fechaNac"));
 //                System.out.println(nom);
 //                System.out.println(ape);
 //                System.out.println(categ);
@@ -240,11 +241,8 @@ public class Socio {
                 nuevoSocio.cuilcuit=cuilcuit;
                 nuevoSocio.setLegajo_socio(leg);
                 nuevoSocio.telefono=tel;
-                nuevoSocio.id_socio=idS;
-                nuevoSocio.setFechaNac(fNac);
-                
-                
-                       
+                nuevoSocio.id_socio=idS;                
+                nuevoSocio.setFechaNac(fechaNac);
             }else{
                 System.out.println("es nulo");
             }
@@ -280,7 +278,7 @@ public class Socio {
             String SQL = "SELECT * FROM socio";
             sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rsDatos = sentencia.executeQuery(SQL);
-            System.out.println("Correcto");
+            //System.out.println("Correcto");
             
             while (rsDatos.next()) {                
                 socio = new Socio();
@@ -289,6 +287,7 @@ public class Socio {
                 socio.setApellido(rsDatos.getString(4));
                 socio.setDni(rsDatos.getInt(5));
                 socio.setEstado(rsDatos.getString(10));
+                socio.setEstado_pago(rsDatos.getString(8));
                 listaSocio.add(socio);
             }
             
