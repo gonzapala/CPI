@@ -6,6 +6,7 @@
 package Datos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -309,6 +311,73 @@ public class Socio {
      */
     public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
+    }
+    
+    public void cambiarEstado(Socio socioX,int tipo_estado){
+        //Estados que puede tener el socio
+        //        Aspirante
+        //        activo
+        //        moroso
+        //        suspendido
+        //        expulsado
+        //        renuncia
+        
+        //        1 = moroso
+        //        2 = activo
+        //        3 = suspendido
+        //        4 = expulsado
+        //        5 = renuncia
+        try {
+            System.out.println("Entra a cambiar estado\n");
+                Connection connection = Conexion.Cadena();
+                int id_socio = socioX.getId_socio();
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE socio SET estado = ? WHERE id_socio=?");
+                //Ejemplo UPDATE: "UPDATE Messages SET description = ?, author = ? WHERE id = ? AND seq_num = ?");
+                    switch(tipo_estado){
+                        case 1:
+                            socioX.setEstado("moroso");
+                            preparedStatement.setString(1, "moroso");
+                            preparedStatement.setInt(2, id_socio);
+                        break;
+                        case 2:
+                            socioX.setEstado("activo");
+                            preparedStatement.setString(1, "activo");
+                            preparedStatement.setInt(2, id_socio);
+                        break;
+                        case 3:
+                            socioX.setEstado("suspendido");
+                            preparedStatement.setString(1, "suspendido");
+                            preparedStatement.setInt(2, id_socio);
+                        break;
+                        case 4:
+                            socioX.setEstado("expulsado");
+                            preparedStatement.setString(1, "expulsado");
+                            preparedStatement.setInt(2, id_socio);
+                        break;    
+                        case 5:
+                            socioX.setEstado("renuncia ");
+                            preparedStatement.setString(1, "renuncia");
+                            preparedStatement.setInt(2, id_socio);
+                        break; 
+                }
+               
+                int res = preparedStatement.executeUpdate();
+                if (res > 0) {
+                    System.out.println("Socio Actualizado: "+socioX.getId_socio()+"\n");
+                    //JOptionPane.showMessageDialog(null, "Socio Actualizado: "+socioX.getId_socio());
+                    //LimpiarCajas();
+                } else {
+                    System.out.println("Error al Actualizar Socio\n");
+                    //JOptionPane.showMessageDialog(null, "Error al Actualizar Socio");
+                    //LimpiarCajas();
+                }
+
+                connection.close();
+            
+            
+        } catch (Exception e) {
+        }
+        
     }
 
 

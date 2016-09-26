@@ -20,6 +20,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -199,20 +203,21 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         int numeroRegistros= modelo_socios.listarSocios().size();
 //        System.out.println(numeroRegistros);
         for ( int i=0; i<numeroRegistros;i++){
-            String estado_pago=modelo_socios.listarSocios().get(i).getEstado_pago();
-            System.out.println("estado pago: "+estado_pago);
+            
             verfificarPago(modelo_socios.listarSocios().get(i).getLegajo_socio());
             
-//            if(estado_pago.compareTo("moroso")){
-//            }
-            columna[0]=modelo_socios.listarSocios().get(i).getLegajo_socio();
-            columna[1]=modelo_socios.listarSocios().get(i).getApellido();
-            columna[2]=modelo_socios.listarSocios().get(i).getNombre();
-            columna[3]=modelo_socios.listarSocios().get(i).getDni();
-            columna[4]=modelo_socios.listarSocios().get(i).getEstado();
-            System.out.println(modelo_socios.listarSocios().get(i).getEstado());
-            modeloT.addRow(columna);
-        
+            String estado=modelo_socios.listarSocios().get(i).getEstado();
+            System.out.println("Estado del socio luego de verificar los pago y cambiar estado: "+estado+"\n");
+            int compare = estado.compareTo("moroso");
+            if(compare==0){
+                columna[0]=modelo_socios.listarSocios().get(i).getLegajo_socio();
+                columna[1]=modelo_socios.listarSocios().get(i).getApellido();
+                columna[2]=modelo_socios.listarSocios().get(i).getNombre();
+                columna[3]=modelo_socios.listarSocios().get(i).getDni();
+                columna[4]=modelo_socios.listarSocios().get(i).getEstado();
+
+                modeloT.addRow(columna);
+            }
         }
         
     }//FIn-LlenarTabla
@@ -222,6 +227,61 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         nSocio=nSocio.BuscarX(leg);
         
         ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
+        System.out.println("Socio: "+nSocio.getId_socio()+" - "+nSocio.getApellido());
+        System.out.println("num Ultimo Pago: "+ultpago.getNumero_pago());
+        System.out.println("Fecha Ultimo Pago: "+ultpago.getFecha());
+        
+            Date fechaActual = new Date();
+            //System.out.println("Fecha Actual: "+fechaActual);
+            Calendar fecha = Calendar.getInstance();
+            int añoActual = fecha.get(Calendar.YEAR);
+            int mesActual = fecha.get(Calendar.MONTH) + 1;
+            int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
+            int horaActual = fecha.get(Calendar.HOUR_OF_DAY);
+            int minutoActual = fecha.get(Calendar.MINUTE);
+            int segundoActual = fecha.get(Calendar.SECOND);
+
+            System.out.println("Fecha Actual: "+ añoActual+ "-" +mesActual +"-" +diaActual );
+            //System.out.printf("Hora Actual: %02d:%02d:%02d %n", horaActual, minutoActual, segundoActual);
+//            System.out.println("-------------Fecha deslosada----------------");
+//            System.out.println("El año es: "+ añoActual);
+//            System.out.println("El mes es: "+ mesActual);
+//            System.out.println("El día es: "+ diaActual);
+//            System.out.printf("La hora es: %02d %n", horaActual);
+//            System.out.printf("El minuto es: %02d %n", minutoActual);
+//            System.out.printf("El segundo es: %02d %n", segundoActual);
+            
+//          Split of a String date yyyy-MM-dd
+            String ultFecha = ultpago.getFecha();
+            String[] parts = ultFecha.split("-");
+            String parts1_Año = parts[0]; 
+            String parts2_mes = parts[1]; 
+            String parts3_dia = parts[2];
+            
+            int ultFecha_año = Integer.parseInt(parts1_Año);
+            int ultFecha_mes = Integer.parseInt(parts2_mes);
+            int ultFecha_dia = Integer.parseInt(parts3_dia);
+            
+//            System.out.println(part1_Año+"--"+part2_mes);
+            if (ultFecha_año<añoActual) {
+                System.out.println("Esta Vencido, el Año actual es Mayor.\n");
+            }else{
+                if (mesActual>ultFecha_mes) {
+                    System.out.println("Puede que ete vencido, preguntar por el dia.\n");
+                    if (diaActual>ultFecha_dia) {
+                        System.out.println("Esta vencido el pago. Es un Socio Moroso.\n");
+                        nSocio.cambiarEstado(nSocio, 1);
+                    }else{
+                        System.out.println("No esta Vencido.\n");
+                    }
+                }else{
+                    System.out.println("Esta en el mismo mes, no esta vencido.\n");
+                }
+                
+            }
+//            convert date in string
+//            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+//            String fechaNac = formatoFecha.format(fechaNac_socio.getDate());
         
     }
     private void btnBuscarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSocioActionPerformed
