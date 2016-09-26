@@ -22,7 +22,7 @@ public class Pagos {
     private String forma;
     private int cant_cuotas;
     private float monto;
-    private int anio;
+    private String fecha;
     private int id_socio;
 
     /**
@@ -102,20 +102,7 @@ public class Pagos {
         this.monto = monto;
     }
 
-    /**
-     * @return the anio
-     */
-    public int getAnio() {
-        return anio;
-    }
-
-    /**
-     * @param anio the anio to set
-     */
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
-
+   
     /**
      * @return the id_socio
      */
@@ -140,10 +127,13 @@ public class Pagos {
             //System.out.println("Correcto");
             int num_pago;
             if (rsDatos.last()) {
-                    num_pago=rsDatos.getInt("numero_pago");
-                    System.out.println("num pago: "+ num_pago);
-                    String ultimaFecha=rsDatos.getString("fecha");
-                    System.out.println("Fecha del ultimo pago: "+ ultimaFecha);
+//                    num_pago=rsDatos.getInt("numero_pago");
+//                    System.out.println("num pago: "+ num_pago);
+                                        
+                    ultimoPago.setNumero_pago(rsDatos.getInt("numero_pago"));
+                    ultimoPago.setTipo(rsDatos.getString("tipo"));
+                    ultimoPago.setForma(rsDatos.getString("forma"));
+                    ultimoPago.setFecha(rsDatos.getString("fecha"));
                 }
             
             
@@ -151,5 +141,19 @@ public class Pagos {
         }
         
         return ultimoPago;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
