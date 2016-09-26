@@ -27,14 +27,14 @@ public class Resolucion {
     private String estado;
     private String descripcion_solicitud;
     //private fecha_resolucion
-    private int legajo_socio;
+    private int id_socio;
     
     private Statement sentencia;
     private ResultSet rsDatos;
     
-    Connection connection;//para la Conexion
-    PreparedStatement preparedStatement;//para preparar las querys
-    ResultSet resultSet;
+    private Connection connection;//para la Conexion
+    private PreparedStatement preparedStatement;//para preparar las querys
+    private ResultSet resultSet;
 
     /**
      * @return the id_resolucion
@@ -102,16 +102,11 @@ public class Resolucion {
     /**
      * @return the legajo_socio
      */
-    public int getLegajo_socio() {
-        return legajo_socio;
-    }
+   
 
     /**
      * @param legajo_socio the legajo_socio to set
-     */
-    public void setLegajo_socio(int legajo_socio) {
-        this.legajo_socio = legajo_socio;
-    }
+   
   
     /**
      *
@@ -122,35 +117,43 @@ public class Resolucion {
     try {
         
         System.out.println("Hola entre");
-        String Legajo = socioX.getLegajo_socio();
-        connection = Conexion.Cadena();    
+        
+        int Legajo = 1234;
+        
+        //Legajo = socioX.getlegajo_socio();
+            setConnection(Conexion.Cadena());    
+        
+        int leg= socioX.getId_socio();
+        System.out.println(leg);
+        
         String nResolucion = "123";
         String Estado = "Socio";
-        String descripcionS = "Solicitud de Matriculacion";
-        String descripcionR = "Matriculacion Aceptada";
+        String descripcionS = "Matriculacion";
+        String descripcionR = "Aceptada";
         String Tipo = "Matriculacion";        
 
-        preparedStatement = connection.prepareStatement("INSERT INTO resolucion (numero_resolucion,tipo,estado,descripcion_solicitud,descripcion_resolucion) VALUES (?, ?, ?, ?, ?)");
-                preparedStatement.setString(1, nResolucion);
-                preparedStatement.setString(2, Tipo);
-                preparedStatement.setString(3, Estado);
-                preparedStatement.setString(4, descripcionS);
-                preparedStatement.setString(5, descripcionR);
-                //preparedStatement.setString(6, null);       ,fecha_resolucion,legajo_socio       
-                //preparedStatement.setString(7, Legajo); , ?, ?
+            setPreparedStatement(getConnection().prepareStatement("INSERT INTO resoluciones (numero_resolucion,tipo,estado ,descripcion_solicitud,descripcion_resolucion ) VALUES (?, ? , ? , ?, ?)"));
+                getPreparedStatement().setString(1, nResolucion);
+                getPreparedStatement().setString(2, Tipo);
+                getPreparedStatement().setString(3, Estado);
+                getPreparedStatement().setString(4, descripcionS);
+                getPreparedStatement().setString(5, descripcionR);  
+                //getPreparedStatement().setString(6, null);        
+               // preparedStatement.setString(7, null);  
+             //    , ?    ,fecha_resolucion    ,legajo_socio   , ?
              
-              
-        
-        int res = preparedStatement.executeUpdate();
+            
+                     
+        int res = getPreparedStatement().executeUpdate();
         if (res > 0) {
             JOptionPane.showMessageDialog(null, "Resolucion Guardada");
-            //LimpiarCajas();
+         System.out.println("Hola entre Si");
         } else {
             JOptionPane.showMessageDialog(null, "Error al Guardar Resolucion");
-            //LimpiarCajas();
+            System.out.println("Hola entre NO");
         }
 
-        connection.close();
+            getConnection().close();
     } catch (Exception e) {
         boolean ex;
       
@@ -161,6 +164,83 @@ public class Resolucion {
     
 
 } // fin de generar Resolcuion
+
+    /**
+     * @return the id_socio
+     */
+    public int getId_socio() {
+        return id_socio;
+    }
+
+    /**
+     * @return the sentencia
+     */
+    public Statement getSentencia() {
+        return sentencia;
+    }
+
+    /**
+     * @param sentencia the sentencia to set
+     */
+    public void setSentencia(Statement sentencia) {
+        this.sentencia = sentencia;
+    }
+
+    /**
+     * @return the rsDatos
+     */
+    public ResultSet getRsDatos() {
+        return rsDatos;
+    }
+
+    /**
+     * @param rsDatos the rsDatos to set
+     */
+    public void setRsDatos(ResultSet rsDatos) {
+        this.rsDatos = rsDatos;
+    }
+
+    /**
+     * @return the connection
+     */
+    public Connection getConnection() {
+        return connection;
+    }
+
+    /**
+     * @param connection the connection to set
+     */
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    /**
+     * @return the preparedStatement
+     */
+    public PreparedStatement getPreparedStatement() {
+        return preparedStatement;
+    }
+
+    /**
+     * @param preparedStatement the preparedStatement to set
+     */
+    public void setPreparedStatement(PreparedStatement preparedStatement) {
+        this.preparedStatement = preparedStatement;
+    }
+
+    /**
+     * @return the resultSet
+     */
+    public ResultSet getResultSet() {
+        return resultSet;
+    }
+
+    /**
+     * @param resultSet the resultSet to set
+     */
+    public void setResultSet(ResultSet resultSet) {
+        this.resultSet = resultSet;
+    }
     
     
 } // Fin de CLASS RESOLCUION
