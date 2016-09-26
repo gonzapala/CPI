@@ -22,7 +22,7 @@ public class Pagos {
     private String forma;
     private int cant_cuotas;
     private float monto;
-    private int anio;
+    private String fecha;
     private int id_socio;
 
     /**
@@ -102,20 +102,7 @@ public class Pagos {
         this.monto = monto;
     }
 
-    /**
-     * @return the anio
-     */
-    public int getAnio() {
-        return anio;
-    }
-
-    /**
-     * @param anio the anio to set
-     */
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
-
+   
     /**
      * @return the id_socio
      */
@@ -131,17 +118,22 @@ public class Pagos {
     }
     public Pagos buscarUltimoPago(int id_socio){
         Pagos ultimoPago = new Pagos();
-            try {
+        try {
             Connection cn = Conexion.Cadena();
             String SQL = "SELECT * FROM pago"+ " WHERE id_socio ='"+id_socio+"' ";
-            System.out.println(SQL);
+            //System.out.println(SQL);
             Statement sentencia = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rsDatos = sentencia.executeQuery(SQL);
-            System.out.println("Correcto");
+            //System.out.println("Correcto");
             int num_pago;
             if (rsDatos.last()) {
-                    num_pago=rsDatos.getInt("numero_pago");
-                    System.out.println( num_pago);
+//                    num_pago=rsDatos.getInt("numero_pago");
+//                    System.out.println("num pago: "+ num_pago);
+                                        
+                    ultimoPago.setNumero_pago(rsDatos.getInt("numero_pago"));
+                    ultimoPago.setTipo(rsDatos.getString("tipo"));
+                    ultimoPago.setForma(rsDatos.getString("forma"));
+                    ultimoPago.setFecha(rsDatos.getString("fecha"));
                 }
             
             
@@ -149,5 +141,19 @@ public class Pagos {
         }
         
         return ultimoPago;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
