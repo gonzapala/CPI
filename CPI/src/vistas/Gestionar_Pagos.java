@@ -562,8 +562,9 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             if (res > 0) {
                 System.out.println(NS.getId_socio());
                 NS.setEstado("socio");
+                int estadoE=1;
                 Resolucion nuevaR = new Resolucion();
-                nuevaR.GenerarResolucionMatricula(NS);
+                nuevaR.GenerarResolucionMatricula(NS,estadoE);
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
                 
                 

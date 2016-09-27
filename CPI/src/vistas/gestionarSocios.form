@@ -101,8 +101,12 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtCuilSocio" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                                           <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtCuilSocio" min="-2" pref="76" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                                              <Component id="fechaNac_socio" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -130,11 +134,10 @@
                                   <Component id="txtDNISocio" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                                   <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnGuardarSocio2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fechaNac_socio" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="301" max="32767" attributes="0"/>
+                      <EmptySpace pref="282" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -169,13 +172,10 @@
                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtTelefonoSocio" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDomicilioSocio" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtEmailSocio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="fechaNac_socio" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtTelefonoSocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDomicilioSocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmailSocio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
@@ -184,12 +184,20 @@
                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCuilSocio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComboBoxCategoriaSocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtCuilSocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ComboBoxCategoriaSocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="fechaNac_socio" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
                       <Component id="btnGuardarSocio2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
