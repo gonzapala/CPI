@@ -62,7 +62,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jXTable_morosos = new org.jdesktop.swingx.JXTable();
-        generarPDF = new javax.swing.JButton();
+        MostrarPDF = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -102,10 +102,10 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jXTable_morosos);
 
-        generarPDF.setText("Generar Resolucion");
-        generarPDF.addActionListener(new java.awt.event.ActionListener() {
+        MostrarPDF.setText("Mostrar Resolucion");
+        MostrarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generarPDFActionPerformed(evt);
+                MostrarPDFActionPerformed(evt);
             }
         });
 
@@ -116,7 +116,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(generarPDF)
+                    .addComponent(MostrarPDF)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane2)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -148,7 +148,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(generarPDF)
+                .addComponent(MostrarPDF)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -218,7 +218,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         Object[] columna = new Object[5];
         
         int numeroRegistros= modelo_socios.listarSocios().size();
-//        System.out.println(numeroRegistros);
+        //        System.out.println(numeroRegistros);
         for ( int i=0; i<numeroRegistros;i++){
             
             verfificarPago(modelo_socios.listarSocios().get(i).getLegajo_socio());
@@ -244,7 +244,9 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         nSocio=nSocio.BuscarX(leg);
         
         ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
+        System.out.println("----------------------------------------------------");
         System.out.println("Socio: "+nSocio.getId_socio()+" - "+nSocio.getApellido());
+        System.out.println("Socio: "+nSocio.getLegajo_socio());
         System.out.println("num Ultimo Pago: "+ultpago.getNumero_pago());
         System.out.println("Fecha Ultimo Pago: "+ultpago.getFecha());
         
@@ -288,6 +290,12 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                     if (diaActual>ultFecha_dia) {
                         System.out.println("Esta vencido el pago. Es un Socio Moroso.\n");
                         nSocio.cambiarEstado(nSocio, 1);
+                        //Generar Resolucion
+                        // 1 = Matriculacion
+                        // 2 = suspension
+                        int estadoE=2;
+                        Resolucion nuevaR = new Resolucion();
+                        nuevaR=nuevaR.GenerarResolucion(nSocio,estadoE);
                     }else{
                         System.out.println("No esta Vencido.\n");
                     }
@@ -335,7 +343,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btn_listar_morososActionPerformed
 
-    private void generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarPDFActionPerformed
+    private void MostrarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarPDFActionPerformed
         String legajo = jXTable_morosos.getValueAt(jXTable_morosos.getSelectedRow(),0).toString();
         String apellido = jXTable_morosos.getValueAt(jXTable_morosos.getSelectedRow(),1).toString();
         String nombre = jXTable_morosos.getValueAt(jXTable_morosos.getSelectedRow(),2).toString();
@@ -347,7 +355,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         generarPDF pdf = new generarPDF();
         try {
             socioX=socioX.BuscarX(legajo);
-            
+            res=res.GenerarResolucion(socioX, WIDTH);
+            //generarPDF
             pdf.generarPDF_Resolucion(socioX, res,2);
             
             
@@ -357,7 +366,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         
         System.out.println(legajo+apellido+nombre+dni+estado+"\n");
         
-    }//GEN-LAST:event_generarPDFActionPerformed
+    }//GEN-LAST:event_MostrarPDFActionPerformed
 
     private void jXTable_morososMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXTable_morososMouseClicked
         String legajo = jXTable_morosos.getValueAt(jXTable_morosos.getSelectedRow(),0).toString();
@@ -371,9 +380,9 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MostrarPDF;
     private javax.swing.JButton btnBuscarSocio;
     private javax.swing.JButton btn_listar_morosos;
-    private javax.swing.JButton generarPDF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
