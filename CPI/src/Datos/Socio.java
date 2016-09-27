@@ -328,7 +328,7 @@ public class Socio {
         //        4 = expulsado
         //        5 = renuncia
         try {
-            System.out.println("Entra a cambiar estado\n");
+            System.out.println("Entra a cambiar estado");
                 Connection connection = Conexion.Cadena();
                 int id_socio = socioX.getId_socio();
                 PreparedStatement preparedStatement = connection.prepareStatement("UPDATE socio SET estado = ? WHERE id_socio=?");
@@ -363,6 +363,7 @@ public class Socio {
                
                 int res = preparedStatement.executeUpdate();
                 if (res > 0) {
+                    System.out.println("Nuevo Estado: "+socioX.getEstado()+"\n");
                     System.out.println("Socio Actualizado: "+socioX.getId_socio()+"\n");
                     //JOptionPane.showMessageDialog(null, "Socio Actualizado: "+socioX.getId_socio());
                     //LimpiarCajas();
