@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Datos.Resolucion;
+import generadorPDF.generarPDF;
 
 /**
  *
@@ -580,7 +581,11 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 // 2 = suspension
                 int estadoE=1;
                 Resolucion nuevaR = new Resolucion();
-                nuevaR.GenerarResolucion(NS,estadoE);
+                nuevaR= nuevaR.GenerarResolucion(NS,estadoE);
+                //generar PDF
+                generarPDF pdf = new generarPDF();
+                pdf.generarPDF_Resolucion(NS, nuevaR,1);
+                
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
                 
                 
