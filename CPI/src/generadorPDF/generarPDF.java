@@ -34,7 +34,7 @@ import com.itextpdf.text.pdf.PdfWriter;
  */
 public class generarPDF {
     
-  private static String FILE = "C:\\Users\\Gonzalo\\Documents\\NetBeansProjects/FirstPdf.pdf";
+  private static String FILE;
   private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
   private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
@@ -43,17 +43,53 @@ public class generarPDF {
       Font.BOLD);
   private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
       Font.BOLD);
+
+    /**
+     * @return the FILE
+     */
+    public static String getFILE() {
+        return FILE;
+    }
+
+    /**
+     * @param aFILE the FILE to set
+     */
+    public static void setFILE(String aFILE) {
+        FILE = aFILE;
+    }
   
 
- public void generarPDF_Resolucion(Socio sociox, Resolucion res){
+ public void generarPDF_Resolucion(Socio sociox, Resolucion res,int tipo_resolucion){
       try {
+          //generar nombre
+          FILE = "C:\\CPI\\Resoluciones\\";
+          switch(tipo_resolucion){
+                case 1:
+                    FILE=FILE.concat("Aceptacion\\filename.pdf");
+                break;
+                case 2:
+                    FILE=FILE.concat("Expulsion\\filename.pdf");
+                break;
+                case 3:
+                    FILE=FILE.concat("Renuncia\\filename.pdf");
+                break;
+                case 4:
+                    FILE=FILE.concat("Suspension\\filename.pdf");
+                break;    
+                
+        }
+          
       Document document = new Document();
-      PdfWriter.getInstance(document, new FileOutputStream(FILE));
+      PdfWriter.getInstance(document, new FileOutputStream(getFILE()));
       document.open();
         addMetaData(document);
         addTitlePage(document);
         addContent(document,sociox,res);
       document.close();
+        //Leer un Archivo
+        ProcessBuilder p = new ProcessBuilder();
+        p.command("cmd.exe","/c",FILE);
+        p.start();
     } catch (Exception e) {
       e.printStackTrace();
     }
