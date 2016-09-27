@@ -62,12 +62,12 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         Tipo = new javax.swing.JComboBox<>();
         labelNumeroPago = new javax.swing.JLabel();
         labelID_Socio = new javax.swing.JLabel();
-        fecha_pago = new com.toedter.calendar.JDateChooser();
         txtLegajo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtApellido1 = new javax.swing.JTextField();
+        fecha_pago = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtLegajo1 = new javax.swing.JTextField();
@@ -84,7 +84,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         btnGuardar1 = new javax.swing.JButton();
         btnSalir1 = new javax.swing.JButton();
         labelfecha = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         txtMontoTotal1 = new javax.swing.JTextField();
         txtID_Socio1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -170,24 +169,25 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                             .addGroup(panelPagoLayout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CantidadCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelTipol, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelForma, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Forma, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCantCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(labelCantCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CantidadCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelPagoLayout.createSequentialGroup()
                                 .addComponent(labelID_Socio)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtID_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
-                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fecha_pago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelAño)
-                            .addComponent(labelMontoTotal)
-                            .addComponent(labelNumeroPago)
-                            .addComponent(txtMontoTotal)
-                            .addComponent(txtNumeroPago))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelAño)
+                                .addComponent(labelMontoTotal)
+                                .addComponent(labelNumeroPago)
+                                .addComponent(txtMontoTotal)
+                                .addComponent(txtNumeroPago))
+                            .addComponent(fecha_pago, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58))
                     .addGroup(panelPagoLayout.createSequentialGroup()
                         .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,13 +249,16 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                     .addComponent(labelAño))
                 .addGap(18, 18, 18)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CantidadCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnSalir))
-                .addGap(30, 30, 30))
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addComponent(CantidadCuotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGuardar)
+                            .addComponent(btnSalir))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPagoLayout.createSequentialGroup()
+                        .addComponent(fecha_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113))))
         );
 
         jTabbedPane1.addTab("Pago de Matricula", panelPago);
@@ -337,7 +340,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMontoTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroPago1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelNumeroPago1))
                         .addGap(30, 30, 30))))
@@ -405,9 +407,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addComponent(labelForma1)
                 .addGap(11, 11, 11)
                 .addComponent(txtMontoTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(86, 86, 86)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar1)
                     .addComponent(btnSalir1))
@@ -562,8 +562,11 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             if (res > 0) {
                 System.out.println(NS.getId_socio());
                 NS.setEstado("socio");
+                // 1 = Matriculacion
+                // 2 = suspension
+                int estadoE=1;
                 Resolucion nuevaR = new Resolucion();
-                nuevaR.GenerarResolucionMatricula(NS);
+                nuevaR.GenerarResolucionMatricula(NS,estadoE);
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
                 
                 
@@ -628,7 +631,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalir1;
     private com.toedter.calendar.JDateChooser fecha_pago;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
