@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import Datos.Socio;
 
 
 /**
@@ -26,8 +27,10 @@ public class Resolucion {
     private String tipo;
     private String estado;
     private String descripcion_solicitud;
-    //private fecha_resolucion
     private int id_socio;
+    private String legajo_socio;
+    
+
     
     private Statement sentencia;
     private ResultSet rsDatos;
@@ -109,51 +112,89 @@ public class Resolucion {
    
   
     /**
+     * @param tipoEstado
      *
      * @param socioX
      */
-    public void GenerarResolucionMatricula(Socio socioX){
-  
-    try {
-        
-        System.out.println("Hola entre");
-        
-        int Legajo = 1234;
-        
-        //Legajo = socioX.getlegajo_socio();
-            setConnection(Conexion.Cadena());    
-        
-        int leg= socioX.getId_socio();
-        System.out.println(leg);
-        
-        String nResolucion = "123";
-        String Estado = "Socio";
-        String descripcionS = "Matriculacion";
-        String descripcionR = "Aceptada";
-        String Tipo = "Matriculacion";        
-
-            setPreparedStatement(getConnection().prepareStatement("INSERT INTO resoluciones (numero_resolucion,tipo,estado ,descripcion_solicitud,descripcion_resolucion ) VALUES (?, ? , ? , ?, ?)"));
-                getPreparedStatement().setString(1, nResolucion);
-                getPreparedStatement().setString(2, Tipo);
-                getPreparedStatement().setString(3, Estado);
-                getPreparedStatement().setString(4, descripcionS);
-                getPreparedStatement().setString(5, descripcionR);  
-                //getPreparedStatement().setString(6, null);        
-               // preparedStatement.setString(7, null);  
-             //    , ?    ,fecha_resolucion    ,legajo_socio   , ?
+    public void GenerarResolucionMatricula(Socio socioX, int tipoEstado){
+   //Tipo de Resolucion que puede tener el socio
+        //        Matriculacion    
+        //        suspendido
              
-            
-                     
-        int res = getPreparedStatement().executeUpdate();
-        if (res > 0) {
-            JOptionPane.showMessageDialog(null, "Resolucion Guardada");
-         System.out.println("Hola entre Si");
-        } else {
-            JOptionPane.showMessageDialog(null, "Error al Guardar Resolucion");
-            System.out.println("Hola entre NO");
-        }
+        //        1 = activo
+        //        2 = suspendido
+      
+    try {         
+      
+        setConnection(Conexion.Cadena());
 
-            getConnection().close();
+        int id_Socio = socioX.getId_socio();
+
+        String leg = socioX.getLegajo_socio();
+
+                String Estado = "Aceptada";
+                String descripcionR = "Fue Aceptada";
+               
+                String descripcionS = "";
+
+                Date fechaActual = new Date();
+
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaResolucion = formatoFecha.format(fechaActual);
+
+                Calendar fecha = Calendar.getInstance();
+                int año = fecha.get(Calendar.YEAR);
+                System.out.println(año);
+
+                String nResolucion = id_Socio + "/" + año;
+
+                preparedStatement = connection.prepareStatement("INSERT INTO resoluciones (numero_resolucion,tipo,estado,descripcion_Solicitud ,descripcion_resolucion,fecha_resolucion,legajo_socio,id_socio) VALUES (?, ? , ? , ?, ?,?,?,?)");
+              
+                preparedStatement.setString(1, nResolucion); 
+               // preparedStatement.setString(2, "Matriculacion");
+                
+                switch (tipoEstado) {
+                    case 1:
+                         descripcionS="La solicitud es de Matriculacion0";
+                         preparedStatement.setString(2,  "Matriculacion");
+                         preparedStatement.setString(4, descripcionS);
+                        break;
+
+                    case 2:
+                         descripcionS="La solicitud es de Suspension";
+                         preparedStatement.setString(2, "Suspension");
+                         preparedStatement.setString(4, descripcionS);
+                          preparedStatement.setString(4, descripcionS);
+
+                        break;
+
+                } // Fin Switch   
+                
+                preparedStatement.setString(3, Estado);
+              
+                preparedStatement.setString(5, descripcionR);
+                preparedStatement.setString(6, fechaResolucion);
+                preparedStatement.setString(7, leg);
+                preparedStatement.setInt(8, id_Socio);
+
+                int res = getPreparedStatement().executeUpdate();
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "Resolucion Guardada");
+                    System.out.println("Hola entre Si");
+
+                    Socio cambioE = new Socio();
+
+                    cambioE.cambiarEstado(socioX, 2);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Guardar Resolucion");
+                    System.out.println("Hola entre NO");
+                }
+
+                getConnection().close();
+        
+        
+    
     } catch (Exception e) {
         boolean ex;
       
@@ -240,6 +281,13 @@ public class Resolucion {
      */
     public void setResultSet(ResultSet resultSet) {
         this.resultSet = resultSet;
+    }
+
+    /**
+     * @return the legajo_socio
+     */
+    public String getLegajo_socio() {
+        return legajo_socio;
     }
     
     
