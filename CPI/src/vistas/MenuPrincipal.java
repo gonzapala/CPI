@@ -126,7 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("Resoluciones de Suspencion");
+        jMenuItem3.setText("Generar Resoluciones");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -134,7 +134,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem3);
 
-        jMenuItem1.setText("Resoluciones de Expulsion");
+        jMenuItem1.setText("Gestionar Resoluciones");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
