@@ -65,16 +65,16 @@ public class generarPDF {
           FILE = "C:\\CPI\\Resoluciones\\";
           switch(tipo_resolucion){
                 case 1:
-                    FILE=FILE.concat("Aceptacion\\filename.pdf");
+                    FILE=FILE.concat("Aceptacion\\"+res.getNumero_resolucion()+".pdf");
                 break;
                 case 2:
-                    FILE=FILE.concat("Expulsion\\filename.pdf");
+                    FILE=FILE.concat("Expulsion\\"+res.getNumero_resolucion()+".pdf");
                 break;
                 case 3:
-                    FILE=FILE.concat("Renuncia\\filename.pdf");
+                    FILE=FILE.concat("Renuncia\\"+res.getNumero_resolucion()+".pdf");
                 break;
                 case 4:
-                    FILE=FILE.concat("Suspension\\filename.pdf");
+                    FILE=FILE.concat("Suspension\\"+res.getNumero_resolucion()+".pdf");
                 break;    
                 
         }
