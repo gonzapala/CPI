@@ -78,6 +78,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtLegajo" pref="167" max="32767" attributes="0"/>
+                                  <Component id="txtApellido1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -95,30 +109,18 @@
                                       <Component id="txtID_Socio" min="-2" pref="132" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="203" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="fecha_pago" max="32767" attributes="0"/>
-                                  <Component id="labelAño" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelMontoTotal" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNumeroPago" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMontoTotal" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtNumeroPago" alignment="0" max="32767" attributes="0"/>
+                              <EmptySpace pref="211" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="labelAño" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelMontoTotal" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelNumeroPago" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtMontoTotal" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNumeroPago" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="fecha_pago" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtLegajo" pref="167" max="32767" attributes="0"/>
-                                  <Component id="txtApellido1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -184,13 +186,15 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CantidadCuotas" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="CantidadCuotas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <Component id="fecha_pago" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -294,8 +298,6 @@
                 <Property name="text" type="java.lang.String" value="ID_Socio:"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="fecha_pago">
-            </Component>
             <Component class="javax.swing.JTextField" name="txtLegajo">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -320,6 +322,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtApellido1">
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="fecha_pago">
             </Component>
           </SubComponents>
         </Container>
@@ -347,7 +351,6 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtMontoTotal1" min="-2" pref="77" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNumeroPago1" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                                   <Component id="labelNumeroPago1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -436,9 +439,7 @@
                       <Component id="labelForma1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="txtMontoTotal1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnGuardar1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSalir1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -576,8 +577,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fecha"/>
               </Properties>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
             </Component>
             <Component class="javax.swing.JTextField" name="txtMontoTotal1">
             </Component>
