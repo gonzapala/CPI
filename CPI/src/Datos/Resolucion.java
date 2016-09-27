@@ -154,14 +154,14 @@ public class Resolucion {
 
             switch (tipoEstado) {
                 case 1:
-                    tipoRes = "Matriculacion";
+                    tipoRes = "matriculacion";
                     descripcionS = "La solicitud es de Matriculacion0";
                     preparedStatement.setString(2, tipoRes);
                     preparedStatement.setString(4, descripcionS);
                     break;
 
                 case 2:
-                    tipoRes = "Suspension";
+                    tipoRes = "suspension";
                     descripcionS = "La solicitud es de Suspension";
                     preparedStatement.setString(2, tipoRes);
                     preparedStatement.setString(4, descripcionS);
@@ -180,11 +180,12 @@ public class Resolucion {
             int res = getPreparedStatement().executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Resolucion Guardada");
-                System.out.println("Hola entre Si");
+                //System.out.println("Hola entre Si");
 
-                Socio cambioE = new Socio();
+                //CAMBIAR ESTADO DEL SOCIO AFUERA DE ESTE METODO, PUEDE SER ANTES
+                //Socio cambioE = new Socio();
 
-                cambioE.cambiarEstado(socioX, 2);
+                //cambioE.cambiarEstado(socioX, 2);
 
                 re.setNumero_resolucion(nResolucion);
                 re.setTipo(tipoRes);
