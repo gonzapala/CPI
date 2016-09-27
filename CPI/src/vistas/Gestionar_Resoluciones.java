@@ -296,6 +296,10 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                         int estadoE=2;
                         Resolucion nuevaR = new Resolucion();
                         nuevaR=nuevaR.GenerarResolucion(nSocio,estadoE);
+                        //generarPDF
+                        generarPDF pdf = new generarPDF();
+                        pdf.generarPDF_Resolucion(nSocio, nuevaR,2);
+                        
                     }else{
                         System.out.println("No esta Vencido.\n");
                     }
@@ -358,7 +362,10 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
             res=res.GenerarResolucion(socioX, WIDTH);
             //generarPDF
             pdf.generarPDF_Resolucion(socioX, res,2);
-            
+             //Leer un Archivo
+//            ProcessBuilder p = new ProcessBuilder();
+//            p.command("cmd.exe","/c",path);
+//            p.start();
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Gestionar_Resoluciones.class.getName()).log(Level.SEVERE, null, ex);
