@@ -63,18 +63,22 @@ public class generarPDF {
       try {
           //generar nombre
           FILE = "C:\\CPI\\Resoluciones\\";
+          String nombreArchivo = res.getNumero_resolucion();
+          String[] parts = nombreArchivo.split("/");
+          String num_nombreArchivo =parts[0];
+          String año_carpeta =parts[1];
           switch(tipo_resolucion){
                 case 1:
-                    FILE=FILE.concat("Aceptacion\\"+res.getNumero_resolucion()+".pdf");
+                    FILE=FILE.concat("Aceptacion\\"+año_carpeta+"\\"+num_nombreArchivo+".pdf");
                 break;
                 case 2:
-                    FILE=FILE.concat("Expulsion\\"+res.getNumero_resolucion()+".pdf");
+                    FILE=FILE.concat("Expulsion\\"+año_carpeta+"\\"+num_nombreArchivo+".pdf");
                 break;
                 case 3:
-                    FILE=FILE.concat("Renuncia\\"+res.getNumero_resolucion()+".pdf");
+                    FILE=FILE.concat("Renuncia\\"+año_carpeta+"\\"+num_nombreArchivo+".pdf");
                 break;
                 case 4:
-                    FILE=FILE.concat("Suspension\\"+res.getNumero_resolucion()+".pdf");
+                    FILE=FILE.concat("Suspension\\"+año_carpeta+"\\"+num_nombreArchivo+".pdf");
                 break;    
                 
         }
