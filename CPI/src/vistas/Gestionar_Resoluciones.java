@@ -11,8 +11,10 @@ import Datos.Socio;
 import Datos.Resolucion;
 import Datos.Socio_Crud;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import generadorPDF.generarPDF;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -163,7 +165,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
             .addGap(0, 307, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Renuncia", jPanel2);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Gestionar Resoluciones");
@@ -345,7 +347,9 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         generarPDF pdf = new generarPDF();
         try {
             socioX=socioX.BuscarX(legajo);
-            pdf.generarPDF_Resolucion(socioX, res);
+            
+            pdf.generarPDF_Resolucion(socioX, res,2);
+            
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Gestionar_Resoluciones.class.getName()).log(Level.SEVERE, null, ex);
