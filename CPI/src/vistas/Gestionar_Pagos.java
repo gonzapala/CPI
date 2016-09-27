@@ -89,6 +89,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         labelForma1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jTextField1.setText("jTextField1");
 
@@ -435,6 +436,19 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Pago de Derecho Anual de Ejercicio", jPanel2);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 599, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 384, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Pagar Deuda", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -453,7 +467,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -636,6 +650,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
