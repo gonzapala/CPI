@@ -116,7 +116,7 @@ public class Resolucion {
      *
      * @param socioX
      */
-    public void GenerarResolucionMatricula(Socio socioX, int tipoEstado){
+    public void GenerarResolucion(Socio socioX, int tipoEstado){
    //Tipo de Resolucion que puede tener el socio
         //        Matriculacion    
         //        suspendido

@@ -580,7 +580,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 // 2 = suspension
                 int estadoE=1;
                 Resolucion nuevaR = new Resolucion();
-                nuevaR.GenerarResolucionMatricula(NS,estadoE);
+                nuevaR.GenerarResolucion(NS,estadoE);
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
                 
                 
