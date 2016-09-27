@@ -15,26 +15,25 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import Datos.Socio;
 
-
 /**
  *
  * @author Bruno Matias
  */
 public class Resolucion {
-    
+
     private int id_resolucion;
     private String numero_resolucion;
     private String tipo;
     private String estado;
     private String descripcion_solicitud;
+    private String descripcion_resolucion;
+    private String fecha;
     private int id_socio;
     private String legajo_socio;
-    
 
-    
     private Statement sentencia;
     private ResultSet rsDatos;
-    
+
     private Connection connection;//para la Conexion
     private PreparedStatement preparedStatement;//para preparar las querys
     private ResultSet resultSet;
@@ -105,106 +104,111 @@ public class Resolucion {
     /**
      * @return the legajo_socio
      */
-   
-
     /**
      * @param legajo_socio the legajo_socio to set
-   
-  
-    /**
+     *
+     *
+     * /
+     **
      * @param tipoEstado
      *
      * @param socioX
      */
-    public void GenerarResolucion(Socio socioX, int tipoEstado){
-   //Tipo de Resolucion que puede tener el socio
+    public Resolucion GenerarResolucion(Socio socioX, int tipoEstado) {
+        //Tipo de Resolucion que puede tener el socio
         //        Matriculacion    
         //        suspendido
-             
+
         //        1 = activo
         //        2 = suspendido
-      
-    try {         
-      
-        setConnection(Conexion.Cadena());
+        Resolucion re = new Resolucion();
+        try {
 
-        int id_Socio = socioX.getId_socio();
+            setConnection(Conexion.Cadena());
 
-        String leg = socioX.getLegajo_socio();
+            int id_Socio = socioX.getId_socio();
 
-                String Estado = "Aceptada";
-                String descripcionR = "Fue Aceptada";
-               
-                String descripcionS = "";
+            String leg = socioX.getLegajo_socio();
 
-                Date fechaActual = new Date();
+            String Estado = "Aceptada";
+            String descripcionR = "Fue Aceptada";
 
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaResolucion = formatoFecha.format(fechaActual);
+            String descripcionS = "";
+            String tipoRes = "";
 
-                Calendar fecha = Calendar.getInstance();
-                int año = fecha.get(Calendar.YEAR);
-                System.out.println(año);
+            Date fechaActual = new Date();
 
-                String nResolucion = id_Socio + "/" + año;
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaResolucion = formatoFecha.format(fechaActual);
 
-                preparedStatement = connection.prepareStatement("INSERT INTO resoluciones (numero_resolucion,tipo,estado,descripcion_Solicitud ,descripcion_resolucion,fecha_resolucion,legajo_socio,id_socio) VALUES (?, ? , ? , ?, ?,?,?,?)");
-              
-                preparedStatement.setString(1, nResolucion); 
-               // preparedStatement.setString(2, "Matriculacion");
-                
-                switch (tipoEstado) {
-                    case 1:
-                         descripcionS="La solicitud es de Matriculacion0";
-                         preparedStatement.setString(2,  "Matriculacion");
-                         preparedStatement.setString(4, descripcionS);
-                        break;
+            Calendar fecha = Calendar.getInstance();
+            int año = fecha.get(Calendar.YEAR);
+            System.out.println(año);
 
-                    case 2:
-                         descripcionS="La solicitud es de Suspension";
-                         preparedStatement.setString(2, "Suspension");
-                         preparedStatement.setString(4, descripcionS);
-                          preparedStatement.setString(4, descripcionS);
+            String nResolucion = id_Socio + "/" + año;
 
-                        break;
+            preparedStatement = connection.prepareStatement("INSERT INTO resoluciones (numero_resolucion,tipo,estado,descripcion_Solicitud ,descripcion_resolucion,fecha_resolucion,legajo_socio,id_socio) VALUES (?, ? , ? , ?, ?,?,?,?)");
 
-                } // Fin Switch   
-                
-                preparedStatement.setString(3, Estado);
-              
-                preparedStatement.setString(5, descripcionR);
-                preparedStatement.setString(6, fechaResolucion);
-                preparedStatement.setString(7, leg);
-                preparedStatement.setInt(8, id_Socio);
+            preparedStatement.setString(1, nResolucion);
+            // preparedStatement.setString(2, "Matriculacion");
 
-                int res = getPreparedStatement().executeUpdate();
-                if (res > 0) {
-                    JOptionPane.showMessageDialog(null, "Resolucion Guardada");
-                    System.out.println("Hola entre Si");
+            switch (tipoEstado) {
+                case 1:
+                    tipoRes = "Matriculacion";
+                    descripcionS = "La solicitud es de Matriculacion0";
+                    preparedStatement.setString(2, tipoRes);
+                    preparedStatement.setString(4, descripcionS);
+                    break;
 
-                    Socio cambioE = new Socio();
+                case 2:
+                    tipoRes = "Suspension";
+                    descripcionS = "La solicitud es de Suspension";
+                    preparedStatement.setString(2, tipoRes);
+                    preparedStatement.setString(4, descripcionS);
 
-                    cambioE.cambiarEstado(socioX, 2);
+                    break;
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al Guardar Resolucion");
-                    System.out.println("Hola entre NO");
-                }
+            } // Fin Switch   
 
-                getConnection().close();
-        
-        
-    
-    } catch (Exception e) {
-        boolean ex;
-      
-    }
+            preparedStatement.setString(3, Estado);
 
+            preparedStatement.setString(5, descripcionR);
+            preparedStatement.setString(6, fechaResolucion);
+            preparedStatement.setString(7, leg);
+            preparedStatement.setInt(8, id_Socio);
 
+            int res = getPreparedStatement().executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Resolucion Guardada");
+                System.out.println("Hola entre Si");
 
-    
+                Socio cambioE = new Socio();
 
-} // fin de generar Resolcuion
+                cambioE.cambiarEstado(socioX, 2);
+
+                re.setNumero_resolucion(nResolucion);
+                re.setTipo(tipoRes);
+                re.setEstado(Estado);
+                re.setDescripcion_solicitud(descripcionS);
+                re.setDescripcion_resolucion(descripcionR);
+                re.setFecha(fechaResolucion);
+                re.setLegajo_socio(leg);
+                re.setId_socio(id_Socio);
+                        
+            
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Guardar Resolucion");
+                System.out.println("Hola entre NO");
+            }
+
+            getConnection().close();
+
+        } catch (Exception e) {
+            boolean ex;
+
+        }
+        return re;
+    } // fin de generar Resolcuion
 
     /**
      * @return the id_socio
@@ -289,9 +293,48 @@ public class Resolucion {
     public String getLegajo_socio() {
         return legajo_socio;
     }
-    
-    
+
+    /**
+     * @return the descripcion_resolucion
+     */
+    public String getDescripcion_resolucion() {
+        return descripcion_resolucion;
+    }
+
+    /**
+     * @param descripcion_resolucion the descripcion_resolucion to set
+     */
+    public void setDescripcion_resolucion(String descripcion_resolucion) {
+        this.descripcion_resolucion = descripcion_resolucion;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @param id_socio the id_socio to set
+     */
+    public void setId_socio(int id_socio) {
+        this.id_socio = id_socio;
+    }
+
+    /**
+     * @param legajo_socio the legajo_socio to set
+     */
+    public void setLegajo_socio(String legajo_socio) {
+        this.legajo_socio = legajo_socio;
+    }
+
 } // Fin de CLASS RESOLCUION
-
-
 
