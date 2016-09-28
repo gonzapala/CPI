@@ -90,10 +90,7 @@ public class generarPDF {
         addTitlePage(document);
         addContent(document,sociox,res);
       document.close();
-        //Leer un Archivo
-        ProcessBuilder p = new ProcessBuilder();
-        p.command("cmd.exe","/c",FILE);
-        p.start();
+       
     } catch (Exception e) {
       e.printStackTrace();
     }
