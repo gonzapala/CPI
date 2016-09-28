@@ -140,6 +140,11 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
+        Tabla_Socios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla_SociosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabla_Socios);
         if (Tabla_Socios.getColumnModel().getColumnCount() > 0) {
             Tabla_Socios.getColumnModel().getColumn(0).setResizable(false);
@@ -147,9 +152,13 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/compose.png"))); // NOI18N
         jButton5.setText("Editar");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton5.setEnabled(false);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view-1.png"))); // NOI18N
         jButton6.setText("Ver datos");
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton6.setEnabled(false);
 
         btnBuscarSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnBuscarSocio.setText("Buscar");
@@ -160,33 +169,47 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         });
 
         txtBuscarSocio.setToolTipText("Ingrese Legajo");
+        txtBuscarSocio.setEnabled(false);
 
         jLabel37.setText("Buscar ");
 
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel35.setText("Nombre: ");
 
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel36.setText("Apellido: ");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Legajo: ");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("DNI:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Telefono:");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Domicilio: ");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("CUIL / CUIT: ");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("E-Mail: ");
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Estado de Pago: ");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("__ Datos Profesionales:  ____________________________________________________________________________");
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("Categoria: ");
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Estado: ");
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Fecha Nac.:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -303,6 +326,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("__ Datos del Socio:  _______________________________________________________________________________");
 
         jLabel38.setText("Legajo:");
@@ -312,6 +336,8 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         jLabel39.setText("Apellido");
 
         jLabel3.setText("Opciones");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel3.setEnabled(false);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -346,7 +372,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel39)))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(0, 118, Short.MAX_VALUE))))
+                        .addGap(0, 220, Short.MAX_VALUE))))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(jLabel37)
@@ -380,7 +406,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGap(7, 7, 7)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Socios", jPanel6);
@@ -677,6 +703,32 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
+
+    private void Tabla_SociosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_SociosMouseClicked
+        String legajo = Tabla_Socios.getValueAt(Tabla_Socios.getSelectedRow(),0).toString();
+        Datos.Socio nuevoSocio = new Socio();
+        try {
+            nuevoSocio=nuevoSocio.BuscarX(legajo);
+            System.out.println(legajo+"\n");
+            labelNombre.setText(nuevoSocio.getNombre());
+            labelApellido.setText(nuevoSocio.getApellido());
+            labelLegajo.setText(nuevoSocio.getLegajo_socio());
+            String dni= Integer.toString(nuevoSocio.getDni());
+            LabelDNI.setText(dni);
+            LabelDom.setText(nuevoSocio.getDomicilio());
+            labelCategoria.setText(nuevoSocio.getCategoria());
+            labelCuil.setText(nuevoSocio.getCuilcuit());
+            labelEmail.setText(nuevoSocio.getEmail());
+            labelEstado.setText(nuevoSocio.getEstado());
+            labelEstado_pago.setText(nuevoSocio.getEstado_pago());
+            String tel= Integer.toString(nuevoSocio.getTelefono());
+            labelTel.setText(tel);
+            labelFechaNacc.setText(nuevoSocio.getFechaNac());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(gestionarSocios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }//GEN-LAST:event_Tabla_SociosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

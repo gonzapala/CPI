@@ -103,6 +103,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jXTable_morosos);
 
         MostrarPDF.setText("Mostrar Resolucion");
+        MostrarPDF.setEnabled(false);
         MostrarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MostrarPDFActionPerformed(evt);
@@ -242,8 +243,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         Socio nSocio = new Socio();
         Pagos ultpago = new Pagos();
         nSocio=nSocio.BuscarX(leg);
-        
         ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
+        
         System.out.println("----------------------------------------------------");
         System.out.println("Socio: "+nSocio.getId_socio()+" - "+nSocio.getApellido());
         System.out.println("Socio: "+nSocio.getLegajo_socio());
@@ -293,9 +294,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                         //Generar Resolucion
                         // 1 = Matriculacion
                         // 2 = suspension
-                        int estadoE=2;
                         Resolucion nuevaR = new Resolucion();
-                        nuevaR=nuevaR.GenerarResolucion(nSocio,estadoE);
+                        nuevaR=nuevaR.GenerarResolucion(nSocio,2);
                         //generarPDF
                         generarPDF pdf = new generarPDF();
                         pdf.generarPDF_Resolucion(nSocio, nuevaR,2);
