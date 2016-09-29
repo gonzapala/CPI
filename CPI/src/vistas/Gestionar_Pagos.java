@@ -94,6 +94,8 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jTextField1.setText("jTextField1");
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Gestionar Pagos");
 
@@ -158,6 +160,8 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setText("Apellido: ");
+
+        txtApellido1.setEnabled(false);
 
         javax.swing.GroupLayout panelPagoLayout = new javax.swing.GroupLayout(panelPago);
         panelPago.setLayout(panelPagoLayout);
