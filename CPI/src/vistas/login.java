@@ -8,7 +8,6 @@ package vistas;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Anahi
@@ -34,77 +33,112 @@ public class login extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabelIcon = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
         jPassword = new javax.swing.JPasswordField();
         jButtonSesion = new javax.swing.JButton();
-        jLabelfonde = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 51));
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-        getContentPane().add(jLabelIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Contraseña");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 110, -1));
 
-        txtUsuario.setBackground(new java.awt.Color(0, 0, 51));
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 160, -1));
-
-        jPassword.setBackground(new java.awt.Color(0, 0, 51));
+        jPassword.setBackground(new java.awt.Color(245, 245, 245));
         jPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPassword.setForeground(new java.awt.Color(255, 255, 255));
+        jPassword.setForeground(new java.awt.Color(51, 51, 51));
         jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 160, -1));
 
-        jButtonSesion.setBackground(new java.awt.Color(0, 0, 51));
+        jButtonSesion.setBackground(new java.awt.Color(63, 81, 181));
         jButtonSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtonSesion.setForeground(new java.awt.Color(102, 102, 102));
+        jButtonSesion.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSesion.setText("Iniciar Sesión ");
         jButtonSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, -1, -1));
 
-        jLabelfonde.setBackground(new java.awt.Color(42, 42, 42));
-        jLabelfonde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
-        getContentPane().add(jLabelfonde, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 520, 570));
+        jLabel3.setBackground(new java.awt.Color(63, 81, 181));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
+
+        txtUsuario.setBackground(new java.awt.Color(245, 245, 245));
+        txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSesion)
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPassword)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 47, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonSesion)
+                            .addComponent(jButton1)))
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        System.exit(0);
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
         // TODO add your handling code here:
@@ -112,21 +146,33 @@ public class login extends javax.swing.JFrame {
 
     private void jButtonSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSesionActionPerformed
         
-        String Usuario = "Anahi";
-        String Contraseña = "1234";
+        String Usuario = "admin";
+        String Contraseña = "admin";
         
         String Pass = new String(jPassword.getPassword());
         
         if(txtUsuario.getText().equalsIgnoreCase(Usuario) && Pass.equalsIgnoreCase(Contraseña)){
         
-           MenuPrincipal MP = new MenuPrincipal();
+            MenuPrincipal MP = new MenuPrincipal();
+            MP.setTitle("Gestion CPI");
             MP.setVisible(true);
             dispose();   
+            MP.setLocationRelativeTo(null);
         }
         else{
             JOptionPane.showMessageDialog(this, "Usuario/Contraseña Incorrecta");}
             
     }//GEN-LAST:event_jButtonSesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        System.exit(0);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,8 +217,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelIcon;
-    private javax.swing.JLabel jLabelfonde;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
