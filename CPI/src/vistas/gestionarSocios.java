@@ -55,7 +55,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_Socios = new org.jdesktop.swingx.JXTable();
         editar_socio = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         btnBuscarSocio = new javax.swing.JButton();
         txtBuscarSocio = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
@@ -136,10 +135,12 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         setBorder(null);
         setClosable(true);
-        setPreferredSize(new java.awt.Dimension(900, 700));
+        setPreferredSize(new java.awt.Dimension(900, 600));
         setVisible(false);
 
         jLabel13.setText("Gestionar Socios");
+
+        jTabbedPane_socios.setPreferredSize(new java.awt.Dimension(900, 550));
 
         btnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checklist.png"))); // NOI18N
         btnListar.setText("Listar");
@@ -186,11 +187,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 editar_socioActionPerformed(evt);
             }
         });
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view-1.png"))); // NOI18N
-        jButton6.setText("Ver datos");
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton6.setEnabled(false);
 
         btnBuscarSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         btnBuscarSocio.setText("Buscar");
@@ -337,11 +333,12 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
-                                .addComponent(labelTel)
-                                .addComponent(jLabel9)
-                                .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(labelTel)
+                                    .addComponent(jLabel9)))
                             .addComponent(jLabel15))
                         .addGap(10, 10, 10)
                         .addComponent(jLabel10)
@@ -373,7 +370,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel3.setEnabled(false);
 
-        label_id_socio.setText("jLabel17");
         label_id_socio.setEnabled(false);
 
         javax.swing.GroupLayout jPanel_sociosLayout = new javax.swing.GroupLayout(jPanel_socios);
@@ -391,9 +387,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_sociosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_sociosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(editar_socio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(editar_socio, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addContainerGap(194, Short.MAX_VALUE))
                     .addGroup(jPanel_sociosLayout.createSequentialGroup()
@@ -438,9 +432,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_sociosLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(9, 9, 9)
-                        .addComponent(jButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(editar_socio)))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2)
@@ -448,7 +440,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_id_socio)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jTabbedPane_socios.addTab("Socios", jPanel_socios);
@@ -597,7 +589,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                         .addGap(48, 48, 48)
                         .addComponent(btnGuardarSocio2))
                     .addComponent(fechaNac_socio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         jTabbedPane_socios.addTab("Nuevo Socio", jPanel4);
@@ -762,7 +754,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                         .addGap(48, 48, 48)
                         .addComponent(btnGuardarSocio3))
                     .addComponent(fechaNac_socio1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         jTabbedPane_socios.addTab("Editar Datos Socio", jPanel_Edtar_socio);
@@ -771,7 +763,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane_socios)
+            .addComponent(jTabbedPane_socios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
@@ -783,7 +775,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addGap(22, 22, 22)
-                .addComponent(jTabbedPane_socios))
+                .addComponent(jTabbedPane_socios, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE))
         );
 
         pack();
@@ -1079,7 +1071,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     public javax.swing.JButton editar_socio;
     private com.toedter.calendar.JDateChooser fechaNac_socio;
     private com.toedter.calendar.JDateChooser fechaNac_socio1;
-    public javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
