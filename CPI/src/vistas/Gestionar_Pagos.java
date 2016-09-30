@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Datos.Resolucion;
 import generadorPDF.generarPDF;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -45,22 +47,24 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelPago = new javax.swing.JPanel();
         txtID_Socio = new javax.swing.JLabel();
         labelMontoTotal = new javax.swing.JLabel();
         txtMontoTotal = new javax.swing.JTextField();
-        txtNumeroPago = new javax.swing.JTextField();
         labelTipol = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         Tipo = new javax.swing.JComboBox<>();
-        labelNumeroPago = new javax.swing.JLabel();
         labelID_Socio = new javax.swing.JLabel();
         txtLegajo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txt_nom = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_ape = new javax.swing.JLabel();
+        txt_nump = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         labellegajo = new javax.swing.JLabel();
         txtLegajo1 = new javax.swing.JTextField();
@@ -76,6 +80,21 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         txtMontoTotal1 = new javax.swing.JTextField();
         id_socio = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        TxtLeg = new javax.swing.JTextField();
+        btn_buscarDeuda = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtnom = new javax.swing.JLabel();
+        txtape = new javax.swing.JLabel();
+        txtlegajo = new javax.swing.JLabel();
+        Tipo2 = new javax.swing.JComboBox<>();
+        btnGuardarD = new javax.swing.JButton();
+        btnSalir2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -89,12 +108,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         txtMontoTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoTotalActionPerformed(evt);
-            }
-        });
-
-        txtNumeroPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroPagoActionPerformed(evt);
             }
         });
 
@@ -121,8 +134,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             }
         });
 
-        labelNumeroPago.setText("Número de Pago:_");
-
         labelID_Socio.setText("ID_Socio:");
 
         jLabel2.setText("Legajo");
@@ -135,6 +146,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel10.setText("Nombre:");
+
+        jLabel11.setText("Apellido");
+
         javax.swing.GroupLayout panelPagoLayout = new javax.swing.GroupLayout(panelPago);
         panelPago.setLayout(panelPagoLayout);
         panelPagoLayout.setHorizontalGroup(
@@ -142,36 +157,45 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             .addGroup(panelPagoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelPagoLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(30, 30, 30)
+                            .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(68, 68, 68)
+                            .addComponent(jButton1))
+                        .addGroup(panelPagoLayout.createSequentialGroup()
+                            .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPagoLayout.createSequentialGroup()
+                                    .addComponent(labelMontoTotal)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtMontoTotal))
+                                .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(174, 174, 174)
+                            .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(8, 8, 8)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelTipol, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNumeroPago)
-                                    .addComponent(labelMontoTotal))
+                                .addComponent(labelID_Socio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtID_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumeroPago)
-                                    .addComponent(txtMontoTotal)))))
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addComponent(labelID_Socio)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtID_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton1)))
-                .addGap(58, 185, Short.MAX_VALUE))
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPagoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
-                .addGap(42, 42, 42)
+                .addGap(36, 36, 36)
                 .addComponent(btnSalir)
-                .addGap(162, 162, 162))
+                .addGap(167, 167, 167))
         );
         panelPagoLayout.setVerticalGroup(
             panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,28 +205,40 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                     .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelID_Socio, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtID_Socio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(labelTipol)
-                .addGap(18, 18, 18)
-                .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNumeroPago)
-                    .addComponent(txtNumeroPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(jButton1)
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addGap(21, 85, Short.MAX_VALUE)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPagoLayout.createSequentialGroup()
+                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtID_Socio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelID_Socio)
+                                    .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel11))
+                                    .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addComponent(labelTipol)
+                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelPagoLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(79, 79, 79)))
+                .addGap(3, 3, 3)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelMontoTotal)
                     .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(22, 22, 22)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnSalir))
-                .addGap(81, 81, 81))
+                .addGap(52, 52, 52))
         );
 
         jTabbedPane1.addTab("Pago de Matricula", panelPago);
@@ -274,7 +310,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelMontoTotal1)
-                        .addGap(96, 498, Short.MAX_VALUE))
+                        .addGap(96, 551, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelTipol1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -283,7 +319,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                             .addComponent(Tipo1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(labelNumeroPago1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtMontoTotal1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                                     .addComponent(txtNumeroPago1))))
@@ -298,7 +334,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(35, 35, 35)
                     .addComponent(labellegajo)
-                    .addContainerGap(528, Short.MAX_VALUE)))
+                    .addContainerGap(581, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +347,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                         .addComponent(id_socio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 25, Short.MAX_VALUE)
+                        .addGap(0, 53, Short.MAX_VALUE)
                         .addComponent(labelID_S)
                         .addGap(40, 40, 40)
                         .addComponent(labelTipol1)
@@ -336,23 +372,132 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnBuscar)
                         .addComponent(labellegajo))
-                    .addContainerGap(334, Short.MAX_VALUE)))
+                    .addContainerGap(362, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Pago de Derecho Anual de Ejercicio", jPanel2);
+
+        jLabel3.setText("Legajo");
+
+        TxtLeg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtLegActionPerformed(evt);
+            }
+        });
+
+        btn_buscarDeuda.setText("Buscar");
+        btn_buscarDeuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarDeudaActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Nombre");
+
+        jLabel5.setText("Apellido");
+
+        jLabel7.setText("Tipo:");
+
+        jLabel8.setText("Monto Total");
+
+        Tipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "","Matrícula"}));
+        Tipo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tipo2ActionPerformed(evt);
+            }
+        });
+
+        btnGuardarD.setText("Guardar");
+        btnGuardarD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarDActionPerformed(evt);
+            }
+        });
+
+        btnSalir2.setText("Salir");
+        btnSalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalir2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 599, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(371, 371, 371))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtnom, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(txtape, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addComponent(txtlegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(123, 123, 123))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Tipo2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TxtLeg, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btn_buscarDeuda))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarD)
+                .addGap(42, 42, 42)
+                .addComponent(btnSalir2)
+                .addGap(214, 214, 214))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtLeg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscarDeuda))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtnom)
+                    .addComponent(txtape)
+                    .addComponent(txtlegajo))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(Tipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarD)
+                    .addComponent(btnSalir2))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pagar Deuda", jPanel1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Gestionar Pagos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -380,7 +525,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     public void deshabilitarCampos() {
 
         //TXT
-        txtNumeroPago.setEnabled(false);
+     //   txtNumeroPago.setEnabled(false);
         txtMontoTotal.setEnabled(false);
        // fecha_pago.setEnabled(false);
 
@@ -394,7 +539,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         //labelAño.setEnabled(false);
         //labelCantCuotas.setEnabled(false);
         //labelForma.setEnabled(false);
-        labelNumeroPago.setEnabled(false);
+       // labelNumeroPago.setEnabled(false);
         labelMontoTotal.setEnabled(false);
 
         //BOTON
@@ -405,7 +550,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     public void habilitarCampos() {
 
         //TXT
-        txtNumeroPago.setEnabled(true);
+      //  txtNumeroPago.setEnabled(true);
         txtMontoTotal.setEnabled(true);
 //        fecha_pago.setEnabled(true);
 
@@ -419,7 +564,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
       //  labelAño.setEnabled(true);
        // labelCantCuotas.setEnabled(true);
         //labelForma.setEnabled(true);
-        labelNumeroPago.setEnabled(true);
+     //   labelNumeroPago.setEnabled(true);
         labelMontoTotal.setEnabled(true);
 
         //BOTON
@@ -429,10 +574,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void txtNumeroPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPago1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroPago1ActionPerformed
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         // TODO add your handling code here:
@@ -454,7 +595,14 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             if (NS.getEstado().compareTo("aspirante") == 0) {
                 System.out.println(NS.getApellido());
                 String Id = Integer.toString(NS.getId_socio());
+                String nomS= NS.getNombre();
+                String apeS= NS.getApellido();
                 txtID_Socio.setText(Id);
+                txt_nom.setText(nomS);
+                txt_ape.setText(apeS);
+                
+                
+                
                 habilitarCampos();
 
             } else {
@@ -477,21 +625,38 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-
+            String Lega = txtLegajo.getText();   
         try {
-            connection = Conexion.Cadena();
-            preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, tipo, forma, cant_coutas, monto_total, fecha, id_socio) VALUES (?,?,?,?,?,?,?)");
-
-            preparedStatement.setString(1, txtNumeroPago.getText());
-            preparedStatement.setString(2, Tipo.getSelectedItem().toString());
-     //       preparedStatement.setString(3, Forma.getSelectedItem().toString());
-       //     preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
-            preparedStatement.setString(5, txtMontoTotal.getText());
+           
+            Date fechaActual = new Date();
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-         //   String fecha = formatoFecha.format(fecha_pago.getDate());
-           // preparedStatement.setString(6, fecha);
+            String fechap = formatoFecha.format(fechaActual);       
+            
+            Calendar fecha = Calendar.getInstance();
+            int año = fecha.get(Calendar.YEAR);
+            
+            
+            System.out.println(Lega);
+            
+            connection = Conexion.Cadena();
+            preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio) VALUES (?,?,?,?)");
+ 
+          //String numP= txtNumeroPago.getText();
+           String numP = año+ "/" +Lega;
+            preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
+           // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
+           // preparedStatement.setString(3, Forma.getSelectedItem().toString());
+           //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
+            preparedStatement.setString(2, txtMontoTotal.getText());              
+          
+
+           
+            
+          //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+          //  String fecha = formatoFecha.format(fecha_pago.getDate());
+            preparedStatement.setString(3, fechap);
             // preparedStatement.setString(6, fecha.getDateFormatString());
-            preparedStatement.setString(7, txtID_Socio.getText());
+            preparedStatement.setString(4, txtID_Socio.getText());
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
@@ -520,10 +685,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void txtNumeroPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPagoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroPagoActionPerformed
-
     private void txtMontoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoTotalActionPerformed
@@ -532,28 +693,158 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Tipo1ActionPerformed
 
+    private void btn_buscarDeudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarDeudaActionPerformed
+       
+        String Leg = TxtLeg.getText();
+      
+
+        try {
+            NS = NS.BuscarX(Leg);
+
+            System.out.println(NS.getId_socio());
+            if (NS.getEstado().compareTo("aspirante") == 0) {
+                System.out.println(NS.getApellido());
+                String Id = Integer.toString(NS.getId_socio());
+                String nombreS = NS.getNombre();
+                String apeS = NS.getApellido();
+                
+                
+             
+                txtnom.setText(nombreS);                
+                txtape.setText(apeS);
+             
+                
+                
+                habilitarCampos();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No es aspirante");
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gestionar_Pagos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_btn_buscarDeudaActionPerformed
+
+    private void TxtLegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtLegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtLegActionPerformed
+
+    private void Tipo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tipo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tipo2ActionPerformed
+
+    private void btnGuardarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDActionPerformed
+       
+        
+          String Lega = txtLegajo.getText();   
+        try {
+           
+            Date fechaActual = new Date();
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fechap = formatoFecha.format(fechaActual);       
+            
+            Calendar fecha = Calendar.getInstance();
+            int año = fecha.get(Calendar.YEAR);
+            
+            
+            System.out.println(Lega);
+            
+            connection = Conexion.Cadena();
+            preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio) VALUES (?,?,?,?)");
+ 
+          //String numP= txtNumeroPago.getText();
+           String numP = año+ "/" +Lega;
+            preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
+           // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
+           // preparedStatement.setString(3, Forma.getSelectedItem().toString());
+           //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
+            preparedStatement.setString(2, txtMontoTotal.getText());              
+          
+
+           
+            
+          //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+          //  String fecha = formatoFecha.format(fecha_pago.getDate());
+            preparedStatement.setString(3, fechap);
+            // preparedStatement.setString(6, fecha.getDateFormatString());
+            preparedStatement.setString(4, txtID_Socio.getText());
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                System.out.println(NS.getId_socio());
+                NS.setEstado("socio");
+                // 1 = Matriculacion
+                // 2 = suspension
+                int estadoE = 1;
+                Resolucion nuevaR = new Resolucion();
+                nuevaR = nuevaR.GenerarResolucion(NS, estadoE);
+                //generar PDF
+                generarPDF pdf = new generarPDF();
+                pdf.generarPDF_Resolucion(NS, nuevaR, 1);
+
+                JOptionPane.showMessageDialog(null, "Pago Realizado");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de Operación");
+                //LimpiarCajas();
+            }
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+       
+    }//GEN-LAST:event_btnGuardarDActionPerformed
+
+    private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir2ActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_btnSalir2ActionPerformed
+
+    private void txtNumeroPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPago1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroPago1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Tipo;
     private javax.swing.JComboBox<String> Tipo1;
+    private javax.swing.JComboBox<String> Tipo2;
+    private javax.swing.JTextField TxtLeg;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnGuardarD;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalir1;
+    private javax.swing.JButton btnSalir2;
+    private javax.swing.JButton btn_buscarDeuda;
     private javax.swing.JLabel id_socio;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel labelID_S;
     private javax.swing.JLabel labelID_Socio;
     private javax.swing.JLabel labelMontoTotal;
     private javax.swing.JLabel labelMontoTotal1;
-    private javax.swing.JLabel labelNumeroPago;
     private javax.swing.JLabel labelNumeroPago1;
     private javax.swing.JLabel labelTipol;
     private javax.swing.JLabel labelTipol1;
@@ -564,7 +855,12 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtLegajo1;
     private javax.swing.JTextField txtMontoTotal;
     private javax.swing.JTextField txtMontoTotal1;
-    private javax.swing.JTextField txtNumeroPago;
     private javax.swing.JTextField txtNumeroPago1;
+    private javax.swing.JLabel txt_ape;
+    private javax.swing.JLabel txt_nom;
+    private javax.swing.JLabel txt_nump;
+    private javax.swing.JLabel txtape;
+    private javax.swing.JLabel txtlegajo;
+    private javax.swing.JLabel txtnom;
     // End of variables declaration//GEN-END:variables
 }
