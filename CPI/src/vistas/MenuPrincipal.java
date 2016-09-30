@@ -47,6 +47,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu_admin = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenu6.setText("File");
@@ -160,6 +162,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu2);
 
+        jMenu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/id-card-3.png"))); // NOI18N
+        jMenu_admin.setText("Administrador");
+        jMenu_admin.setEnabled(false);
+        jMenu_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu_adminMouseClicked(evt);
+            }
+        });
+
+        jMenuItem4.setText("Gestionar Usuarios");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu_admin.add(jMenuItem4);
+
+        jMenuBar2.add(jMenu_admin);
+
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit-1.png"))); // NOI18N
         jMenu3.setText("Salir");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,6 +257,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void jMenu_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu_adminMouseClicked
+        
+    }//GEN-LAST:event_jMenu_adminMouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       Gestionar_usuarios ventana =new Gestionar_usuarios();
+        pane1.add(ventana);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -255,9 +286,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    public javax.swing.JMenu jMenu_admin;
     public javax.swing.JDesktopPane pane1;
     private org.jdesktop.swingx.painter.RectanglePainter rectanglePainter1;
     // End of variables declaration//GEN-END:variables
