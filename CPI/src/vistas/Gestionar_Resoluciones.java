@@ -66,6 +66,8 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         btnBuscarSocio.setText("Buscar");
         btnBuscarSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

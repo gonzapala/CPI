@@ -98,6 +98,11 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jTextField1.setText("jTextField1");
 
+        setClosable(true);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Gestionar Pagos");
+
         labelMontoTotal.setText("Monto Total:");
 
         txtMontoTotal.addActionListener(new java.awt.event.ActionListener() {

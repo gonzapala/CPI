@@ -226,6 +226,7 @@ public class Socio {
                 dni_socio=rsDatos.getInt("dni");
                 leg=rsDatos.getString("legajo_socio");
                 tel=rsDatos.getInt("telefono");
+                dom=rsDatos.getString("domicilio");
                 SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
                 fNac = formatoFecha.format(rsDatos.getDate("fechaNac"));
 //                System.out.println(nom);
@@ -244,7 +245,10 @@ public class Socio {
                 nuevoSocio.setLegajo_socio(leg);
                 nuevoSocio.telefono=tel;
                 nuevoSocio.id_socio=idS;                
-                nuevoSocio.setFechaNac(fechaNac);
+                nuevoSocio.setFechaNac(fNac);
+                nuevoSocio.setDomicilio(dom);
+                nuevoSocio.setEmail(email);
+                
             }else{
                 System.out.println("es nulo");
             }
