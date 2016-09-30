@@ -5,9 +5,13 @@
  */
 package vistas;
 
+import Datos.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Anahi
@@ -21,7 +25,6 @@ public class login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,23 +148,36 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordActionPerformed
 
     private void jButtonSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSesionActionPerformed
-        
+
         String Usuario = "admin";
         String Contraseña = "admin";
-        
+        Usuario nuevoSuaurio = new Usuario();
         String Pass = new String(jPassword.getPassword());
-        
-        if(txtUsuario.getText().equalsIgnoreCase(Usuario) && Pass.equalsIgnoreCase(Contraseña)){
-        
-            MenuPrincipal MP = new MenuPrincipal();
-            MP.setTitle("Gestion CPI");
-            MP.setVisible(true);
-            dispose();   
-            MP.setLocationRelativeTo(null);
+        try {
+            int verificacion =nuevoSuaurio.verificarUsuario(txtUsuario.getText(), Pass);
+            if (verificacion==1) {
+                //usuario Administrador
+                MenuPrincipal MP = new MenuPrincipal();
+                MP.setTitle("Gestion CPI");
+                MP.setVisible(true);
+                dispose();
+                MP.setLocationRelativeTo(null);
+                MP.jMenu_admin.setEnabled(true);
+            }else{
+                if (verificacion==2) {
+                    //usuario comun
+                    MenuPrincipal MP = new MenuPrincipal();
+                    MP.setTitle("Gestion CPI");
+                    MP.setVisible(true);
+                    dispose();
+                    MP.setLocationRelativeTo(null);
+                }
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
-            JOptionPane.showMessageDialog(this, "Usuario/Contraseña Incorrecta");}
-            
+        
     }//GEN-LAST:event_jButtonSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
