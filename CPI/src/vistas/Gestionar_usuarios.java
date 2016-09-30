@@ -47,6 +47,8 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         editar_socio = new javax.swing.JButton();
         btnListar1 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Gestionar Usuarios");
 
@@ -171,8 +173,8 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
                             .addComponent(editar_socio)
                             .addComponent(btnListar1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
