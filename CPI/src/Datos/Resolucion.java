@@ -30,6 +30,7 @@ public class Resolucion {
     private String fecha;
     private int id_socio;
     private String legajo_socio;
+    private String ruta;
 
     private Statement sentencia;
     private ResultSet rsDatos;
@@ -184,7 +185,6 @@ public class Resolucion {
 
                 //CAMBIAR ESTADO DEL SOCIO AFUERA DE ESTE METODO, PUEDE SER ANTES
                 //Socio cambioE = new Socio();
-
                 //cambioE.cambiarEstado(socioX, 2);
 
                 re.setNumero_resolucion(nResolucion);
@@ -335,6 +335,20 @@ public class Resolucion {
      */
     public void setLegajo_socio(String legajo_socio) {
         this.legajo_socio = legajo_socio;
+    }
+
+    /**
+     * @return the ruta
+     */
+    public String getRuta() {
+        return ruta;
+    }
+
+    /**
+     * @param ruta the ruta to set
+     */
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 
 } // Fin de CLASS RESOLCUION
