@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import Datos.Socio;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 
 /**
  *
@@ -204,7 +206,7 @@ public class Resolucion {
 
             getConnection().close();
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException | HeadlessException e) {
             boolean ex;
 
         }

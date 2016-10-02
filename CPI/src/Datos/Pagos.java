@@ -116,6 +116,7 @@ public class Pagos {
     public void setId_socio(int id_socio) {
         this.id_socio = id_socio;
     }
+  
     public Pagos buscarUltimoPago(int id_socio){
         Pagos ultimoPago = new Pagos();
         try {
