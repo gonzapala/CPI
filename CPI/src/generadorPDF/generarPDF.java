@@ -61,6 +61,7 @@ public class generarPDF {
 
  public void generarPDF_Resolucion(Socio sociox, Resolucion res,int tipo_resolucion){
       try {
+          
           //generar nombre
           FILE = "C:\\CPI\\Resoluciones\\";
           String nombreArchivo = res.getNumero_resolucion();
@@ -82,6 +83,8 @@ public class generarPDF {
                 break;    
                 
         }
+      //verfificar, si no existe la carpeta, crearla
+      res.setRuta(FILE);
           
       Document document = new Document();
       PdfWriter.getInstance(document, new FileOutputStream(getFILE()));
