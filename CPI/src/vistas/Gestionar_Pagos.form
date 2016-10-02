@@ -500,10 +500,6 @@
                               <Component id="txtlegajo" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="Tipo2" min="-2" pref="208" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -511,7 +507,6 @@
                                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                       <Component id="btn_buscarDeuda" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField3" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -550,11 +545,7 @@
                           <Component id="txtape" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtlegajo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Tipo2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
@@ -597,11 +588,6 @@
                 <Property name="text" type="java.lang.String" value="Apellido"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="jTextField3">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -614,19 +600,6 @@
             <Component class="javax.swing.JLabel" name="txtape">
             </Component>
             <Component class="javax.swing.JLabel" name="txtlegajo">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="Tipo2">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;&quot;,&quot;Matr&#xed;cula&quot;})" type="code"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tipo2ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnGuardarD">
               <Properties>
