@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -150,6 +151,29 @@ public class Usuario {
 
             connection.close();
 
+    }
+     public ArrayList<Usuario> listar(){
+        ArrayList lista = new ArrayList();
+        Usuario usuario;
+        try {
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM usuario";
+            Statement sentencia = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rsDatos = sentencia.executeQuery(SQL);
+            //System.out.println("Correcto");
+            
+            while (rsDatos.next()) {                
+                usuario = new Usuario();
+                usuario.setNombre(rsDatos.getString(2));
+                usuario.setContraseña(rsDatos.getString(3));
+                usuario.setTipo(rsDatos.getString(4));
+                lista.add(usuario);
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        return lista;
     }
 
     /**
