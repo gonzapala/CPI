@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
 import Datos.Socio;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -188,7 +191,7 @@ public class Resolucion {
                 //CAMBIAR ESTADO DEL SOCIO AFUERA DE ESTE METODO, PUEDE SER ANTES
                 //Socio cambioE = new Socio();
                 //cambioE.cambiarEstado(socioX, 2);
-
+                
                 re.setNumero_resolucion(nResolucion);
                 re.setTipo(tipoRes);
                 re.setEstado(Estado);
@@ -210,8 +213,118 @@ public class Resolucion {
             boolean ex;
 
         }
-        return re;
+        return re;//devuelve resolucio sin ID
     } // fin de generar Resolcuion
+    
+    public void guardarRutaArchivo(int id_res, String ruta) throws ClassNotFoundException, SQLException{
+        try {
+                connection = Conexion.Cadena();
+                System.out.println("ID RES: "+id_res);
+                System.out.println("Ruta: "+ruta);
+                preparedStatement = connection.prepareStatement("UPDATE resoluciones SET ruta = ? WHERE id_resolucion=?");
+                preparedStatement.setString(1, ruta);
+                preparedStatement.setInt(2, id_res);
+
+                int resp = preparedStatement.executeUpdate();
+                if (resp > 0) {
+                    //System.out.println("Nuevo Estado: "+socioX.getEstado()+"\n");
+                    System.out.println("Resolucion Actualizado");
+                    //JOptionPane.showMessageDialog(null, "Socio Actualizado: "+socioX.getId_socio());
+                    //LimpiarCajas();
+                } else {
+                    System.out.println("Error\n");
+                    //JOptionPane.showMessageDialog(null, "Error al Actualizar Socio");
+                    //LimpiarCajas();
+                }
+
+                connection.close();
+            
+        } catch (Exception e) {
+        }
+            
+    }
+    
+    public Resolucion BuscarX(String num_res) throws ClassNotFoundException
+    {   
+        Resolucion nuevaRes=new Resolucion();
+        try {
+            
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM resoluciones"+ " WHERE numero_resolucion ='"+num_res+"' ";
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rsDatos = sentencia.executeQuery(SQL);
+            
+            String num,tipo,estado,descrip_solic,descrip_res,fecha,leg_socio, ruta;
+            int id_res,id_socio;
+            if(rsDatos.first()){
+                id_res=rsDatos.getInt("id_resolucion");
+                id_socio=rsDatos.getInt("id_socio");
+                num=rsDatos.getString("numero_resolucion");
+                tipo=rsDatos.getString("tipo");
+                estado=rsDatos.getString("estado");
+                descrip_solic=rsDatos.getString("descripcion_solicitud");
+                descrip_res=rsDatos.getString("descripcion_resolucion");
+                leg_socio=rsDatos.getString("legajo_socio");
+                ruta=rsDatos.getString("ruta");
+                
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+                fecha = formatoFecha.format(rsDatos.getDate("fecha_resolucion"));
+//                System.out.println(nom);
+//                System.out.println(ape);
+//                System.out.println(categ);
+//                System.out.println(leg);
+//                System.out.println(tel);
+               nuevaRes.setId_resolucion(id_res);
+               nuevaRes.setId_socio(id_socio);
+               nuevaRes.setNumero_resolucion(num);
+               nuevaRes.setTipo(tipo);
+               nuevaRes.setEstado(estado);
+               nuevaRes.setDescripcion_solicitud(descrip_solic);
+               nuevaRes.setDescripcion_resolucion(descrip_res);
+               nuevaRes.setFecha(fecha);
+               nuevaRes.setLegajo_socio(leg_socio);
+               nuevaRes.setRuta(ruta);
+                       
+                
+            }else{
+                System.out.println("es nulo");
+            }
+            
+            
+        } catch (SQLException ex) {
+            System.out.println("No Correcto");
+            Logger.getLogger(Socio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nuevaRes;
+    }
+    
+    public ArrayList<Resolucion> listar(){
+        ArrayList listaResoluciones = new ArrayList();
+        Resolucion res;
+        try {
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM resoluciones";
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rsDatos = sentencia.executeQuery(SQL);
+            //System.out.println("Correcto");
+            
+            while (rsDatos.next()) {                
+                res = new Resolucion();
+                res.setNumero_resolucion(rsDatos.getString(2));
+                res.setTipo(rsDatos.getString(3));
+                res.setEstado(rsDatos.getString(4));
+                res.setFecha(rsDatos.getString(7));
+                res.setLegajo_socio(rsDatos.getString(8));
+                res.setRuta(rsDatos.getString(9));
+                listaResoluciones.add(res);
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        return listaResoluciones;
+    }
+    
 
     /**
      * @return the id_socio
@@ -351,6 +464,13 @@ public class Resolucion {
      */
     public void setRuta(String ruta) {
         this.ruta = ruta;
+    }
+
+    /**
+     * @param id_resolucion the id_resolucion to set
+     */
+    public void setId_resolucion(int id_resolucion) {
+        this.id_resolucion = id_resolucion;
     }
 
 } // Fin de CLASS RESOLCUION
