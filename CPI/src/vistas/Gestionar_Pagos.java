@@ -658,7 +658,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 nuevaR = nuevaR.GenerarResolucion(NS, estadoE);
                 //generar PDF
                 generarPDF pdf = new generarPDF();
-                pdf.generarPDF_Resolucion(NS, nuevaR, 1);
+                pdf.generarPDF_Resolucion(NS, nuevaR.getNumero_resolucion(), 1);
 
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
 
@@ -818,7 +818,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 nuevaR = nuevaR.GenerarResolucion(NS, estadoE);
                 //generar PDF
                 generarPDF pdf = new generarPDF();
-                pdf.generarPDF_Resolucion(NS, nuevaR, 1);
+                pdf.generarPDF_Resolucion(NS, nuevaR.getNumero_resolucion(), 1);
 
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
 
