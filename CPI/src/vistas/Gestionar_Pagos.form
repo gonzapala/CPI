@@ -77,57 +77,38 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelID_Socio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtID_Socio" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="txt_nom" min="-2" pref="111" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="txtLegajo" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="labelMontoTotal" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtMontoTotal" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="Tipo" min="-2" pref="208" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                                          <Component id="txt_nump" min="-2" pref="6" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Component id="labelTipol" min="-2" pref="51" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
-                                      <Component id="txt_ape" min="-2" pref="111" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtLegajo" min="-2" pref="167" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="80" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="labelMontoTotal" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtMontoTotal" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="txt_nump" min="-2" pref="6" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
+                              <Component id="txt_ape" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -150,43 +131,23 @@
                                   <Component id="txtLegajo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="55" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="labelID_Socio" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="txtID_Socio" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="labelTipol" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txt_nom" min="-2" pref="17" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="txt_ape" min="-2" pref="17" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="txt_nump" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txt_nom" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="Tipo" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="txt_ape" min="-2" pref="17" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="txt_nump" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -205,8 +166,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="txtID_Socio">
-            </Component>
             <Component class="javax.swing.JLabel" name="labelMontoTotal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Monto Total:"/>
@@ -216,11 +175,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMontoTotalActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelTipol">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnGuardar">
               <Properties>
@@ -237,24 +191,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="Tipo">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;&quot;,&quot;Matr&#xed;cula&quot;})" type="code"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TipoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelID_Socio">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ID_Socio:"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLegajo">
             </Component>
@@ -317,56 +253,58 @@
                           <Component id="txtNomE" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" min="-2" pref="71" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtUltimoPagoE" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtUltimoPagoE" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtEstadoE" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEstadoE" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtEstadoS" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtcantC" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="385" max="-2" attributes="0"/>
+                      <EmptySpace pref="319" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelMontoTotal1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="txtMontoTotal1" min="-2" pref="108" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtLegajo1" min="-2" pref="269" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtApeE" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtIdE" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Component id="btnBuscarEjercicio" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelMontoTotal1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+                              <Component id="txtmsj" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtMontoTotal1" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="labellegajo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="597" max="32767" attributes="0"/>
+                          <EmptySpace pref="528" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -383,26 +321,31 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtNomE" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtApeE" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtIdE" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtEstadoS" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtUltimoPagoE" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEstadoE" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                      <Component id="labelMontoTotal1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtcantC" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelMontoTotal1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtmsj" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtMontoTotal1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -474,25 +417,9 @@
                 <Property name="text" type="java.lang.String" value="Nombre"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ID"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="txtNomE">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel15"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtApeE">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel16"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="txtIdE">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel17"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
@@ -500,18 +427,27 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtUltimoPagoE">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel16"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Estado de la couta"/>
+                <Property name="text" type="java.lang.String" value="Estado "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtEstadoE">
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtEstadoS">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel17"/>
+                <Property name="text" type="java.lang.String" value="jLabel9"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtcantC">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel14"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtmsj">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel9"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -549,10 +485,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="txtape" min="-2" pref="134" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtIdS" min="-2" pref="55" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="txtIdS" min="-2" pref="55" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -609,7 +542,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -718,11 +650,6 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cantidad de Meses Impagos"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ID "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtIdS">
