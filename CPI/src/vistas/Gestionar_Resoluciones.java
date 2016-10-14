@@ -143,7 +143,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Suspencion", jPanel1);
+        jTabbedPane1.addTab("Suspension", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -360,6 +360,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
                            nSocio.cambiarEstado(nSocio, 1);
                     } else if (ultFecha_dia <= diaActual) {
                         System.out.println("Socio al dia");
+                         nSocio.cambiarEstado(nSocio, 2);
                         int resto = diaActual - ultFecha_dia;
                         System.out.println("Le queda para pagar: " + resto + " dias");
                     }

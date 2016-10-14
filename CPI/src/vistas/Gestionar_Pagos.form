@@ -267,7 +267,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="319" max="32767" attributes="0"/>
+                      <EmptySpace pref="322" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -341,7 +341,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtcantC" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelMontoTotal1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtmsj" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -436,19 +436,10 @@
             <Component class="javax.swing.JLabel" name="txtEstadoE">
             </Component>
             <Component class="javax.swing.JLabel" name="txtEstadoS">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtcantC">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel14"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtmsj">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

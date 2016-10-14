@@ -44,9 +44,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu_admin = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -150,17 +147,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem7);
 
         jMenuBar2.add(jMenu1);
-
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bar-chart.png"))); // NOI18N
-        jMenu2.setText("Estadisticas");
-
-        jMenuItem5.setText("Pago de Socios");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Inscripciones");
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar2.add(jMenu2);
 
         jMenu_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/id-card-3.png"))); // NOI18N
         jMenu_admin.setText("Administrador");
@@ -274,7 +260,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -289,8 +274,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     public javax.swing.JMenu jMenu_admin;
     public javax.swing.JDesktopPane pane1;
