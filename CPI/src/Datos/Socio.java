@@ -37,6 +37,17 @@ public class Socio {
     
     private Statement sentencia;
     private ResultSet rsDatos;
+    
+    public Socio(){
+    }
+    
+    public Socio (String leg, String nom, String ape, int dni){
+        this.legajo_socio=leg;
+        this.nombre=nom;
+        this.apellido=ape;
+        this.dni=dni;
+        
+    }
 
     /**
      * @return the id_socio
