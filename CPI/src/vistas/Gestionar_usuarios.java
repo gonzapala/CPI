@@ -196,7 +196,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         Usuario nuevoU = new Usuario();
         nuevoU.setNombre(txt_nombreusuario.getText());
         nuevoU.setContraseña(text_contraseña.getText());
-        nuevoU.setTipo(combo_tipoUsuario.getSelectedItem().toString());
+        //nuevoU.setId_rol(combo_tipoUsuario.getSelectedItem().toString());
         try {
             nuevoU.guardarnuevoU(nuevoU);
             
@@ -236,7 +236,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         for ( int i=0; i<numeroRegistros;i++){
                 columna[0]=modelo.listar().get(i).getNombre();
                 columna[1]=modelo.listar().get(i).getContraseña();
-                columna[2]=modelo.listar().get(i).getTipo();
+                columna[2]=modelo.listar().get(i).getId_rol();
 
                 modeloT.addRow(columna);
         }
