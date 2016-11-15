@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +21,8 @@ public class Usuario {
     private int id;
     private String nombre;
     private String contraseña;
-    private String tipo;
-
+    private int id_rol;
+    
     /**
      * @return the id
      */
@@ -57,20 +58,7 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    /**
-     * @return the tipo
-     */
-    public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     * @param tipo the tipo to set
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
+      
     public int verificarUsuario(String nom,String pass) throws ClassNotFoundException{
         //devuelve
         //0 Incorrecto
@@ -78,14 +66,17 @@ public class Usuario {
         //2 Correcto - usuario Comun
         //
         Usuario user = new Usuario();
+        Rol nuevoRol = new Rol();
         user=user.buscarUsuario(nom, pass);
-        System.out.println(user.getNombre()+user.getContraseña()+user.getTipo());
+        System.out.println(user.getNombre()+user.getContraseña()+user.getId_rol());
         int verificado;
         int usuarioV=user.getNombre().compareTo(nom);
         int passV=user.getContraseña().compareTo(pass);
         if (usuarioV==0) {
             if (passV==0) {
-                int tipoV = user.getTipo().compareTo("administrador");
+                int id_rol = user.getId_rol();
+                nuevoRol=nuevoRol.buscarRol(id_rol);
+                int tipoV=nuevoRol.getNombre().compareTo("administrador");
                 if (tipoV==0) {
                     return verificado=1;
                 }else{
@@ -108,8 +99,8 @@ public class Usuario {
     
     public Usuario buscarUsuario(String nom,String pass) throws ClassNotFoundException{
         Usuario user = new Usuario();
-        String nombre,contraseña,tipo;
-            int id;
+        String nombre,contraseña;
+            int id,id_rol;
         try {
             Connection cn = Conexion.Cadena();
             String SQL = "SELECT * FROM usuario "+" WHERE nombre ='"+nom+"' ";
@@ -119,9 +110,9 @@ public class Usuario {
                 nombre = rsDatos.getString("nombre");
                 contraseña=rsDatos.getString("contraseña");
                 id=rsDatos.getInt("id_usuario");
-                tipo = rsDatos.getString("tipo");
+                id_rol = rsDatos.getInt("id_rol");
 
-                user.setId(id);user.setNombre(nombre);user.setContraseña(contraseña);user.setTipo(tipo);
+                user.setId(id);user.setNombre(nombre);user.setContraseña(contraseña);user.setId_rol(id_rol);
             }
             else{
                 System.out.println("es nulo");
@@ -134,10 +125,10 @@ public class Usuario {
     }//BuscarSocio
     public void guardarnuevoU(Usuario nuevoU) throws ClassNotFoundException, SQLException{
         Connection connection = Conexion.Cadena();
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO usuario (nombre, contraseña,tipo) VALUES (?,?,?)");
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO usuario (nombre, contraseña,id_rol) VALUES (?,?,?)");
         preparedStatement.setString(1, nuevoU.getNombre());
         preparedStatement.setString(2, nuevoU.getContraseña());
-        preparedStatement.setString(3, nuevoU.getTipo());
+        preparedStatement.setInt(3, nuevoU.getId_rol());
         
          int res = preparedStatement.executeUpdate();
             if (res > 0) {
@@ -151,11 +142,48 @@ public class Usuario {
             connection.close();
 
     }
+     public ArrayList<Usuario> listar(){
+        ArrayList lista = new ArrayList();
+        Usuario usuario;
+        try {
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM usuario";
+            Statement sentencia = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rsDatos = sentencia.executeQuery(SQL);
+            //System.out.println("Correcto");
+            
+            while (rsDatos.next()) {                
+                usuario = new Usuario();
+                usuario.setNombre(rsDatos.getString(2));
+                usuario.setContraseña(rsDatos.getString(3));
+                usuario.setId_rol(rsDatos.getInt(4));
+                lista.add(usuario);
+            }
+            
+        } catch (Exception e) {
+        }
+        
+        return lista;
+    }
 
     /**
      * @param id the id to set
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the id_rol
+     */
+    public int getId_rol() {
+        return id_rol;
+    }
+
+    /**
+     * @param id_rol the id_rol to set
+     */
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
     }
 }

@@ -6,7 +6,7 @@
 package vistas;
 
 import Datos.Resolucion;
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
+//import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;

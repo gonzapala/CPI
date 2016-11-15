@@ -9,6 +9,8 @@ import Datos.Usuario;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import org.jdesktop.swingx.JXTable;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
     /**
      * Creates new form Gestionar_usuarios
      */
+    Usuario modelo = new Usuario();
     public Gestionar_usuarios() {
         initComponents();
     }
@@ -42,7 +45,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         text_contraseña = new javax.swing.JTextField();
         combo_tipoUsuario = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jXTable1 = new org.jdesktop.swingx.JXTable();
+        tabla_usuarios = new org.jdesktop.swingx.JXTable();
         btnListar = new javax.swing.JButton();
         editar_socio = new javax.swing.JButton();
         btnListar1 = new javax.swing.JButton();
@@ -75,7 +78,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
             }
         });
 
-        jXTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,10 +89,15 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jXTable1);
+        jScrollPane1.setViewportView(tabla_usuarios);
 
         btnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checklist.png"))); // NOI18N
         btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
         editar_socio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/compose.png"))); // NOI18N
         editar_socio.setText("Editar");
@@ -188,7 +196,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         Usuario nuevoU = new Usuario();
         nuevoU.setNombre(txt_nombreusuario.getText());
         nuevoU.setContraseña(text_contraseña.getText());
-        nuevoU.setTipo(combo_tipoUsuario.getSelectedItem().toString());
+        //nuevoU.setId_rol(combo_tipoUsuario.getSelectedItem().toString());
         try {
             nuevoU.guardarnuevoU(nuevoU);
             
@@ -203,6 +211,37 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_editar_socioActionPerformed
 
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+       try {
+            // TODO add your handling code here:
+            LlenarTabla(tabla_usuarios);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gestionar_Resoluciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnListarActionPerformed
+    
+    public void LlenarTabla(JXTable tabla) throws ClassNotFoundException{
+        
+        DefaultTableModel modeloT = new DefaultTableModel();
+        tabla.setModel(modeloT);
+        
+        modeloT.addColumn("Nombre");
+        modeloT.addColumn("Usuario");
+        modeloT.addColumn("Tipo");
+        
+        Object[] columna = new Object[3];
+        
+        int numeroRegistros= modelo.listar().size();
+        //        System.out.println(numeroRegistros);
+        for ( int i=0; i<numeroRegistros;i++){
+                columna[0]=modelo.listar().get(i).getNombre();
+                columna[1]=modelo.listar().get(i).getContraseña();
+                columna[2]=modelo.listar().get(i).getId_rol();
+
+                modeloT.addRow(columna);
+        }
+        
+    }//FIn-LlenarTabla
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnListar;
@@ -216,7 +255,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXTable jXTable1;
+    private org.jdesktop.swingx.JXTable tabla_usuarios;
     private javax.swing.JTextField text_contraseña;
     private javax.swing.JTextField txt_nombreusuario;
     // End of variables declaration//GEN-END:variables
