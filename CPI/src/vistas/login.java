@@ -161,7 +161,8 @@ public class login extends javax.swing.JFrame {
                 MP.setTitle("Gestion CPI");
                 MP.setVisible(true);
                 dispose();
-                MP.setLocationRelativeTo(null);
+                //MP.setLocationRelativeTo(null);
+                MP.setExtendedState(MAXIMIZED_BOTH);
                 MP.jMenu_admin.setEnabled(true);
             }else{
                 if (verificacion==2) {

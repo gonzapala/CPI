@@ -5,9 +5,11 @@
  */
 package vistas;
 
+import Datos.Rol;
 import Datos.Socio;
 import Datos.Socio_Crud;
 import java.awt.Panel;
+import java.util.ArrayList;
 
 /**
  *

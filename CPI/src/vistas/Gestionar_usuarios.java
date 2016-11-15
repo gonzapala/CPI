@@ -5,10 +5,18 @@
  */
 package vistas;
 
+import Datos.Rol;
 import Datos.Usuario;
+import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.JXTable;
 
@@ -25,6 +33,9 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
     public Gestionar_usuarios() {
         initComponents();
     }
+
+   
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +60,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         btnListar = new javax.swing.JButton();
         editar_socio = new javax.swing.JButton();
         btnListar1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -59,7 +71,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Contraseña");
 
-        jLabel4.setText("Tipo");
+        jLabel4.setText("Rol");
 
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +83,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Nuevo Usuario");
 
-        combo_tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operador", "Administrador" }));
+        combo_tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
         combo_tipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo_tipoUsuarioActionPerformed(evt);
@@ -111,6 +123,18 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
 
         btnListar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error.png"))); // NOI18N
         btnListar1.setText("Eliminar");
+        btnListar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListar1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cargar Select");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,27 +154,28 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
                                 .addComponent(btnListar1))
                             .addComponent(jScrollPane1))
                         .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton1)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(20, 20, 20))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addGap(36, 36, 36)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addGap(20, 20, 20))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addGap(36, 36, 36)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txt_nombreusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(text_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(text_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(33, 33, 33)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton2)
                                         .addComponent(combo_tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,11 +194,13 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(text_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(combo_tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combo_tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,7 +209,7 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
                             .addComponent(btnListar1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,7 +223,9 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
         Usuario nuevoU = new Usuario();
         nuevoU.setNombre(txt_nombreusuario.getText());
         nuevoU.setContraseña(text_contraseña.getText());
-        //nuevoU.setId_rol(combo_tipoUsuario.getSelectedItem().toString());
+        Rol nuevoRol=new Rol();
+        nuevoRol=nuevoRol.buscarRolNombre(combo_tipoUsuario.getSelectedItem().toString());
+        nuevoU.setId_rol(nuevoRol.getId_rol());
         try {
             nuevoU.guardarnuevoU(nuevoU);
             
@@ -208,9 +237,19 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editar_socioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editar_socioActionPerformed
-        
+       
     }//GEN-LAST:event_editar_socioActionPerformed
-
+    public void windowOpened(WindowEvent e){
+//        Rol roles=new Rol();    
+//        ArrayList listaRoles=roles.listar();
+//        String rol;
+//        int numeroRegistros= roles.listar().size();
+//        System.out.println("cantidad de roles: "+numeroRegistros);
+//        for ( int i=0; i<numeroRegistros;i++){
+//                rol=roles.listar().get(i).getNombre();
+//                combo_tipoUsuario.addItem(rol);
+//        }
+      }
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
        try {
             // TODO add your handling code here:
@@ -219,6 +258,30 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
             Logger.getLogger(Gestionar_Resoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListar1ActionPerformed
+        Rol roles=new Rol();    
+        ArrayList listaRoles=roles.listar();
+        String rol;
+        int numeroRegistros= roles.listar().size();
+        System.out.println("cantidad de roles: "+numeroRegistros);
+        for ( int i=0; i<numeroRegistros;i++){
+                rol=roles.listar().get(i).getNombre();
+                combo_tipoUsuario.addItem(rol);
+        }
+    }//GEN-LAST:event_btnListar1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Rol roles=new Rol();    
+        ArrayList listaRoles=roles.listar();
+        String rol;
+        int numeroRegistros= roles.listar().size();
+        System.out.println("cantidad de roles: "+numeroRegistros);
+        for ( int i=0; i<numeroRegistros;i++){
+                rol=roles.listar().get(i).getNombre();
+                combo_tipoUsuario.addItem(rol);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public void LlenarTabla(JXTable tabla) throws ClassNotFoundException{
         
@@ -246,9 +309,10 @@ public class Gestionar_usuarios extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnListar;
     public javax.swing.JButton btnListar1;
-    private javax.swing.JComboBox<String> combo_tipoUsuario;
+    public javax.swing.JComboBox<String> combo_tipoUsuario;
     public javax.swing.JButton editar_socio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
