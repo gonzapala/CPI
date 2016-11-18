@@ -148,9 +148,6 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordActionPerformed
 
     private void jButtonSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSesionActionPerformed
-
-        String Usuario = "admin";
-        String Contraseña = "admin";
         Usuario nuevoSuaurio = new Usuario();
         String Pass = new String(jPassword.getPassword());
         try {
@@ -238,4 +235,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+    
 }

@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import vistas.login;
 
 /**
  *
@@ -22,7 +23,44 @@ public class Usuario {
     private String nombre;
     private String contraseña;
     private int id_rol;
+    public static String nombreLogueado;
+    public static String ContraseñaLogueada;
     
+    public Usuario() {
+    }
+    /**
+     * @return the nombreLogueado
+     */
+    public String getNombreLogueado() {
+        return nombreLogueado;
+    }
+
+    /**
+     * @param nombreLogueado the nombreLogueado to set
+     */
+    public void setNombreLogueado(String nombreLogueado) {
+        this.nombreLogueado = nombreLogueado;
+    }
+
+    /**
+     * @return the ContraseñaLogueada
+     */
+    public String getContraseñaLogueada() {
+        return ContraseñaLogueada;
+    }
+
+    /**
+     * @param ContraseñaLogueada the ContraseñaLogueada to set
+     */
+    public void setContraseñaLogueada(String ContraseñaLogueada) {
+        this.ContraseñaLogueada = ContraseñaLogueada;
+    }
+    
+    
+
+//    public login getLoginActual() {
+//        return loginActual;
+//    }
     /**
      * @return the id
      */
@@ -68,12 +106,19 @@ public class Usuario {
         Usuario user = new Usuario();
         Rol nuevoRol = new Rol();
         user=user.buscarUsuario(nom, pass);
-        System.out.println(user.getNombre()+user.getContraseña()+user.getId_rol());
+        
         int verificado;
         int usuarioV=user.getNombre().compareTo(nom);
         int passV=user.getContraseña().compareTo(pass);
         if (usuarioV==0) {
             if (passV==0) {
+                //aqui esta verificado el usuario                
+                user.setNombreLogueado(user.getNombre());
+                user.setContraseñaLogueada(user.getContraseña());
+                System.out.println("----------------------------------------------------");
+                System.out.println("Usuario Logueado: "+user.getNombreLogueado());
+                System.out.println("Contraseña Logueada: "+user.getContraseñaLogueada());
+                System.out.println("----------------------------------------------------");
                 int id_rol = user.getId_rol();
                 nuevoRol=nuevoRol.buscarRol(id_rol);
                 int tipoV=nuevoRol.getNombre().compareTo("administrador");
@@ -97,10 +142,15 @@ public class Usuario {
         
     }
     
+    public String devolverLogin(){
+        
+        return nombreLogueado;
+    }
+    
     public Usuario buscarUsuario(String nom,String pass) throws ClassNotFoundException{
         Usuario user = new Usuario();
         String nombre,contraseña;
-            int id,id_rol;
+        int id,id_rol;
         try {
             Connection cn = Conexion.Cadena();
             String SQL = "SELECT * FROM usuario "+" WHERE nombre ='"+nom+"' ";
@@ -111,12 +161,12 @@ public class Usuario {
                 contraseña=rsDatos.getString("contraseña");
                 id=rsDatos.getInt("id_usuario");
                 id_rol = rsDatos.getInt("id_rol");
-                System.out.println("id_usuario nulo" + id);
+                
                 user.setId(id);
                 user.setNombre(nombre);
                 user.setContraseña(contraseña);
                 user.setId_rol(id_rol);
-                 System.out.println("id_usuario nulo" + user.getId());
+                
             }
             else{
                 System.out.println("es nulo");

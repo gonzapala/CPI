@@ -28,10 +28,7 @@ public class Registro {
     private Statement sentencia;
     private ResultSet rsDatos;
 
-    public Registro(int idR, float hora) {
-
-        this.id_reg = idR;
-        this.hora = hora;
+    public Registro() {
     }
 
     /**
@@ -67,5 +64,30 @@ public class Registro {
         
         //return Registro;
     }
+    public void gaurdarReg(int id_user, int id_desc) {                                                   
 
+        try {
+            
+            Connection connection = Conexion.Cadena();
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO registro (id_usuario) VALUES (?)");
+            
+            preparedStatement.setInt(1, id_user);
+            
+            //falta hora
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                System.out.println("Se Guardo correctamente el registro.");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de Operación");
+
+            }
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
 }
