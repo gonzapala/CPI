@@ -19,6 +19,8 @@ import generadorPDF.generarPDF;
 import java.util.Calendar;
 import java.util.Date;
 import Datos.Pagos;
+import Datos.Usuario;
+import java.sql.SQLException;
 
 /**
  *
@@ -37,6 +39,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     PreparedStatement preparedStatement;//para preparar las querys
     ResultSet resultSet;//para recibir resultados de una cosulta
     Socio NS = new Socio();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +65,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_ape = new javax.swing.JLabel();
         txt_nump = new javax.swing.JLabel();
+        btnGuardarRegistro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         labellegajo = new javax.swing.JLabel();
         txtLegajo1 = new javax.swing.JTextField();
@@ -139,46 +143,59 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Nombre:");
 
-        jLabel11.setText("Apellido");
+        jLabel11.setText("Apellido:");
+
+        btnGuardarRegistro.setText("Guardar Registro");
+        btnGuardarRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarRegistroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPagoLayout = new javax.swing.GroupLayout(panelPago);
         panelPago.setLayout(panelPagoLayout);
         panelPagoLayout.setHorizontalGroup(
             panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPagoLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(160, 160, 160)
-                                .addComponent(jLabel11))
-                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(panelPagoLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(30, 30, 30)
-                            .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(68, 68, 68)
-                            .addComponent(jButton1))
-                        .addGroup(panelPagoLayout.createSequentialGroup()
-                            .addComponent(labelMontoTotal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtMontoTotal)
-                            .addGap(174, 174, 174)
-                            .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPagoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardarRegistro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addGap(167, 167, 167))
+                .addGap(97, 97, 97))
+            .addGroup(panelPagoLayout.createSequentialGroup()
+                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(labelMontoTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPagoLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jLabel11))))
+                            .addComponent(jLabel10)
+                            .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelPagoLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(68, 68, 68)
+                                    .addComponent(jButton1))
+                                .addGroup(panelPagoLayout.createSequentialGroup()
+                                    .addGap(71, 71, 71)
+                                    .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         panelPagoLayout.setVerticalGroup(
             panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,23 +211,21 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                         .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11))
+                        .addGap(10, 10, 10)
                         .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)))
-                .addGap(3, 3, 3)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelMontoTotal)
-                    .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                        .addGap(5, 5, 5)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelMontoTotal)
+                            .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)))
+                .addGap(45, 45, 45)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
+                    .addComponent(btnGuardarRegistro)
                     .addComponent(btnSalir))
                 .addGap(52, 52, 52))
         );
@@ -526,21 +541,20 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     public void deshabilitarCampos() {
 
         //TXT
-     //   txtNumeroPago.setEnabled(false);
+        //   txtNumeroPago.setEnabled(false);
         txtMontoTotal.setEnabled(false);
-       // fecha_pago.setEnabled(false);
+        // fecha_pago.setEnabled(false);
 
         //COMBOBOX
 //        Tipo.setEnabled(false);
-       // Forma.setEnabled(false);
+        // Forma.setEnabled(false);
         //CantidadCuotas.setEnabled(false);
-
         //LABEL
-    //    labelTipol.setEnabled(false);
+        //    labelTipol.setEnabled(false);
         //labelAño.setEnabled(false);
         //labelCantCuotas.setEnabled(false);
         //labelForma.setEnabled(false);
-       // labelNumeroPago.setEnabled(false);
+        // labelNumeroPago.setEnabled(false);
         labelMontoTotal.setEnabled(false);
 
         //BOTON
@@ -553,37 +567,33 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     public void habilitarCampos() {
 
         //TXT
-      //  txtNumeroPago.setEnabled(true);
+        //  txtNumeroPago.setEnabled(true);
         txtMontoTotal.setEnabled(true);
 //        fecha_pago.setEnabled(true);
 
         //COMBOBOX
 //        Tipo.setEnabled(true);
-  //      Forma.setEnabled(true);
-    //    CantidadCuotas.setEnabled(true);
-
+        //      Forma.setEnabled(true);
+        //    CantidadCuotas.setEnabled(true);
         //LABEL
-  //      labelTipol.setEnabled(true);
-      //  labelAño.setEnabled(true);
-       // labelCantCuotas.setEnabled(true);
+        //      labelTipol.setEnabled(true);
+        //  labelAño.setEnabled(true);
+        // labelCantCuotas.setEnabled(true);
         //labelForma.setEnabled(true);
-     //   labelNumeroPago.setEnabled(true);
+        //   labelNumeroPago.setEnabled(true);
         labelMontoTotal.setEnabled(true);
 
         //BOTON
         btnGuardar.setEnabled(true);
 
     }
-    
-    
-    
+
     // ------- Derecho de Ejercicio
     private void btnBuscarEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEjercicioActionPerformed
-          String Leg = txtLegajo1.getText();
-      
+        String Leg = txtLegajo1.getText();
 
         try {
-             NS = NS.BuscarX(Leg);
+            NS = NS.BuscarX(Leg);
 
             System.out.println(NS.getId_socio());
             if (NS.getEstado().compareTo("activo") == 0) {
@@ -625,35 +635,30 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 System.out.println("El mes actual es: " + mesActual);
 
                 int CantM = mesActual - ultFecha_mes - 1;
-                
-               Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
-               nresolucion.verfificarPago2(Leg);
-               Socio socioP = new Socio();
-               socioP.cambiarEstado(NS, 1);
-               
-               if(NS.getEstado()!= "activo"){
-                    
+
+                Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
+                nresolucion.verfificarPago2(Leg);
+                Socio socioP = new Socio();
+                socioP.cambiarEstado(NS, 1);
+
+                if (NS.getEstado() != "activo") {
+
                     txtEstadoS.setText("El socio es Moroso");
                     txtmsj.setText("Debe pagar Sus deudas");
-                    txtcantC.setText("El socio debe "+ CantM+" Cuotas");
+                    txtcantC.setText("El socio debe " + CantM + " Cuotas");
                     deshabilitarCampos();
-                    
-            } else {
+
+                } else {
                     txtEstadoS.setText("El socio está al dia");
-                    
-               
-               }
-               
-                             
-              
-                
+
+                }
+
                 if (CantM > 0) {
                     System.out.println("El Socio debe " + CantM + " Meses");
                 } else {
                     System.out.println("El socio esta al dia");
                 }
 
-  
                 String CantMeses = String.valueOf(CantM);
 
                 txtNomE.setText(nombreS);
@@ -662,10 +667,8 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 txtUltimoPagoE.setText(ultFecha);
                 int idSocioD = NS.getId_socio();
 
-               String idsocio = String.valueOf(idSocioD);
+                String idsocio = String.valueOf(idSocioD);
                 //txtIdE.setText(idsocio);
-                   
-              
 
                 habilitarCampos();
 
@@ -676,48 +679,47 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Gestionar_Pagos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_btnBuscarEjercicioActionPerformed
 
     private void btnGuardarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEActionPerformed
-        
-            String Leg = txtLegajo1.getText();
+
+        String Leg = txtLegajo1.getText();
+
         try {
-              NS = NS.BuscarX(Leg);
-              String Id=  Integer.toString(NS.getId_socio());
-           
+            NS = NS.BuscarX(Leg);
+            String Id = Integer.toString(NS.getId_socio());
+
             Date fechaActual = new Date();
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-            String fechap = formatoFecha.format(fechaActual);       
-            
+            String fechap = formatoFecha.format(fechaActual);
+
             Calendar fecha = Calendar.getInstance();
-            int añoActual = fecha.get(Calendar.YEAR);     
-           // int mesActual = fecha.get(Calendar.MONTH);
-           
-            String TipoP= "Cuota de Ejercicio";
-           
+            int añoActual = fecha.get(Calendar.YEAR);
+            // int mesActual = fecha.get(Calendar.MONTH);
+
+            String TipoP = "Cuota de Ejercicio";
+
             System.out.println(Leg);
-            
+
             connection = Conexion.Cadena();
             preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio,tipo) VALUES (?,?,?,?,?)");
- 
-          //String numP= txtNumeroPago.getText();
-           String numP = añoActual+ "/" +Leg;
+
+            //String numP= txtNumeroPago.getText();
+            String numP = añoActual + "/" + Leg;
             preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
-           // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
-           // preparedStatement.setString(3, Forma.getSelectedItem().toString());
-           //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
-            preparedStatement.setString(2, txtMontoTotal1.getText());              
-          
-          //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-          //  String fecha = formatoFecha.format(fecha_pago.getDate());
+            // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
+            // preparedStatement.setString(3, Forma.getSelectedItem().toString());
+            //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
+            preparedStatement.setString(2, txtMontoTotal1.getText());
+
+            //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            //  String fecha = formatoFecha.format(fecha_pago.getDate());
             preparedStatement.setString(3, fechap);
             // preparedStatement.setString(6, fecha.getDateFormatString());
-            preparedStatement.setString(4,Id);
-             preparedStatement.setString(5,TipoP);
-                          
-                                   
+            preparedStatement.setString(4, Id);
+            preparedStatement.setString(5, TipoP);
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
@@ -731,15 +733,15 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 //generar PDF
                 generarPDF pdf = new generarPDF();
                 pdf.generarPDF_Resolucion(NS, nuevaR.getNumero_resolucion(), 1);
-                    // Estado de Ejercicio 
-                    
-                JOptionPane.showMessageDialog(null, "Pago Realizado");
-                
-                 int estadoES=2;
-                   Socio nuevoS = new Socio();
-                nuevoS.cambiarEstado(NS, estadoES);
-                
+                // Estado de Ejercicio 
 
+                JOptionPane.showMessageDialog(null, "Pago Realizado");
+
+                int estadoES = 2;
+                Socio nuevoS = new Socio();
+                nuevoS.cambiarEstado(NS, estadoES);
+
+                //   guardarRegistro(id_U);
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
                 //LimpiarCajas();
@@ -750,22 +752,30 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_btnGuardarEActionPerformed
 
+    /*   public void guardarRegistro(int idU) throws ClassNotFoundException, SQLException {
+
+        int idReg = 0;
+        connection = Conexion.Cadena();
+        preparedStatement = connection.prepareStatement("INSERT INTO registro (id_registro, id_usuario) VALUES (?,?)");
+
+        preparedStatement.setInt(1, idReg);
+        preparedStatement.setInt(2, idU);
+        System.out.println("se guardo correctamente");
+    }*/
+
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-     // ---------------------PAGO DE Matricula
-    
-    
+    // ---------------------PAGO DE Matricula
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-     
         String Leg = txtLegajo.getText();
-      
 
         try {
             NS = NS.BuscarX(Leg);
@@ -773,15 +783,13 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             System.out.println(NS.getId_socio());
             if (NS.getEstado().compareTo("aspirante") == 0) {
                 System.out.println(NS.getApellido());
-               // String Id = Integer.toString(NS.getId_socio());
-                String nomS= NS.getNombre();
-                String apeS= NS.getApellido();
+                // String Id = Integer.toString(NS.getId_socio());
+                String nomS = NS.getNombre();
+                String apeS = NS.getApellido();
                 //txtID_Socio.setText(Id);
                 txt_nom.setText(nomS);
                 txt_ape.setText(apeS);
-                
-                
-                
+
                 habilitarCampos();
 
             } else {
@@ -799,63 +807,55 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-          // TODO add your handling code here:
-            String Lega = txtLegajo.getText();   
+        // TODO add your handling code here:
+        String Lega = txtLegajo.getText();
         try {
-              NS = NS.BuscarX(Lega);
-              String Id=  Integer.toString(NS.getId_socio());
-           
+            NS = NS.BuscarX(Lega);
+            String Id = Integer.toString(NS.getId_socio());
+
             Date fechaActual = new Date();
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-            String fechap = formatoFecha.format(fechaActual);       
-            
+            String fechap = formatoFecha.format(fechaActual);
+
             Calendar fecha = Calendar.getInstance();
             int año = fecha.get(Calendar.YEAR);
-            
-            String TipoP= "matricula";
-            
-            
+
+            String TipoP = "matricula";
+
             System.out.println(Lega);
-            
+
             connection = Conexion.Cadena();
             preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio,tipo) VALUES (?,?,?,?,?)");
- 
-          //String numP= txtNumeroPago.getText();
-           String numP = año+ "/" +Lega;
-            preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
-           // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
-           // preparedStatement.setString(3, Forma.getSelectedItem().toString());
-           //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
-            preparedStatement.setString(2, txtMontoTotal.getText());              
-          
 
-           
-            
-          //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-          //  String fecha = formatoFecha.format(fecha_pago.getDate());
+            //String numP= txtNumeroPago.getText();
+            String numP = año + "/" + Lega;
+            preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
+            // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
+            // preparedStatement.setString(3, Forma.getSelectedItem().toString());
+            //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
+            preparedStatement.setString(2, txtMontoTotal.getText());
+
+            //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            //  String fecha = formatoFecha.format(fecha_pago.getDate());
             preparedStatement.setString(3, fechap);
             // preparedStatement.setString(6, fecha.getDateFormatString());
             preparedStatement.setString(4, Id);
-             preparedStatement.setString(5, TipoP);
-            
+            preparedStatement.setString(5, TipoP);
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
                 System.out.println(NS.getId_socio());
                 NS.setEstado("socio");
-                
+
                 //Estado del Socio
-                int estadoES=2;
-                   Socio nuevoS = new Socio();
+                int estadoES = 2;
+                Socio nuevoS = new Socio();
                 nuevoS.cambiarEstado(NS, estadoES);
-                
-                
+
                 // 1 = Matriculacion
                 // 2 = suspension
                 int estadoE = 1;
-                
-             
-                
+
                 Resolucion nuevaR = new Resolucion();
                 nuevaR = nuevaR.GenerarResolucion(NS, estadoE);
                 //generar PDF
@@ -864,9 +864,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
 
-              
-                
-                
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
                 //LimpiarCajas();
@@ -883,13 +880,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoTotalActionPerformed
 
-    
-    
     // ---------------------PAGO DE DEUDA
     private void btn_buscarDeudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarDeudaActionPerformed
-       
+
         String Leg = TxtLeg.getText();
-      
 
         try {
             NS = NS.BuscarX(Leg);
@@ -900,75 +894,64 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 String Id = Integer.toString(NS.getId_socio());
                 String nombreS = NS.getNombre();
                 String apeS = NS.getApellido();
-                
+
                 Date fechaActual = new Date();
                 SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
                 //String fechap = formatoFecha.format(fechaActual);
-                
-                            
-                
-           
-              Calendar fecha = Calendar.getInstance(); //FECHA ACTUAL
-          //    Calendar FechaDebe = Calendar.getInstance();
+
+                Calendar fecha = Calendar.getInstance(); //FECHA ACTUAL
+                //    Calendar FechaDebe = Calendar.getInstance();
                 System.out.println(fecha);
-                
+
                 int añoActual = fecha.get(Calendar.YEAR);
-                int mesActual = fecha.get(Calendar.MONTH)+1;
+                int mesActual = fecha.get(Calendar.MONTH) + 1;
                 int idSocio = NS.getId_socio();
-                
 
                 Pagos deuda = new Pagos();
                 deuda = deuda.buscarUltimoPago(idSocio);
 
                 String FechaD = deuda.getFecha();
                 System.out.println(FechaD);  // FECHA QUE DEBE EL SOCIO
-                
-              
-            String ultFecha = deuda.getFecha();
-            String[] parts = ultFecha.split("-");
-            String parts1_Año = parts[0]; 
-            String parts2_mes = parts[1]; 
-            String parts3_dia = parts[2];
-            
-            int ultFecha_año = Integer.parseInt(parts1_Año);
-            int ultFecha_mes = Integer.parseInt(parts2_mes);
-            int ultFecha_dia = Integer.parseInt(parts3_dia);               
-                
-            System.out.println("el mes que debe el socio es;"+ ultFecha_mes);
-            System.out.println("El mes actual es: "+ mesActual);
-            
-            int CantM= mesActual-ultFecha_mes -1;
-            if(CantM>0){
-             System.out.println("El Socio debe "+ CantM+" Meses");
-            }
-            else{
-             System.out.println("El socio esta al dia");
-            }
-            
-                
-             //   int MesD= FechaD.get(Calendar.MONTH);
+
+                String ultFecha = deuda.getFecha();
+                String[] parts = ultFecha.split("-");
+                String parts1_Año = parts[0];
+                String parts2_mes = parts[1];
+                String parts3_dia = parts[2];
+
+                int ultFecha_año = Integer.parseInt(parts1_Año);
+                int ultFecha_mes = Integer.parseInt(parts2_mes);
+                int ultFecha_dia = Integer.parseInt(parts3_dia);
+
+                System.out.println("el mes que debe el socio es;" + ultFecha_mes);
+                System.out.println("El mes actual es: " + mesActual);
+
+                int CantM = mesActual - ultFecha_mes - 1;
+                if (CantM > 0) {
+                    System.out.println("El Socio debe " + CantM + " Meses");
+                } else {
+                    System.out.println("El socio esta al dia");
+                }
+
+                //   int MesD= FechaD.get(Calendar.MONTH);
 //                System.out.println( "Mes que debe: "+MesD);
-            String CantMeses =  String.valueOf(CantM);
-            
+                String CantMeses = String.valueOf(CantM);
+
                 txtnom.setText(nombreS);
                 txtape.setText(apeS);
                 txtUltimoPago.setText(ultFecha);
-                int idSocioD= NS.getId_socio();
+                int idSocioD = NS.getId_socio();
                 String idsocio = String.valueOf(idSocioD);
-               // txtIdS.setText(idsocio);
+                // txtIdS.setText(idsocio);
 
-                    if(CantM <0){
-                        // No tendra que mostrar nunca porque si el socio no debe no deberia entrar
-                         txtMesDebe.setText("1");
-                        System.out.println("Socio al dia");
-                    }
-                    else{
-                      txtMesDebe.setText(CantMeses+" Meses");
-                    }
-              
-                
-                
-                
+                if (CantM < 0) {
+                    // No tendra que mostrar nunca porque si el socio no debe no deberia entrar
+                    txtMesDebe.setText("1");
+                    System.out.println("Socio al dia");
+                } else {
+                    txtMesDebe.setText(CantMeses + " Meses");
+                }
+
                 habilitarCampos();
 
             } else {
@@ -978,9 +961,8 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Gestionar_Pagos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_btn_buscarDeudaActionPerformed
 
     private void TxtLegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtLegActionPerformed
@@ -988,45 +970,41 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtLegActionPerformed
 
     private void btnGuardarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDActionPerformed
-       
-        
-          
-          String Lega = TxtLeg.getText();   
+
+        String Lega = TxtLeg.getText();
         try {
-              NS = NS.BuscarX(Lega);
-              String Id=  Integer.toString(NS.getId_socio());
-           
+            NS = NS.BuscarX(Lega);
+            String Id = Integer.toString(NS.getId_socio());
+
             Date fechaActual = new Date();
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-            String fechap = formatoFecha.format(fechaActual);       
-            
+            String fechap = formatoFecha.format(fechaActual);
+
             Calendar fecha = Calendar.getInstance();
-            int añoActual = fecha.get(Calendar.YEAR);     
-           // int mesActual = fecha.get(Calendar.MONTH);
-           
-            String TipoP= "Pago de Deuda";
-           
+            int añoActual = fecha.get(Calendar.YEAR);
+            // int mesActual = fecha.get(Calendar.MONTH);
+
+            String TipoP = "Pago de Deuda";
+
             System.out.println(Lega);
-            
+
             connection = Conexion.Cadena();
             preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio,tipo) VALUES (?,?,?,?,?)");
- 
-          //String numP= txtNumeroPago.getText();
-           String numP = añoActual+ "/" +Lega;
+
+            //String numP= txtNumeroPago.getText();
+            String numP = añoActual + "/" + Lega;
             preparedStatement.setString(1, numP);   //txtNumeroPago.getText()
-           // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
-           // preparedStatement.setString(3, Forma.getSelectedItem().toString());
-           //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
-            preparedStatement.setString(2, MontoTotalD.getText());              
-          
-          //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-          //  String fecha = formatoFecha.format(fecha_pago.getDate());
+            // preparedStatement.setString(2, Tipo.getSelectedItem().toString());
+            // preparedStatement.setString(3, Forma.getSelectedItem().toString());
+            //preparedStatement.setString(4, CantidadCuotas.getSelectedItem().toString());
+            preparedStatement.setString(2, MontoTotalD.getText());
+
+            //  SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            //  String fecha = formatoFecha.format(fecha_pago.getDate());
             preparedStatement.setString(3, fechap);
             // preparedStatement.setString(6, fecha.getDateFormatString());
-            preparedStatement.setString(4,Id);
-             preparedStatement.setString(5,TipoP);
-                          
-                                   
+            preparedStatement.setString(4, Id);
+            preparedStatement.setString(5, TipoP);
 
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
@@ -1042,11 +1020,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 pdf.generarPDF_Resolucion(NS, nuevaR.getNumero_resolucion(), 1);
 
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
-                
-                 int estadoES=2;
-                   Socio nuevoS = new Socio();
+
+                int estadoES = 2;
+                Socio nuevoS = new Socio();
                 nuevoS.cambiarEstado(NS, estadoES);
-                
 
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
@@ -1059,15 +1036,54 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
 
-       
+
     }//GEN-LAST:event_btnGuardarDActionPerformed
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir2ActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
+    //guardar registro de pago
+    private void btnGuardarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistroActionPerformed
 
+        int idReg = 0;
+        String nombre = "nom"; //user.getNombre();
+        String contraseña = "pass"; //user.getContraseña();
+        Usuario user = new Usuario();
+        try {
+            connection = Conexion.Cadena();
+            preparedStatement = connection.prepareStatement("INSERT INTO registro (id_registro, id_usuario) VALUES (?,?)");
+
+            user = user.buscarUsuario(nombre, contraseña);
+            System.out.println("Id Usuario: " + user.getNombre());
+            preparedStatement.setInt(1, idReg);
+            System.out.println("Id Registro: " + idReg);
+            //preparedStatement.setInt(2, user.getId());
+            preparedStatement.setString(2, user.getNombre());
+            
+            //falta hora
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                System.out.println("Se Guardo orrectamente");
+                JOptionPane.showMessageDialog(null, "Registro Guardado");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de Operación");
+
+            }
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    /*
+    }//GEN-LAST:event_btnGuardarRegistroActionPerformed
+
+*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MontoTotalD;
     private javax.swing.JTextField TxtLeg;
@@ -1075,6 +1091,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardarD;
     private javax.swing.JButton btnGuardarE;
+    private javax.swing.JButton btnGuardarRegistro;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnSalir2;
