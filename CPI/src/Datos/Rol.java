@@ -6,6 +6,7 @@
 package Datos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,5 +143,23 @@ public class Rol {
         
         return lista;
     }
-    
+     public void guardarnuevoR(Rol nuevoR) throws ClassNotFoundException, SQLException{
+        Connection connection = Conexion.Cadena();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO rol (nombre, descripcion) VALUES (?,?)");
+        preparedStatement.setString(1, nuevoR.getNombre());
+        preparedStatement.setString(2, nuevoR.getDescripcion());
+        
+        
+         int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Rol Guardado");
+                //LimpiarCajas();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Guardar Usuario");
+                //LimpiarCajas();
+            }
+
+            connection.close();
+
+    }
 }
