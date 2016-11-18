@@ -19,6 +19,8 @@ import generadorPDF.generarPDF;
 import java.util.Calendar;
 import java.util.Date;
 import Datos.Pagos;
+import Datos.Usuario;
+import java.sql.SQLException;
 
 /**
  *
@@ -37,6 +39,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     PreparedStatement preparedStatement;//para preparar las querys
     ResultSet resultSet;//para recibir resultados de una cosulta
     Socio NS = new Socio();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +65,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_ape = new javax.swing.JLabel();
         txt_nump = new javax.swing.JLabel();
+        btnGuardarRegistro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         labellegajo = new javax.swing.JLabel();
         txtLegajo1 = new javax.swing.JTextField();
@@ -139,46 +143,59 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Nombre:");
 
-        jLabel11.setText("Apellido");
+        jLabel11.setText("Apellido:");
+
+        btnGuardarRegistro.setText("Guardar Registro");
+        btnGuardarRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarRegistroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPagoLayout = new javax.swing.GroupLayout(panelPago);
         panelPago.setLayout(panelPagoLayout);
         panelPagoLayout.setHorizontalGroup(
             panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPagoLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(160, 160, 160)
-                                .addComponent(jLabel11))
-                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(panelPagoLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(30, 30, 30)
-                            .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(68, 68, 68)
-                            .addComponent(jButton1))
-                        .addGroup(panelPagoLayout.createSequentialGroup()
-                            .addComponent(labelMontoTotal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtMontoTotal)
-                            .addGap(174, 174, 174)
-                            .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPagoLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPagoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGuardar)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardarRegistro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addGap(167, 167, 167))
+                .addGap(97, 97, 97))
+            .addGroup(panelPagoLayout.createSequentialGroup()
+                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(labelMontoTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPagoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPagoLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPagoLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jLabel11))))
+                            .addComponent(jLabel10)
+                            .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelPagoLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(txtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(68, 68, 68)
+                                    .addComponent(jButton1))
+                                .addGroup(panelPagoLayout.createSequentialGroup()
+                                    .addGap(71, 71, 71)
+                                    .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         panelPagoLayout.setVerticalGroup(
             panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,23 +211,21 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                         .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11))
+                        .addGap(10, 10, 10)
                         .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelPagoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_ape, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addComponent(txt_nump, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)))
-                .addGap(3, 3, 3)
-                .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelMontoTotal)
-                    .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                        .addGap(5, 5, 5)
+                        .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelMontoTotal)
+                            .addComponent(txtMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)))
+                .addGap(45, 45, 45)
                 .addGroup(panelPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
+                    .addComponent(btnGuardarRegistro)
                     .addComponent(btnSalir))
                 .addGap(52, 52, 52))
         );
@@ -619,12 +634,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
                 Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
                 nresolucion.verfificarPago2(Leg);
+                Socio socioP = new Socio();
+                socioP.cambiarEstado(NS, 1);
 
-                //  Socio socioP = new Socio();
-                // socioP.cambiarEstado(NS, 1);
-                System.out.println("ESTADOOOOO :" + NS.getEstado());
-
-                if (NS.getEstado() == "moroso") {
+                if (NS.getEstado() != "activo") {
 
                     txtEstadoS.setText("El socio es Moroso");
                     txtmsj.setText("Debe pagar Sus deudas");
@@ -633,7 +646,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
                 } else {
                     txtEstadoS.setText("El socio está al dia");
-                    habilitarCampos();
 
                 }
 
@@ -670,6 +682,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private void btnGuardarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEActionPerformed
 
         String Leg = txtLegajo1.getText();
+
         try {
             NS = NS.BuscarX(Leg);
             String Id = Integer.toString(NS.getId_socio());
@@ -724,6 +737,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 Socio nuevoS = new Socio();
                 nuevoS.cambiarEstado(NS, estadoES);
 
+                //   guardarRegistro(id_U);
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
                 //LimpiarCajas();
@@ -737,6 +751,17 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_btnGuardarEActionPerformed
+
+    /*   public void guardarRegistro(int idU) throws ClassNotFoundException, SQLException {
+
+        int idReg = 0;
+        connection = Conexion.Cadena();
+        preparedStatement = connection.prepareStatement("INSERT INTO registro (id_registro, id_usuario) VALUES (?,?)");
+
+        preparedStatement.setInt(1, idReg);
+        preparedStatement.setInt(2, idU);
+        System.out.println("se guardo correctamente");
+    }*/
 
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
         System.exit(0);
@@ -1015,7 +1040,46 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
+    //guardar registro de pago
+    private void btnGuardarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistroActionPerformed
 
+        int idReg = 0;
+        String nombre = "nom"; //user.getNombre();
+        String contraseña = "pass"; //user.getContraseña();
+        Usuario user = new Usuario();
+        try {
+            connection = Conexion.Cadena();
+            preparedStatement = connection.prepareStatement("INSERT INTO registro (id_registro, id_usuario) VALUES (?,?)");
+
+            user = user.buscarUsuario(nombre, contraseña);
+            System.out.println("Id Usuario: " + user.getNombre());
+            preparedStatement.setInt(1, idReg);
+            System.out.println("Id Registro: " + idReg);
+            //preparedStatement.setInt(2, user.getId());
+            preparedStatement.setString(2, user.getNombre());
+            
+            //falta hora
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                System.out.println("Se Guardo orrectamente");
+                JOptionPane.showMessageDialog(null, "Registro Guardado");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de Operación");
+
+            }
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    /*
+    }//GEN-LAST:event_btnGuardarRegistroActionPerformed
+
+*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MontoTotalD;
     private javax.swing.JTextField TxtLeg;
@@ -1023,6 +1087,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardarD;
     private javax.swing.JButton btnGuardarE;
+    private javax.swing.JButton btnGuardarRegistro;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnSalir2;

@@ -5,9 +5,11 @@
  */
 package vistas;
 
+import Datos.Rol;
 import Datos.Socio;
 import Datos.Socio_Crud;
 import java.awt.Panel;
+import java.util.ArrayList;
 
 /**
  *
@@ -46,6 +48,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu_admin = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenu6.setText("File");
@@ -165,6 +168,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu_admin.add(jMenuItem4);
 
+        jMenuItem8.setText("Gestionar Roles");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu_admin.add(jMenuItem8);
+
         jMenuBar2.add(jMenu_admin);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit-1.png"))); // NOI18N
@@ -255,6 +266,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        Gestionar_roles ventana =new Gestionar_roles();
+        pane1.add(ventana);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -275,6 +292,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     public javax.swing.JMenu jMenu_admin;
     public javax.swing.JDesktopPane pane1;
     private org.jdesktop.swingx.painter.RectanglePainter rectanglePainter1;
