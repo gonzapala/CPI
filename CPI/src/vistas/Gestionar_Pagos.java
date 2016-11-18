@@ -254,12 +254,6 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         jLabel16.setText("Estado ");
 
-        txtEstadoS.setText("jLabel9");
-
-        txtcantC.setText("jLabel14");
-
-        txtmsj.setText("jLabel9");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -286,7 +280,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                             .addComponent(txtEstadoS)
                             .addComponent(jLabel16)
                             .addComponent(txtcantC))))
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -343,7 +337,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                     .addComponent(txtEstadoE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtcantC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelMontoTotal1)
                     .addComponent(txtmsj))
@@ -573,6 +567,8 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         //BOTON
         btnGuardar.setEnabled(true);
+        btnGuardarE.setEnabled(true);
+        txtMontoTotal1.setEnabled(true);
 
     }
 

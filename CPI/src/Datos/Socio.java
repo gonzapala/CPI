@@ -41,13 +41,31 @@ public class Socio {
     public Socio(){
     }
     
-    public Socio (String leg, String nom, String ape, int dni){
+    public Socio (int id, String leg, String nom, String ape, int dniS,int tel, String dom, String estadoP,String cat,String est, String cuil,String mail,String fechnac ){
+        this.id_socio=id;
         this.legajo_socio=leg;
         this.nombre=nom;
         this.apellido=ape;
-        this.dni=dni;
+        this.dni=dniS;
+        this.telefono=tel;
+        this.domicilio=dom;
+        this.estado_pago=estadoP;
+        this.categoria=cat;
+        this.estado=est;
+        this.cuilcuit=cuil;
+        this.email=mail;
+        this.fechaNac=fechnac;   
+        
         
     }
+    
+    
+//    static public void assertEquals(String message, Object expected, Object actual) {
+//    if (expected == null && actual == null)
+//        System.out.println("son nulos");
+//        return;
+//    
+//    }
 
     /**
      * @return the id_socio
@@ -247,18 +265,18 @@ public class Socio {
 //                System.out.println(tel);
                 
                 nuevoSocio.nombre=nom;
-                nuevoSocio.apellido=ape;
-                nuevoSocio.dni=dni_socio;
-                nuevoSocio.estado_pago=estado_pago;
-                nuevoSocio.categoria=categ;
-                nuevoSocio.estado=estado;
-                nuevoSocio.cuilcuit=cuilcuit;
-                nuevoSocio.setLegajo_socio(leg);
-                nuevoSocio.telefono=tel;
-                nuevoSocio.id_socio=idS;                
-                nuevoSocio.setFechaNac(fNac);
-                nuevoSocio.setDomicilio(dom);
-                nuevoSocio.setEmail(email);
+               // nuevoSocio.apellido=ape;
+            //    nuevoSocio.dni=dni_socio;
+              //  nuevoSocio.estado_pago=estado_pago;
+             //   nuevoSocio.categoria=categ;
+             //   nuevoSocio.estado=estado;
+              //  nuevoSocio.cuilcuit=cuilcuit;
+               nuevoSocio.setLegajo_socio(leg);
+            //    nuevoSocio.telefono=tel;
+            //    nuevoSocio.id_socio=idS;                
+             //   nuevoSocio.setFechaNac(fNac);
+              //  nuevoSocio.setDomicilio(dom);
+              //  nuevoSocio.setEmail(email);
                 
             }else{
                 System.out.println("es nulo");
