@@ -74,6 +74,31 @@ public class Permiso {
         }
         return nuevoRol;
     }
+    public Permiso buscarpermisoNombre(String nom_per){
+    
+        Permiso nuevoPer=new Permiso();
+        try {
+            Connection cn = Conexion.Cadena();
+            String SQL = "SELECT * FROM permiso"+ " WHERE nombre='"+nom_per+"' ";
+            Statement sentencia = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rsDatos = sentencia.executeQuery(SQL);
+            String nom, desc;
+            int idR;
+            if (rsDatos.first()) {
+                idR=rsDatos.getInt("id_permiso");
+                nom=rsDatos.getString("nombre");
+                nuevoPer.setId_permiso(idR);
+                nuevoPer.setNombre(nom);
+            }else{
+                System.out.println("es nulo");
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println("No Correcto");
+        }
+        return nuevoPer;
+    }
     public ArrayList<Permiso> listar(){
         ArrayList lista = new ArrayList();
         Permiso permiso;

@@ -112,7 +112,10 @@ public class Usuario {
                 id=rsDatos.getInt("id_usuario");
                 id_rol = rsDatos.getInt("id_rol");
 
-                user.setId(id);user.setNombre(nombre);user.setContraseña(contraseña);user.setId_rol(id_rol);
+                user.setId(id);
+                user.setNombre(nombre);
+                user.setContraseña(contraseña);
+                user.setId_rol(id_rol);
             }
             else{
                 System.out.println("es nulo");

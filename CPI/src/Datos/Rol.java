@@ -162,4 +162,23 @@ public class Rol {
             connection.close();
 
     }
+     public void guardarRol_permiso(int id_rol,int id_permiso) throws ClassNotFoundException, SQLException{
+        Connection connection = Conexion.Cadena();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO rol_permiso (id_rol, id_permiso) VALUES (?,?)");
+        preparedStatement.setInt(1, id_rol);
+        preparedStatement.setInt(2, id_permiso);
+        
+        
+         int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Rol Guardado");
+                //LimpiarCajas();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Guardar Usuario");
+                //LimpiarCajas();
+            }
+
+            connection.close();
+
+    }
 }
