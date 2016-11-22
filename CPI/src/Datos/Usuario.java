@@ -187,7 +187,14 @@ public class Usuario {
          int res = preparedStatement.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Usuario Guardado");
-                //LimpiarCajas();
+                //registro de actividad
+                Usuario user = new Usuario();
+                String nombre = user.getNombreLogueado();
+                String contraseña =  user.getContraseñaLogueada();
+                user = user.buscarUsuario(nombre, contraseña);
+                int id_desc=3;
+                Registro reg= new Registro();
+                reg.gaurdarReg(user.getId(), id_desc);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al Guardar Usuario");
                 //LimpiarCajas();

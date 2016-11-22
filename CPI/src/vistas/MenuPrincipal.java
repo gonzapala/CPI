@@ -49,6 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu_admin = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenu6.setText("File");
@@ -176,6 +177,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu_admin.add(jMenuItem8);
 
+        jMenuItem5.setText("Registro de Actividad");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu_admin.add(jMenuItem5);
+
         jMenuBar2.add(jMenu_admin);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit-1.png"))); // NOI18N
@@ -272,6 +281,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Listar_Registros ventana =new Listar_Registros();
+        pane1.add(ventana);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -291,6 +306,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     public javax.swing.JMenu jMenu_admin;

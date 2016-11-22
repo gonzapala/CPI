@@ -265,18 +265,18 @@ public class Socio {
 //                System.out.println(tel);
                 
                 nuevoSocio.nombre=nom;
-               // nuevoSocio.apellido=ape;
-            //    nuevoSocio.dni=dni_socio;
-              //  nuevoSocio.estado_pago=estado_pago;
-             //   nuevoSocio.categoria=categ;
-             //   nuevoSocio.estado=estado;
-              //  nuevoSocio.cuilcuit=cuilcuit;
-               nuevoSocio.setLegajo_socio(leg);
-            //    nuevoSocio.telefono=tel;
-            //    nuevoSocio.id_socio=idS;                
-             //   nuevoSocio.setFechaNac(fNac);
-              //  nuevoSocio.setDomicilio(dom);
-              //  nuevoSocio.setEmail(email);
+                nuevoSocio.apellido=ape;
+                nuevoSocio.dni=dni_socio;
+                nuevoSocio.estado_pago=estado_pago;
+                nuevoSocio.categoria=categ;
+                nuevoSocio.estado=estado;
+                nuevoSocio.cuilcuit=cuilcuit;
+                nuevoSocio.setLegajo_socio(leg);
+                nuevoSocio.telefono=tel;
+                nuevoSocio.id_socio=idS;                
+                nuevoSocio.setFechaNac(fNac);
+                nuevoSocio.setDomicilio(dom);
+                nuevoSocio.setEmail(email);
                 
             }else{
                 System.out.println("es nulo");
