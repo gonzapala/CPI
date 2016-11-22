@@ -10,7 +10,9 @@ package vistas;
  * @author Gonzalo
  */
 import Datos.Conexion;
+import Datos.Registro;
 import Datos.Socio;
+import Datos.Usuario;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -884,7 +886,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private void btnGuardarSocio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocio2ActionPerformed
         try {
                 connection = Conexion.Cadena();
-            //Connection = Conexion.Cadena();
                 Date fechaActual = new Date();
                 System.out.println(fechaActual);
                 Calendar fecha = Calendar.getInstance();
@@ -933,7 +934,14 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
             int res = preparedStatement.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Socio Guardado");
-                //LimpiarCajas();
+                 //registro de actividad
+                Usuario user = new Usuario();
+                String nombre = user.getNombreLogueado();
+                String contraseña =  user.getContraseñaLogueada();
+                user = user.buscarUsuario(nombre, contraseña);
+                int id_desc=2;
+                Registro reg= new Registro();
+                reg.gaurdarReg(user.getId(), id_desc);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
                 //LimpiarCajas();

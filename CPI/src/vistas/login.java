@@ -150,27 +150,27 @@ public class login extends javax.swing.JFrame {
     private void jButtonSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSesionActionPerformed
         Usuario nuevoSuaurio = new Usuario();
         String Pass = new String(jPassword.getPassword());
+        MenuPrincipal MP = new MenuPrincipal();
         try {
             int verificacion =nuevoSuaurio.verificarUsuario(txtUsuario.getText(), Pass);
-            if (verificacion==1) {
-                //usuario Administrador
-                MenuPrincipal MP = new MenuPrincipal();
-                MP.setTitle("Gestion CPI");
-                MP.setVisible(true);
-                dispose();
-                //MP.setLocationRelativeTo(null);
-                MP.setExtendedState(MAXIMIZED_BOTH);
-                MP.jMenu_admin.setEnabled(true);
-            }else{
-                if (verificacion==2) {
-                    //usuario comun
-                    MenuPrincipal MP = new MenuPrincipal();
-                    MP.setTitle("Gestion CPI");
-                    MP.setVisible(true);
-                    dispose();
-                    MP.setLocationRelativeTo(null);
+             switch(verificacion){
+                        case 1:
+                            //usuario Administrador
+                            MP.setTitle("Gestion CPI");
+                            MP.setVisible(true);
+                            dispose();
+                            //MP.setLocationRelativeTo(null);
+                            MP.setExtendedState(MAXIMIZED_BOTH);
+                            MP.jMenu_admin.setEnabled(true);
+                        break;
+                        case 2:
+                            //usuario OPERADOR
+                            MP.setTitle("Gestion CPI");
+                            MP.setVisible(true);
+                            dispose();
+                            MP.setLocationRelativeTo(null);
+                        break;
                 }
-            }
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
