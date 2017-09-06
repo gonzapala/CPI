@@ -78,7 +78,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(42, 42, 42));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
 
         pane1.setToolTipText("");
@@ -310,7 +309,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     public javax.swing.JMenu jMenu_admin;
-    public javax.swing.JDesktopPane pane1;
+    private javax.swing.JDesktopPane pane1;
     private org.jdesktop.swingx.painter.RectanglePainter rectanglePainter1;
     // End of variables declaration//GEN-END:variables
 }

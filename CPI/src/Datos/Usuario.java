@@ -166,7 +166,7 @@ public class Usuario {
                 user.setNombre(nombre);
                 user.setContraseña(contraseña);
                 user.setId_rol(id_rol);
-                
+                System.out.println(nombre+contraseña+id);
             }
             else{
                 System.out.println("es nulo");
