@@ -1,3 +1,6 @@
 /CPI/nbproject/private/
 /CPI/build/
 /CPI/dist/
+CPI/nbproject/project\.properties
+
+CPI/src/Datos/Conexion\.java
