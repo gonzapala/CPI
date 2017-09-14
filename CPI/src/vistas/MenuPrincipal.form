@@ -73,6 +73,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/view-1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gestionar Socios"/>
               </Properties>
               <Events>
@@ -133,6 +136,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/bar-chart.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Estadisticas"/>
           </Properties>
           <SubComponents>
@@ -247,6 +253,9 @@
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="pane1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1000, 750]"/>

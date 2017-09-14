@@ -9,6 +9,7 @@ import Datos.Rol;
 import Datos.Socio;
 import Datos.Socio_Crud;
 import java.awt.Panel;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,8 +21,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincip
      */
-    public MenuPrincipal() {
+    public MenuPrincipal() throws ClassNotFoundException, SQLException {
         initComponents();
+        System.out.println("Inicio del componente menu principal");
+        Datos.Socio socio = new Socio();
+        socio.verificarSocios();
     }
     
 
@@ -82,6 +86,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
+        pane1.setBackground(new java.awt.Color(255, 153, 51));
         pane1.setToolTipText("");
         pane1.setPreferredSize(new java.awt.Dimension(1000, 750));
 
@@ -104,6 +109,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view-1.png"))); // NOI18N
         jMenuItem2.setText("Gestionar Socios");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +159,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bar-chart.png"))); // NOI18N
         jMenu2.setText("Estadisticas");
 
         jMenuItem6.setText("Estadisticas");
@@ -332,7 +339,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     public javax.swing.JMenu jMenu_admin;
-    private javax.swing.JDesktopPane pane1;
+    public javax.swing.JDesktopPane pane1;
     private org.jdesktop.swingx.painter.RectanglePainter rectanglePainter1;
     // End of variables declaration//GEN-END:variables
 }
