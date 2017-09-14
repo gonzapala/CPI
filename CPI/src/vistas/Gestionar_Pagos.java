@@ -42,6 +42,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     Socio NS = new Socio();
     Socio socio = new Socio();
     login loginActual = new login();
+    
     int montoAPagar = 0;
 
     /**
