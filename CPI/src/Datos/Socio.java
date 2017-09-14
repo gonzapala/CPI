@@ -12,9 +12,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import vistas.Gestionar_Pagos;
+import vistas.Gestionar_Resoluciones;
 
 /**
  *
@@ -72,6 +75,10 @@ public class Socio {
      */
     public int getId_socio() {
         return id_socio;
+    }
+    
+    public void setID(int id) {
+        this.id_socio = id;
     }
 
     /**
@@ -298,11 +305,85 @@ public class Socio {
         sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
         rsDatos = sentencia.executeQuery(SQL);
         System.out.println("Correcto");
-        int i=0;
-//        for(i=0;i<rsDatos.last();i++){
-//        
-//        }
         return socios;
+    }
+    
+    public void verificarSocios() throws ClassNotFoundException, SQLException{
+        Socio socio;
+        
+        Connection cn = Conexion.Cadena();
+        String SQL = "SELECT * FROM socio";
+        sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        rsDatos = sentencia.executeQuery(SQL);
+        while (rsDatos.next()) {                
+            socio = new Socio();
+            socio.setID(rsDatos.getInt(1));
+            socio.setLegajo_socio(rsDatos.getString(2));
+            socio.setNombre(rsDatos.getString(3));
+            socio.setApellido(rsDatos.getString(4));
+            socio.setDni(rsDatos.getInt(5));
+            socio.setEstado(rsDatos.getString(10));
+            socio.setEstado_pago(rsDatos.getString(8));
+            System.out.println(socio.getApellido() +" -> "+ socio.getEstado());
+            //verifica estado de pago los socios y cambia el estado
+            socio.verificarFechaPago(socio);
+            
+        }
+    }
+    
+    //Verificar ultima Fecha de Pago y cambia el estado del socio
+    public void verificarFechaPago(Socio socio) throws ClassNotFoundException{
+        //FECHA ACTUAL
+        Calendar fecha = Calendar.getInstance(); 
+        int añoActual = fecha.get(Calendar.YEAR);
+        int mesActual = fecha.get(Calendar.MONTH) + 1;
+        int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
+        int idSocio = socio.getId_socio();
+        
+        if(socio.getEstado().compareTo("aspirante")!=0){
+            // FECHA QUE DEBE EL SOCIO
+            Pagos deuda = new Pagos();
+            deuda = deuda.buscarUltimoPago(idSocio);
+            String FechaD = deuda.getFecha();
+            String ultFecha = deuda.getFecha();
+            String[] parts = ultFecha.split("-");
+            String parts1_Año = parts[0];
+            String parts2_mes = parts[1];
+            String parts3_dia = parts[2];
+            int año_ultFecha = Integer.parseInt(parts1_Año);
+            int mes_ultFecha = Integer.parseInt(parts2_mes);
+            int dia_ultFecha = Integer.parseInt(parts3_dia);
+
+            System.out.println("El mes del ultimo pago es: " + mes_ultFecha + " Año:"+ año_ultFecha);
+            System.out.println("El mes actual es: " + mesActual );
+
+            if(año_ultFecha==añoActual){
+                if(mesActual>mes_ultFecha){
+                    if(diaActual>dia_ultFecha){
+                        //moroso
+                        Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
+                        nresolucion.verfificarPago2(socio.getLegajo_socio());
+                        socio.cambiarEstado(socio, 1);
+                    }
+                }else{
+                    //activo
+                    Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
+                    nresolucion.verfificarPago2(socio.getLegajo_socio());
+                    socio.cambiarEstado(socio, 2);
+                
+                }
+            }else{
+                if(añoActual > año_ultFecha){
+                    //moroso
+                    Gestionar_Resoluciones nresolucion = new Gestionar_Resoluciones();
+                    nresolucion.verfificarPago2(socio.getLegajo_socio());
+                    socio.cambiarEstado(socio, 1);
+                }
+                //considerar el dia para ver si falta pagar el mes acutal
+            }
+
+        }
+       
     }
     
     public ArrayList<Socio> listarSocios(){
