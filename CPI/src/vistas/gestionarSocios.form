@@ -36,7 +36,7 @@
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jTabbedPane_socios" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane_socios" alignment="0" pref="905" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -675,7 +675,6 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnGuardarSocio2" min="-2" max="-2" attributes="0"/>
                                               <Component id="ComboBoxCategoriaSocio" min="-2" pref="113" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -684,12 +683,13 @@
                                               <Component id="txtCuilSocio" min="-2" pref="104" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Component id="btnGuardarSocio2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel17" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="409" max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -750,9 +750,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnGuardarSocio2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="161" max="32767" attributes="0"/>
+                      <EmptySpace pref="171" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -814,6 +814,9 @@
             <Component class="javax.swing.JTextField" name="txtCuilSocio">
             </Component>
             <Component class="javax.swing.JTextField" name="txtApellidoSocio">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidoSocioKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -826,9 +829,13 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreSocioActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreSocioKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDNISocio">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDNISocioKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>
