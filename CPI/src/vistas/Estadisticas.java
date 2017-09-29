@@ -313,7 +313,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addGap(25, 86, Short.MAX_VALUE))))
+                        .addGap(25, 90, Short.MAX_VALUE))))
         );
 
         pack();
@@ -541,12 +541,34 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
             tabla_Socios.setModel(model);
 
-            for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
-                if (buscarTodo.getText().equals("Año de Ingreso")) {
+            String item = (String) cbxOpcion.getSelectedItem();
+            int valor = item.compareTo("Año de Ingreso");
+            int TP = 0;
+            int TI = 0;
+            int TAI =0;
+            //  System.out.println("valor" + valor);
+            for (int x = 0; x < tabla_Socios.getRowCount(); x++) {
+                if (valor == 0) {
+                    String cat = (String) tabla_Socios.getValueAt(x, 5);
+                    System.out.println("categoria: " + cat);
+                    if (cat.equals("Profesional")) {
+                        txtTotalProf.setText("" + TP++);
+                    } else {
+                        if (cat.equals("Idoneo")) {
+                            txtTotalIdoneo.setText("" + TI++);
+                        } else {
+                            if (cat.equals("Auxiliar Informatico")) {
+                                txtTotalAInfor.setText("" + TAI);
+                            }
+                        }
+                    }
 
+                    // contarAño(cat);
+                } else {
+                    System.out.println("no funciona ");
                 }
 
-                txtTotalRegistros.setText("" + x);
+                //     txtTotalRegistros.setText("" + x);
             }
             if ((buscarTodo.getText().equals("Aspirante")) || (buscarTodo.getText().equals("Activo")) || (buscarTodo.getText().equals("Moroso"))) {
                 contarEstadoSocios();
@@ -656,6 +678,15 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         return anio;
 
     }*/
+    public void contarAño(String cat) {
+
+        for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
+            if (cat.equals("Profesional")) {
+                txtTotalProf.setText("" + x);
+            }
+        }
+    }
+
     public void contarEstadoSocios() {
 
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
