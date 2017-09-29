@@ -21,7 +21,11 @@ import java.util.Date;
 import Datos.Pagos;
 import Datos.Registro;
 import Datos.Usuario;
+import Datos.Pago_cuota;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.*;
+
 
 /**
  *
@@ -626,7 +630,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnGuardarDActionPerformed
     
-    // Realiza el pago 
+    // Realiza el pago. guarda el pago de la pestaña Pago de derecho anula de ejercicio y matricula
     private void btn_realizarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_realizarPagoActionPerformed
         System.out.println("------------------- realizarPago -----------------");
         String Leg = input_legajo.getText();
@@ -655,6 +659,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             }
             
             //***********************//
+            String query = "INSERT INTO pago (numero_pago, monto_total, fecha, id_socio,tipo) VALUES (?,?,?,?,?)";
             connection = Conexion.Cadena();
             preparedStatement = connection.prepareStatement("INSERT INTO pago (numero_pago, monto_total, fecha, id_socio,tipo) VALUES (?,?,?,?,?)");
 
@@ -681,14 +686,28 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 generarPDF pdf = new generarPDF();
                 pdf.generarPDF_Resolucion(NS, nuevaR.getNumero_resolucion(), 1);
                 // Estado de Ejercicio
-
+                
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
 
                 int estadoES = 2;
                 Socio nuevoS = new Socio();
                 nuevoS.cambiarEstado(NS, estadoES);
                 limpiarFormulario();
-                //   guardarRegistro(id_U);
+                //guardarRegistro(id_U);
+                
+                //Generar las cuotas
+                
+                int a = 0;
+                String SQL = "SELECT MAX(id_pago) AS id_pago FROM pago"; // selecciono y obtengo el ultimo ID ingresado en la tabla.
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(SQL);
+                if(rs.next()){
+                    a=rs.getInt("id_pago");
+                }
+                System.out.println("ID el ultimo pago"+ a);
+                Pago_cuota cuotas = new Pago_cuota();// llamo al metodo que generará las cuotas de este pago
+                //cuotas.generarCuotas(id_pago, cantCuotas);
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");
                 //LimpiarCajas();

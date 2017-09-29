@@ -833,7 +833,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane_socios, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1172,11 +1172,11 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LabelDNI;
     private javax.swing.JLabel LabelDom;
     public org.jdesktop.swingx.JXTable Tabla_Socios;
-    private javax.swing.JButton btnBuscarSocio;
+    public javax.swing.JButton btnBuscarSocio;
     private javax.swing.JButton btnGuardarSocio2;
     private javax.swing.JButton btnGuardarSocio3;
     public javax.swing.JButton btnListar;
-    private javax.swing.JButton editar_socio;
+    public javax.swing.JButton editar_socio;
     private javax.swing.JLabel fechaNac_editar;
     private com.toedter.calendar.JDateChooser fechaNac_socio;
     private com.toedter.calendar.JDateChooser fechaNac_socio1;
@@ -1226,9 +1226,9 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel_Edtar_socio;
-    private javax.swing.JPanel jPanel_socios;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane_socios;
+    public javax.swing.JPanel jPanel_socios;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTabbedPane jTabbedPane_socios;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelApellido;
     private javax.swing.JLabel labelCategoria;
@@ -1243,7 +1243,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel label_id_socio;
     private javax.swing.JTextField txtApellidoSocio;
     private javax.swing.JTextField txtApellidoSocio1;
-    private javax.swing.JTextField txtBuscarSocio;
+    public javax.swing.JTextField txtBuscarSocio;
     private javax.swing.JTextField txtCuilSocio;
     private javax.swing.JTextField txtCuilSocio1;
     private javax.swing.JTextField txtDNISocio;
