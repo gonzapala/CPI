@@ -16,6 +16,8 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import vistas.Estadisticas;
 import vistas.Gestionar_Pagos;
 import vistas.Gestionar_Resoluciones;
 
@@ -40,7 +42,9 @@ public class Socio {
     
     private Statement sentencia;
     private ResultSet rsDatos;
-    
+    Connection connection;//para la Conexion
+    PreparedStatement preparedStatement;//para preparar las querys
+    ResultSet resultSet;//para recibir resultados de una cosulta
     public Socio(){
     }
     
@@ -238,59 +242,59 @@ public class Socio {
     public Socio BuscarX(String Legajo) throws ClassNotFoundException
     {   
         Socio nuevoSocio=new Socio();
-        try {
-            
-            Connection cn = Conexion.Cadena();
-            String SQL = "SELECT * FROM socio"+ " WHERE legajo_socio ='"+Legajo+"' ";
-            //System.out.println(SQL);
-            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rsDatos = sentencia.executeQuery(SQL);
-            //System.out.println("Correcto");
-            //cn.commit();
-            
-            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg,fNac;
-            int dni_socio,tel,idS;
-            if(rsDatos.first()){
-                idS=rsDatos.getInt("id_socio");
-                nom=rsDatos.getString("nombre");
-                ape=rsDatos.getString("apellido");
-                estado_pago=rsDatos.getString("estado_pago");
-                categ=rsDatos.getString("categoria");
-                estado=rsDatos.getString("estado");
-                cuilcuit=rsDatos.getString("cuilcuit");
-                email=rsDatos.getString("email");
-                dni_socio=rsDatos.getInt("dni");
-                leg=rsDatos.getString("legajo_socio");
-                tel=rsDatos.getInt("telefono");
-                dom=rsDatos.getString("domicilio");
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                fNac = formatoFecha.format(rsDatos.getDate("fechaNac"));
-//                System.out.println(nom);
-//                System.out.println(ape);
-//                System.out.println(categ);
-//                System.out.println(leg);
-//                System.out.println(tel);
-                
-                nuevoSocio.nombre=nom;
-                nuevoSocio.apellido=ape;
-                nuevoSocio.dni=dni_socio;
-                nuevoSocio.estado_pago=estado_pago;
-                nuevoSocio.categoria=categ;
-                nuevoSocio.estado=estado;
-                nuevoSocio.cuilcuit=cuilcuit;
-                nuevoSocio.setLegajo_socio(leg);
-                nuevoSocio.telefono=tel;
-                nuevoSocio.id_socio=idS;                
-                nuevoSocio.setFechaNac(fNac);
-                nuevoSocio.setDomicilio(dom);
-                nuevoSocio.setEmail(email);
-                
-            }else{
-                System.out.println("es nulo");
-            }
-            
-            
-        } catch (SQLException ex) {
+        try{
+             
+            Connection cn = Conexion.Cadena(); 
+            String SQL = "SELECT * FROM socio"+ " WHERE legajo_socio ='"+Legajo+"' "; 
+            //System.out.println(SQL); 
+            sentencia=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+            rsDatos = sentencia.executeQuery(SQL); 
+            //System.out.println("Correcto"); 
+            //cn.commit(); 
+             
+            String nom,ape,dom,estado_pago,categ,estado,cuilcuit,email, leg,fNac; 
+            int dni_socio,tel,idS; 
+            if(rsDatos.first()){ 
+                idS=rsDatos.getInt("id_socio"); 
+                nom=rsDatos.getString("nombre"); 
+                ape=rsDatos.getString("apellido"); 
+                estado_pago=rsDatos.getString("estado_pago"); 
+                categ=rsDatos.getString("categoria"); 
+                estado=rsDatos.getString("estado"); 
+                cuilcuit=rsDatos.getString("cuilcuit"); 
+                email=rsDatos.getString("email"); 
+                dni_socio=rsDatos.getInt("dni"); 
+                leg=rsDatos.getString("legajo_socio"); 
+                tel=rsDatos.getInt("telefono"); 
+                dom=rsDatos.getString("domicilio"); 
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd"); 
+                fNac = formatoFecha.format(rsDatos.getDate("fechaNac")); 
+//                System.out.println(nom); 
+//                System.out.println(ape); 
+//                System.out.println(categ); 
+//                System.out.println(leg); 
+//                System.out.println(tel); 
+                 
+                nuevoSocio.nombre=nom; 
+                nuevoSocio.apellido=ape; 
+                nuevoSocio.dni=dni_socio; 
+                nuevoSocio.estado_pago=estado_pago; 
+                nuevoSocio.categoria=categ; 
+                nuevoSocio.estado=estado; 
+                nuevoSocio.cuilcuit=cuilcuit; 
+                nuevoSocio.setLegajo_socio(leg); 
+                nuevoSocio.telefono=tel; 
+                nuevoSocio.id_socio=idS;                 
+                nuevoSocio.setFechaNac(fNac); 
+                nuevoSocio.setDomicilio(dom); 
+                nuevoSocio.setEmail(email); 
+                 
+            }else{ 
+                System.out.println("es nulo"); 
+            } 
+             
+             
+        }  catch (SQLException ex) {
             System.out.println("No Correcto");
             Logger.getLogger(Socio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -342,7 +346,7 @@ public class Socio {
         
         if(socio.getEstado().compareTo("aspirante")!=0){
             // FECHA QUE DEBE EL SOCIO
-            Pagos deuda = new Pagos();
+            Pago deuda = new Pago();
             deuda = deuda.buscarUltimoPago(idSocio);
             String FechaD = deuda.getFecha();
             String ultFecha = deuda.getFecha();
@@ -492,6 +496,51 @@ public class Socio {
             
         } catch (Exception e) {
         }
+        
+    }
+    
+    public DefaultTableModel buscarSocioporFiltro(DefaultTableModel model, String input_filtroSocios){
+        String[] registros = new String[50];
+        String sql = "SELECT *FROM socio WHERE id_socio LIKE '%" +  input_filtroSocios + "%'"
+                + "OR legajo_socio LIKE '%" +  input_filtroSocios+ "%'"
+                + "OR nombre LIKE '%" +  input_filtroSocios + "%'"
+                + "OR apellido LIKE '%" +  input_filtroSocios + "%'"
+                + "OR dni LIKE '%" +  input_filtroSocios + "%'"
+                + "OR telefono LIKE '%" +  input_filtroSocios+ "%'"
+                + "OR domicilio LIKE '%" +  input_filtroSocios + "%'"
+                + "OR estado_pago LIKE '%" +  input_filtroSocios+ "%'"
+                + "OR categoria LIKE '%" +  input_filtroSocios + "%'"
+                + "OR estado LIKE '%" +  input_filtroSocios + "%'"
+                + "OR cuilcuit LIKE '%" +  input_filtroSocios + "%'"
+                + "OR email LIKE '%" +  input_filtroSocios + "%'"
+                + "OR fechaNac LIKE '%" +  input_filtroSocios + "%'";
+        try {
+            connection = Conexion.Cadena();
+            sentencia = (Statement) connection.createStatement();
+            rsDatos = sentencia.executeQuery(sql);
+
+            while (rsDatos.next()) {
+
+                //registros[0] = rsDatos.getString("id_socio");
+                registros[0] = rsDatos.getString("legajo_socio");
+                registros[1] = rsDatos.getString("nombre");
+                registros[2] = rsDatos.getString("apellido");
+                registros[3] = rsDatos.getString("dni");
+                //registros[5] = rsDatos.getString("telefono");
+                //registros[6] = rsDatos.getString("domicilio");
+                //registros[7] = rsDatos.getString("estado_pago");
+                registros[4] = rsDatos.getString("categoria");
+                registros[5] = rsDatos.getString("estado");
+                //registros[10] = rsDatos.getString("cuilcuit");
+                //registros[11] = rsDatos.getString("email");
+                //registros[12] = rsDatos.getString("fechaNac");
+                model.addRow(registros);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return model;
         
     }
 

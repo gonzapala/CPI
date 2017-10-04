@@ -15,24 +15,23 @@ import vistas.gestionarSocios;
  *
  * @author Gonzalo
  */
-public class Socio_Crud implements ActionListener{
+public class SocioController implements ActionListener{
     
     gestionarSocios vistaCRUD = new gestionarSocios();
     Socio modeloCRUD = new Socio();
+    Socio socio = new Socio();
     
-    public Socio_Crud (gestionarSocios vistaCRUD,Socio modeloCRUD){
+      
+    public SocioController (gestionarSocios vistaCRUD,Socio modeloCRUD){
         this.modeloCRUD=modeloCRUD;
         this.vistaCRUD=vistaCRUD;
         //this.vistaCRUD.btnRegistrar.addActionListener(this);
         this.vistaCRUD.btnListar.addActionListener(this);
     }
-    
-    public void InicializarCrudSocios(){
-        
-        
-    
+
+    public SocioController() {
     }
-    
+        
     public void LlenarTabla(JXTable tabla_socios){
         DefaultTableModel modeloT = new DefaultTableModel();
         tabla_socios.setModel(modeloT);
@@ -69,4 +68,8 @@ public class Socio_Crud implements ActionListener{
         }
             
     }
+    
+
+    
+
 }
