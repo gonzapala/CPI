@@ -29,6 +29,7 @@ import java.sql.Statement;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 
 /**
@@ -92,6 +93,9 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_cuotas = new javax.swing.JTable();
+        label_idCuotaSeleccionada = new javax.swing.JLabel();
+        btn_realizarPago1 = new javax.swing.JButton();
+        btn_pagarCuota = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         labellegajo = new javax.swing.JLabel();
         input_filtroSocios = new javax.swing.JTextField();
@@ -274,16 +278,31 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
 
         tabla_cuotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
+        tabla_cuotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_cuotasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabla_cuotas);
+
+        label_idCuotaSeleccionada.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label_idCuotaSeleccionada.setText("id");
+
+        btn_realizarPago1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/check.png"))); // NOI18N
+        btn_realizarPago1.setText("Realizar Pago");
+
+        btn_pagarCuota.setText("Pagar Cuota");
+        btn_pagarCuota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pagarCuotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -292,9 +311,21 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 29, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 29, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_idCuotaSeleccionada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_pagarCuota)
+                        .addGap(43, 43, 43))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btn_realizarPago1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +334,16 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(569, 569, 569))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_idCuotaSeleccionada)
+                    .addComponent(btn_pagarCuota))
+                .addGap(540, 540, 540))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btn_realizarPago1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab(" Deudas", jPanel1);
@@ -430,10 +470,10 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labellegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_filtroSocios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(input_filtroSocios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labellegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_ListarSocios)))
@@ -452,7 +492,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                         .addComponent(label_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel13))
                     .addComponent(label_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -587,7 +627,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 .getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Tabla_SociosMouseClicked
-
+    
     private void Tabla_SociosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla_SociosMouseExited
 
     }//GEN-LAST:event_Tabla_SociosMouseExited
@@ -606,6 +646,22 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
         model = socio.buscarSocioporFiltro(model, input_filtroSocios.getText());
         Tabla_Socios.setModel(model);
     }//GEN-LAST:event_input_filtroSociosActionPerformed
+
+    private void btn_pagarCuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagarCuotaActionPerformed
+        int id = Integer.parseInt(label_idCuotaSeleccionada.getText());
+        try {
+            pagoController.pagarCuota(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(Gestionar_Pagos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btn_pagarCuotaActionPerformed
+
+    private void tabla_cuotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_cuotasMouseClicked
+        String id = tabla_cuotas.getValueAt(tabla_cuotas.getSelectedRow(), 0).toString();
+        System.out.println(id);
+        label_idCuotaSeleccionada.setText(id);
+    }//GEN-LAST:event_tabla_cuotasMouseClicked
     
     //  Muestra la informacion del socio en los campos
     public void mostrarInformacion(Socio NS, int estado) {
@@ -640,6 +696,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 //Mostrar Deudas
                 listaCuotas = pagoController.buscarDeuda(NS);
                 pagoController.LlenarTablaCuotas(listaCuotas, tabla_cuotas);
+                
             }
             if (estado == 3) {
                 int CantM = calcularCantidadMeses(NS);
@@ -721,7 +778,9 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     public org.jdesktop.swingx.JXTable Tabla_Socios;
     private javax.swing.JButton btn_CalcularMonto;
     public javax.swing.JButton btn_ListarSocios;
+    private javax.swing.JButton btn_pagarCuota;
     private javax.swing.JButton btn_realizarPago;
+    private javax.swing.JButton btn_realizarPago1;
     private javax.swing.JComboBox<String> combo_cantCuotas;
     private javax.swing.JTextField input_filtroSocios;
     private javax.swing.JLabel jLabel1;
@@ -751,6 +810,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel label_cantCuotasAdeuda;
     private javax.swing.JLabel label_estadoSocio;
     private javax.swing.JLabel label_fechaUltimoPago;
+    private javax.swing.JLabel label_idCuotaSeleccionada;
     private javax.swing.JLabel label_montoPorCuota;
     private javax.swing.JLabel label_nombre;
     private javax.swing.JLabel labellegajo;
