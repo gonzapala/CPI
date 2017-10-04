@@ -7,7 +7,7 @@ package vistas;
 
 import Datos.Rol;
 import Datos.Socio;
-import Datos.Socio_Crud;
+import Datos.SocioController;
 import java.awt.Panel;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -260,7 +260,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gestionarSocios ventana = new gestionarSocios();
         pane1.add(ventana);
         Socio socio = new Socio();
-        Socio_Crud controlaC = new Socio_Crud(ventana, socio);
+        SocioController controlaC = new SocioController(ventana, socio);
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

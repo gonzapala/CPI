@@ -50,7 +50,6 @@ public class login extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +72,8 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jButtonSesion.setBackground(new java.awt.Color(63, 81, 181));
+        jButtonSesion.setBackground(new java.awt.Color(51, 51, 255));
         jButtonSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtonSesion.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSesion.setText("Iniciar Sesión ");
         jButtonSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

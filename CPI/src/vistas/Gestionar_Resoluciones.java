@@ -6,10 +6,10 @@
 package vistas;
 
 import Datos.Conexion;
-import Datos.Pagos;
+import Datos.Pago;
 import Datos.Socio;
 import Datos.Resolucion;
-import Datos.Socio_Crud;
+import Datos.SocioController;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -71,6 +71,12 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         btnBuscarSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarSocioActionPerformed(evt);
+            }
+        });
+
+        txtBuscarSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarSocioActionPerformed(evt);
             }
         });
 
@@ -231,7 +237,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
     }//FIn-LlenarTabla
     public void verfificarPago(String leg) throws ClassNotFoundException{
         Socio nSocio = new Socio();
-        Pagos ultpago = new Pagos();
+        Pago ultpago = new Pago();
         nSocio=nSocio.BuscarX(leg);
         ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
         
@@ -306,7 +312,7 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
     
     public void verfificarPago2(String leg) throws ClassNotFoundException{
         Socio nSocio = new Socio();
-        Pagos ultpago = new Pagos();
+        Pago ultpago = new Pago();
         nSocio=nSocio.BuscarX(leg);
         ultpago=ultpago.buscarUltimoPago(nSocio.getId_socio());
         
@@ -416,6 +422,10 @@ public class Gestionar_Resoluciones extends javax.swing.JInternalFrame {
         
         System.out.println(legajo+apellido+nombre+dni+estado+"\n");
     }//GEN-LAST:event_jXTable_morososMouseClicked
+
+    private void txtBuscarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarSocioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
