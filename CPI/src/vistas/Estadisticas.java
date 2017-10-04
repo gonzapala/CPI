@@ -55,8 +55,6 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         txtTotalRegistros = new javax.swing.JTextField();
         txtTotalActivo = new javax.swing.JTextField();
         labelActivos = new javax.swing.JLabel();
-        labelAspirantes = new javax.swing.JLabel();
-        txtTotalAspirante = new javax.swing.JTextField();
         labelMorosos = new javax.swing.JLabel();
         txtTotalMoroso = new javax.swing.JTextField();
         cbxOpcion = new javax.swing.JComboBox<>();
@@ -78,7 +76,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Estadisticas de Socio");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Estadisticas");
 
         buscarTodo.addActionListener(new java.awt.event.ActionListener() {
@@ -129,17 +127,6 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
         labelActivos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelActivos.setText("Total Activos = ");
-
-        labelAspirantes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelAspirantes.setText("Total Aspirantes =");
-
-        txtTotalAspirante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtTotalAspirante.setEnabled(false);
-        txtTotalAspirante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalAspiranteActionPerformed(evt);
-            }
-        });
 
         labelMorosos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelMorosos.setText("Total Morosos =");
@@ -219,7 +206,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("___ Categoria de los Socios ____________________________________...");
+        jLabel8.setText("___ Categoria de los Socios ____________________________________");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("___ Estado de los Socios _______________________________________...");
@@ -256,21 +243,24 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                                             .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnGrafico)))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(119, 119, 119)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(35, 35, 35)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(labelAspirantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(labelMorosos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(25, 25, 25)
+                                        .addGap(303, 303, 303)
+                                        .addComponent(btnGrafico2)
+                                        .addGap(22, 22, 22))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(119, 119, 119)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTotalMoroso, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTotalActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTotalAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnGrafico2)))
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(labelMorosos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(labelActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(25, 25, 25)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtTotalMoroso, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtTotalActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(44, 44, 44))))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(101, 101, 101)
@@ -295,7 +285,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                                     .addGap(39, 39, 39)
                                     .addComponent(buscarPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane1)))))
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,16 +324,8 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTotalIdoneo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
+                            .addComponent(txtTotalIdoneo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalAspirante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelAspirantes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTotalActivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -352,6 +334,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                             .addComponent(labelMorosos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTotalMoroso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGrafico)
                     .addComponent(btnGrafico2))
@@ -427,7 +413,6 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
     public void limpiarCampos1() {
 
-        txtTotalAspirante.setText(null);
         txtTotalActivo.setText(null);
         txtTotalMoroso.setText(null);
         buscarTodo.setText(null);
@@ -446,11 +431,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     public void graficarEstado() {
 
         String TAct = txtTotalActivo.getText();
-        String TAsp = txtTotalAspirante.getText();
+        // String TAsp = txtTotalAspirante.getText();
         String TMor = txtTotalMoroso.getText();
 
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-        pieDataset.setValue("Aspirante", new Integer(TAsp));
+        //  pieDataset.setValue("Aspirante", new Integer(TAsp));
         pieDataset.setValue("Activo", new Integer(TAct));
         pieDataset.setValue("Moroso", new Integer(TMor));
 
@@ -488,6 +473,9 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }
 
     private void btnListarSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarSociosActionPerformed
+
+        limpiarCampos1();
+        limpiarCampos2();
 
         String[] titulos = {"id_socio", "legajo_socio", "nombre", "apellido", "dni",
             //"telefono", "domicilio", "estado_pago", 
@@ -590,7 +578,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             tabla_Socios.setModel(model);
 
             elegirOpcionEnCbx();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -610,9 +598,9 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
         if (opc.equalsIgnoreCase("Estado")) {
 
-            opciones[0] = "Aspirante";
-            opciones[1] = "Activo";
-            opciones[2] = "Moroso";
+            //opciones[0] = "Aspirante";
+            opciones[0] = "Activo";
+            opciones[1] = "Moroso";
         }
         //agregado desde aqui
         if (opc.equalsIgnoreCase("Año de Ingreso")) {
@@ -656,10 +644,6 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalIdoneoActionPerformed
 
-    private void txtTotalAspiranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalAspiranteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTotalAspiranteActionPerformed
-
     private void cbxOpcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxOpcionActionPerformed
 
     }//GEN-LAST:event_cbxOpcionActionPerformed
@@ -687,14 +671,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             }
             if ((buscarTodo.getText().equals("Profesional")) || (buscarTodo.getText().equals("Idoneo")) || (buscarTodo.getText().equals("Auxiliar Informatico"))) {
                 contarCategoriaSocios();
-                //  graficarCategoria();
-                //   limpiarCampos1();
+                txtTotalRegistros.setText(null);
+                limpiarCampos1();
 
             } else {
-                if ((buscarTodo.getText().equals("Aspirante")) || (buscarTodo.getText().equals("Activo")) || (buscarTodo.getText().equals("Moroso"))) {
+                if ((buscarTodo.getText().equals("Activo")) || (buscarTodo.getText().equals("Moroso"))) {
                     contarEstadoSocios();
-                    // graficarEstado();
-                    // limpiarCampos2();
+                    txtTotalRegistros.setText(null);
+                    limpiarCampos2();
                 }
             }
             int TotalReg = x;
@@ -705,15 +689,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     public void contarEstadoSocios() {
 
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
-            if (buscarTodo.getText().equals("Aspirante")) {
-                txtTotalAspirante.setText("" + x);
+            if (buscarTodo.getText().equals("Activo")) {
+                txtTotalActivo.setText("" + x);
             } else {
-                if (buscarTodo.getText().equals("Activo")) {
-                    txtTotalActivo.setText("" + x);
-                } else {
-                    if (buscarTodo.getText().equals("Moroso")) {
-                        txtTotalMoroso.setText("" + x);
-                    }
+                if (buscarTodo.getText().equals("Moroso")) {
+                    txtTotalMoroso.setText("" + x);
                 }
             }
             txtTotalRegistros.setText("" + x);
@@ -721,7 +701,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }
 
     public void contarCategoriaSocios() {
-     
+
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
             if (buscarTodo.getText().equals("Profesional")) {
                 txtTotalProf.setText("" + x);
@@ -758,12 +738,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelActivos;
-    private javax.swing.JLabel labelAspirantes;
     private javax.swing.JLabel labelMorosos;
     private javax.swing.JTable tabla_Socios;
     private javax.swing.JTextField txtTotalAInfor;
     private javax.swing.JTextField txtTotalActivo;
-    private javax.swing.JTextField txtTotalAspirante;
     private javax.swing.JTextField txtTotalIdoneo;
     private javax.swing.JTextField txtTotalMoroso;
     private javax.swing.JTextField txtTotalProf;
