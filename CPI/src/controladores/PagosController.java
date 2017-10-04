@@ -10,9 +10,11 @@ import Datos.Pago_cuota;
 import Datos.Socio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import org.jdesktop.swingx.JXTable;
 import vistas.Gestionar_Pagos;
 
@@ -59,23 +61,30 @@ public class PagosController {
         DefaultTableModel modeloT = new DefaultTableModel();
         tabla.setModel(modeloT);
         
+        modeloT.addColumn("ID");
         modeloT.addColumn("N° Cuota");
         modeloT.addColumn("Fecha");
         modeloT.addColumn("Vencimiento");
         modeloT.addColumn("Monto");
         modeloT.addColumn("Estado");
         
-        Object[] columna = new Object[5];
+        Object[] columna = new Object[6];
         
         for(Pago_cuota c:listaCuotas){
             //System.out.println(c.getNumero_cuota());
-            columna[0]=c.getNumero_cuota();
-            columna[1]=c.getFecha();
-            columna[2]=c.getFecha_limite();
-            columna[3]=c.getMonto();
-            columna[4]=c.getEstado();
+            columna[0]=c.getId();
+            columna[1]=c.getNumero_cuota();
+            columna[2]=c.getFecha();
+            columna[3]=c.getFecha_limite();
+            columna[4]=c.getMonto();
+            columna[5]=c.getEstado();
             modeloT.addRow(columna);
         }
+        
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
     }//FIn-LlenarTabla
     
     public ArrayList<Pago_cuota> buscarDeuda(Socio s){
@@ -92,5 +101,9 @@ public class PagosController {
             }
         }
         return listaCuotas;
+    }
+    
+    public void pagarCuota(int id) throws SQLException{
+        cuota.pagarCuota(id);
     }
 }

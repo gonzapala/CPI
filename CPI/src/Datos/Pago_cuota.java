@@ -8,11 +8,14 @@ package Datos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -235,5 +238,31 @@ public class Pago_cuota {
         
         return cuotas;
     }
+      
+        public void pagarCuota(int id) throws SQLException {
+            String query = "UPDATE pago_cuota SET estado = ? WHERE id ="+id+" ";
+        try {
+            connection = Conexion.Cadena();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pago_cuota.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pago_cuota.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, 1);
+            
+            int res = preparedStatement.executeUpdate();
+                if (res > 0) {
+                    System.out.println("Estado cabiado a 1: \n");
+                    JOptionPane.showMessageDialog(null, "Cuota Pagada:");
+                } else {
+                    System.out.println("Error al Actualizar Socio\n");
+                    //JOptionPane.showMessageDialog(null, "Error al Actualizar Socio");
+                }
+
+                connection.close();
+            
+            
+        }
 
 }
