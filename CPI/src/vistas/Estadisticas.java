@@ -24,11 +24,11 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author Anahi Silvana Brao
  */
 public class Estadisticas extends javax.swing.JInternalFrame {
-
+    
     DefaultTableModel model;
     private Statement sentencia;
     private ResultSet rsDatos;
-
+    
     Connection connection;//para la Conexion
     PreparedStatement preparedStatement;//para preparar las querys
     ResultSet resultSet;//para recibir resultados de una cosulta
@@ -40,7 +40,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     public Estadisticas() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -79,6 +79,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Estadisticas");
 
+        buscarTodo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         buscarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarTodoActionPerformed(evt);
@@ -93,6 +94,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Buscar por:");
 
+        btnListarSocios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnListarSocios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checklist.png"))); // NOI18N
         btnListarSocios.setText("Listar Todo");
         btnListarSocios.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +141,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             }
         });
 
+        cbxOpcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxOpcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Año de Ingreso", "Categoria", "Estado", " " }));
         cbxOpcion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -151,6 +154,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             }
         });
 
+        buscarPrueba.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         buscarPrueba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
         buscarPrueba.setText("Buscar");
         buscarPrueba.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +168,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             }
         });
 
+        cbxComboCatEst.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxComboCatEst.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxComboCatEstItemStateChanged(evt);
@@ -198,6 +203,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         txtTotalAInfor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtTotalAInfor.setEnabled(false);
 
+        btnGrafico.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnGrafico.setText("Graficar Categoria");
         btnGrafico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +217,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("___ Estado de los Socios _______________________________________...");
 
+        btnGrafico2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnGrafico2.setText("Graficar Estado");
         btnGrafico2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +233,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,43 +417,41 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         }
          */
     }//GEN-LAST:event_buscarTodoKeyPressed
-
+    
     public void limpiarCampos1() {
-
+        
         txtTotalActivo.setText(null);
-        txtTotalMoroso.setText(null);
-        buscarTodo.setText(null);
+        txtTotalMoroso.setText(null);        
         txtTotalRegistros.setText(null);
     }
-
+    
     public void limpiarCampos2() {
-
+        
         txtTotalProf.setText(null);
         txtTotalIdoneo.setText(null);
-        txtTotalAInfor.setText(null);
-        buscarTodo.setText(null);
+        txtTotalAInfor.setText(null);        
         txtTotalRegistros.setText(null);
     }
-
+    
     public void graficarEstado() {
-
+        
         String TAct = txtTotalActivo.getText();
         // String TAsp = txtTotalAspirante.getText();
         String TMor = txtTotalMoroso.getText();
-
+        
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         //  pieDataset.setValue("Aspirante", new Integer(TAsp));
         pieDataset.setValue("Activo", new Integer(TAct));
         pieDataset.setValue("Moroso", new Integer(TMor));
-
+        
         JFreeChart chart = ChartFactory.createPieChart3D("Estado de los Socios", pieDataset, true, true, true);
         PiePlot3D p = (PiePlot3D) chart.getPlot();
-
+        
         ChartFrame frame = new ChartFrame("Grafico de Torta", chart);
         frame.setVisible(true);
         frame.setSize(700, 500);
     }
-
+    
     public void graficarCategoria() {
 
         // este es el que anda "bien"
@@ -454,29 +459,29 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         String TId = txtTotalIdoneo.getText();
         String TAInf = txtTotalAInfor.getText();
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-
+        
         pieDataset.setValue("Profesional", new Integer(TProf));
         System.out.println(" de nuevo el valor de TProf: " + TProf);
-
+        
         pieDataset.setValue("Idoneo", new Integer(TId));
         System.out.println("de nuevo el valor de TId: " + TId);
-
+        
         pieDataset.setValue("Auxiliar Informatico", new Integer(TAInf));
         System.out.println("de nuevo el valor de TAInf: " + TAInf);
-
+        
         JFreeChart chart = ChartFactory.createPieChart3D("Categoria de los Socios", pieDataset, true, true, true);
         PiePlot3D p = (PiePlot3D) chart.getPlot();
-
+        
         ChartFrame frame = new ChartFrame("Grafico de Torta", chart);
         frame.setVisible(true);
         frame.setSize(700, 500);
     }
 
     private void btnListarSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarSociosActionPerformed
-
+        
         limpiarCampos1();
         limpiarCampos2();
-
+      
         String[] titulos = {"id_socio", "legajo_socio", "nombre", "apellido", "dni",
             //"telefono", "domicilio", "estado_pago", 
             "categoria", "estado",};
@@ -484,14 +489,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
         String[] registros = new String[50];
         String sql = "SELECT *FROM socio";
-
+        
         model = new DefaultTableModel(null, titulos);
-
+        
         try {
             Connection cn = Conexion.Cadena();
             sentencia = (Statement) cn.createStatement();
             rsDatos = sentencia.executeQuery(sql);
-
+            
             while (rsDatos.next()) {
                 registros[0] = rsDatos.getString("id_socio");
                 registros[1] = rsDatos.getString("legajo_socio");
@@ -514,7 +519,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                     txtTotalRegistros.setText("" + x);
                 }
             }
-
+            
             tabla_Socios.setModel(model);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, closable, title, HEIGHT);
@@ -528,14 +533,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTotalRegistrosActionPerformed
 
     private void buscarPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPruebaActionPerformed
-
+        
         String[] titulos = {"id_socio", "legajo_socio", "nombre", "apellido", "dni",
             // "telefono", "domicilio","estado_pago", 
             "categoria", "estado"};
         //"cuilcuit", "email", "fechaNac"};
 
         String[] registros = new String[50];
-
+        
         String sql = "SELECT *FROM socio WHERE id_socio LIKE '%" + buscarTodo.getText() + "%'"
                 + "OR legajo_socio LIKE '%" + buscarTodo.getText() + "%'"
                 + "OR nombre LIKE '%" + buscarTodo.getText() + "%'"
@@ -551,14 +556,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         //    + "OR fechaNac LIKE '%" + buscarTodo.getText() + "%'";
 
         model = new DefaultTableModel(null, titulos);
-
+        
         try {
             connection = Conexion.Cadena();
             sentencia = (Statement) connection.createStatement();
             rsDatos = sentencia.executeQuery(sql);
-
+            
             while (rsDatos.next()) {
-
+                
                 registros[0] = rsDatos.getString("id_socio");
                 registros[1] = rsDatos.getString("legajo_socio");
                 registros[2] = rsDatos.getString("nombre");
@@ -574,11 +579,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 // registros[12] = rsDatos.getString("fechaNac");
                 model.addRow(registros);
             }
-
+            
             tabla_Socios.setModel(model);
-
+            
             elegirOpcionEnCbx();
-
+            
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -586,16 +591,16 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
     //Para Combobox Anidados
     public String[] getOpcion(String opc) {
-
+        
         String[] opciones = new String[3];
-
+        
         if (opc.equalsIgnoreCase("Categoria")) {
-
+            
             opciones[0] = "Profesional";
             opciones[1] = "Idoneo";
             opciones[2] = "Auxiliar Informatico";
         }
-
+        
         if (opc.equalsIgnoreCase("Estado")) {
 
             //opciones[0] = "Aspirante";
@@ -604,17 +609,17 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         }
         //agregado desde aqui
         if (opc.equalsIgnoreCase("Año de Ingreso")) {
-
+            
             opciones[0] = "2015";
             opciones[1] = "2016";
             opciones[2] = "2017";
-
+            
         }
         return opciones;
     }
 
     private void cbxOpcionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxOpcionItemStateChanged
-
+        
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             if (this.cbxOpcion.getSelectedIndex() > 0) {
                 this.cbxComboCatEst.setModel(new DefaultComboBoxModel(this.getOpcion(this.cbxOpcion.getSelectedItem().toString())));
@@ -624,7 +629,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
     //Pasa la opcion seleccionada en el cbx al jtext
     private void cbxComboCatEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComboCatEstActionPerformed
-
+        
         buscarTodo.setText(cbxComboCatEst.getSelectedItem().toString());
     }//GEN-LAST:event_cbxComboCatEstActionPerformed
 
@@ -654,10 +659,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGraficoActionPerformed
 
     private void btnGrafico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafico2ActionPerformed
-
+        
         graficarEstado();
     }//GEN-LAST:event_btnGrafico2ActionPerformed
-
+    
     public void elegirOpcionEnCbx() {
 
         //año de ingreso
@@ -666,6 +671,8 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         int x;
         for (x = 0; x < tabla_Socios.getRowCount(); x++) {
             if (valorA == 0) {
+                limpiarCampos1();
+                limpiarCampos2();
                 String cat = (String) tabla_Socios.getValueAt(x, 5);
                 System.out.println("categoria: " + cat);
             }
@@ -673,7 +680,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 contarCategoriaSocios();
                 txtTotalRegistros.setText(null);
                 limpiarCampos1();
-
+                
             } else {
                 if ((buscarTodo.getText().equals("Activo")) || (buscarTodo.getText().equals("Moroso"))) {
                     contarEstadoSocios();
@@ -685,9 +692,9 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         }
         txtTotalRegistros.setText("" + x);
     }
-
+    
     public void contarEstadoSocios() {
-
+        
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
             if (buscarTodo.getText().equals("Activo")) {
                 txtTotalActivo.setText("" + x);
@@ -699,9 +706,9 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             txtTotalRegistros.setText("" + x);
         }
     }
-
+    
     public void contarCategoriaSocios() {
-
+        
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
             if (buscarTodo.getText().equals("Profesional")) {
                 txtTotalProf.setText("" + x);
