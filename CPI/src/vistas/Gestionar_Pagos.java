@@ -497,7 +497,7 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
     // Realiza el pago. guarda el pago de la pestaña "Pago de derecho anula de ejercicio y matricula"
     private void btn_realizarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_realizarPagoActionPerformed
         System.out.println("------------------- RealizarPago Derecho Anual y Matricula-----------------");
-        String Leg = input_filtroSocios.getText();
+        String Leg = Tabla_Socios.getValueAt(Tabla_Socios.getSelectedRow(), 0).toString();
         int TipoP = 0;
         try {
             NS = NS.BuscarX(Leg);
