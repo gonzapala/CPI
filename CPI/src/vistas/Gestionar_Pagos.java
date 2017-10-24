@@ -22,7 +22,7 @@ import Datos.Pago;
 import Datos.Registro;
 import Datos.Usuario;
 import Datos.Pago_cuota;
-import Datos.SocioController;
+import controladores.SocioController;
 import controladores.PagosController;
 import java.sql.SQLException;
 import java.sql.Statement;

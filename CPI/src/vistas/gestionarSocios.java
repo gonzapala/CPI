@@ -140,7 +140,9 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         setBorder(null);
         setClosable(true);
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setIconifiable(true);
+        setMaximumSize(new java.awt.Dimension(731, 594));
+        setPreferredSize(new java.awt.Dimension(731, 594));
         setVisible(false);
 
         jTabbedPane_socios.setPreferredSize(new java.awt.Dimension(900, 550));
@@ -270,7 +272,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel15)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(labelLegajo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                                    .addComponent(labelLegajo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(LabelDNI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -392,7 +394,6 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                         .addGap(41, 41, 41))
                     .addGroup(jPanel_sociosLayout.createSequentialGroup()
                         .addGroup(jPanel_sociosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_sociosLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(label_id_socio))
@@ -411,7 +412,8 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(editar_socio, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel_sociosLayout.setVerticalGroup(
@@ -579,7 +581,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                                         .addComponent(txtCuilSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(btnGuardarSocio2)))
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -629,7 +631,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardarSocio2)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_socios.addTab("Nuevo Socio", jPanel4);
@@ -816,7 +818,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
                         .addGap(48, 48, 48)
                         .addComponent(btnGuardarSocio3))
                     .addComponent(fechaNac_socio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_socios.addTab("Editar Datos Socio", jPanel_Edtar_socio);
@@ -840,13 +842,185 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane_socios, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTelefonoSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoSocio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoSocio1ActionPerformed
+
+    private void txtNombreSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreSocio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreSocio1ActionPerformed
+
+    private void ComboBoxCategoriaSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxCategoriaSocio1ActionPerformed
+
+    private void btnGuardarSocio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocio3ActionPerformed
+        try {
+            connection = Conexion.Cadena();
+            int numCat=0;
+            String cat =ComboBoxCategoriaSocio1.getSelectedItem().toString().toLowerCase();
+            switch(cat){
+                case "profesional":
+                numCat=01;
+                break;
+                case "idoneo":
+                numCat=02;
+                break;
+                case "auxiliar informatico":
+                numCat=03;
+                break;
+            }
+
+            String numCateg = Integer.toString(numCat);
+            String dniSocio = txtDNISocio1.getText();
+            preparedStatement = connection.prepareStatement("UPDATE socio SET nombre=?, apellido=?,dni=?,telefono=?,domicilio=?,categoria=?,cuilcuit=?,email=?,legajo_socio=?,fechaNac=? WHERE id_socio=?");
+            //Ejemplo UPDATE: "UPDATE Messages SET description = ?, author = ? WHERE id = ? AND seq_num = ?");
+        preparedStatement.setString(1, txtNombreSocio1.getText());
+        preparedStatement.setString(2, txtApellidoSocio1.getText());
+        preparedStatement.setString(3, dniSocio);
+        preparedStatement.setString(4, txtTelefonoSocio1.getText());
+        preparedStatement.setString(5, txtDomicilioSocio1.getText());
+        preparedStatement.setString(6, ComboBoxCategoriaSocio1.getSelectedItem().toString());
+        preparedStatement.setString(7, txtCuilSocio1.getText());
+        preparedStatement.setString(8, txtEmailSocio1.getText());
+        preparedStatement.setString(9, labelLegajo.getText());
+
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaNac = formatoFecha.format(fechaNac_socio1.getDate());
+        preparedStatement.setString(10,fechaNac);
+
+        int id =  Integer.parseInt(label_id_socio.getText());
+        preparedStatement.setInt(11, id);
+
+        int res = preparedStatement.executeUpdate();
+        if (res > 0) {
+            JOptionPane.showMessageDialog(null, "Socio Actualizado");
+            jTabbedPane_socios.setSelectedIndex(0);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
+            //LimpiarCajas();
+        }
+
+        connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_btnGuardarSocio3ActionPerformed
+
+    private void btnGuardarSocio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocio2ActionPerformed
+        try {
+            connection = Conexion.Cadena();
+            Date fechaActual = new Date();
+            //System.out.println(fechaActual);
+            Calendar fecha = Calendar.getInstance();
+            int año = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH) + 1;
+            int dia = fecha.get(Calendar.DAY_OF_MONTH);
+            int hora = fecha.get(Calendar.HOUR_OF_DAY);
+            int minuto = fecha.get(Calendar.MINUTE);
+            int segundo = fecha.get(Calendar.SECOND);
+            String anio= Integer.toString(año);
+
+            int numCat=0;
+            String cat =ComboBoxCategoriaSocio.getSelectedItem().toString().toLowerCase();
+            switch(cat){
+                case "profesional":
+                numCat=01;
+                break;
+                case "idoneo":
+                numCat=02;
+                break;
+                case "auxiliar informatico":
+                numCat=03;
+                break;
+            }
+
+            String numCateg = Integer.toString(numCat);
+            String dniSocio = txtDNISocio.getText();
+            String leg =dniSocio+"/"+numCateg+"/"+anio;//el legajo es una concatencacion de el num. de categoria y el año + Dni + año
+            System.out.println("leg: "+leg);
+            preparedStatement = connection.prepareStatement("INSERT INTO socio (nombre, apellido,dni,telefono,domicilio,categoria,cuilcuit,email,legajo_socio,fechaNac) VALUES (?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setString(1, txtNombreSocio.getText());
+            preparedStatement.setString(2, txtApellidoSocio.getText());
+            preparedStatement.setString(3, dniSocio);
+            preparedStatement.setString(4, txtTelefonoSocio.getText());
+            preparedStatement.setString(5, txtDomicilioSocio.getText());
+            preparedStatement.setString(6, ComboBoxCategoriaSocio.getSelectedItem().toString());
+            preparedStatement.setString(7, txtCuilSocio.getText());
+            preparedStatement.setString(8, txtEmailSocio.getText());
+            preparedStatement.setString(9, leg);
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaNac = formatoFecha.format(fechaNac_socio.getDate());
+            preparedStatement.setString(10,fechaNac);
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Socio Guardado");
+                //registro de actividad
+                Usuario user = new Usuario();
+                String nombre = user.getNombreLogueado();
+                String contraseña =  user.getContraseñaLogueada();
+                user = user.buscarUsuario(nombre, contraseña);
+                int id_desc=2;
+                Registro reg= new Registro();
+                reg.gaurdarReg(user.getId(), id_desc);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
+                //LimpiarCajas();
+            }
+
+            connection.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_btnGuardarSocio2ActionPerformed
+
+    private void txtTelefonoSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoSocioActionPerformed
+
+    private void txtDNISocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNISocioKeyTyped
+        //validar campo dni
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDNISocioKeyTyped
+
+    private void txtNombreSocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreSocioKeyTyped
+        //validar el campo Nombre:
+        char n = evt.getKeyChar();
+        if ((n < 'a' || n > 'z') && (n < 'A' || n > 'Z')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreSocioKeyTyped
+
+    private void txtNombreSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreSocioActionPerformed
+
+    private void txtApellidoSocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoSocioKeyTyped
+
+        //validar el campo Apellido:
+        char a = evt.getKeyChar();
+        if ((a < 'a' || a > 'z') && (a < 'A' || a > 'Z')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoSocioKeyTyped
+
+    private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
 
     /* private void deshabilitarBoton() {
 
@@ -983,185 +1157,13 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(gestionarSocios.class
-                    .getName()).log(Level.SEVERE, null, ex);
+                .getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Tabla_SociosMouseClicked
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarActionPerformed
-
-    private void txtTelefonoSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoSocio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoSocio1ActionPerformed
-
-    private void txtNombreSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreSocio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreSocio1ActionPerformed
-
-    private void ComboBoxCategoriaSocio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxCategoriaSocio1ActionPerformed
-
-    private void btnGuardarSocio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocio3ActionPerformed
-        try {
-                connection = Conexion.Cadena();
-                int numCat=0;
-                String cat =ComboBoxCategoriaSocio1.getSelectedItem().toString().toLowerCase();
-                switch(cat){
-                    case "profesional":
-                    numCat=01;
-                    break;
-                    case "idoneo":
-                    numCat=02;
-                    break;
-                    case "auxiliar informatico":
-                    numCat=03;
-                    break;
-                }
-
-                String numCateg = Integer.toString(numCat);
-                String dniSocio = txtDNISocio1.getText();
-                preparedStatement = connection.prepareStatement("UPDATE socio SET nombre=?, apellido=?,dni=?,telefono=?,domicilio=?,categoria=?,cuilcuit=?,email=?,legajo_socio=?,fechaNac=? WHERE id_socio=?");
-                //Ejemplo UPDATE: "UPDATE Messages SET description = ?, author = ? WHERE id = ? AND seq_num = ?");
-                preparedStatement.setString(1, txtNombreSocio1.getText());
-                preparedStatement.setString(2, txtApellidoSocio1.getText());
-                preparedStatement.setString(3, dniSocio);
-                preparedStatement.setString(4, txtTelefonoSocio1.getText());
-                preparedStatement.setString(5, txtDomicilioSocio1.getText());
-                preparedStatement.setString(6, ComboBoxCategoriaSocio1.getSelectedItem().toString());
-                preparedStatement.setString(7, txtCuilSocio1.getText());
-                preparedStatement.setString(8, txtEmailSocio1.getText());
-                preparedStatement.setString(9, labelLegajo.getText());
-
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaNac = formatoFecha.format(fechaNac_socio1.getDate());
-                preparedStatement.setString(10,fechaNac);
-
-                int id =  Integer.parseInt(label_id_socio.getText());
-                preparedStatement.setInt(11, id);
-
-                int res = preparedStatement.executeUpdate();
-                if (res > 0) {
-                    JOptionPane.showMessageDialog(null, "Socio Actualizado");
-                    jTabbedPane_socios.setSelectedIndex(0);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
-                    //LimpiarCajas();
-                }
-
-        connection.close();
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_btnGuardarSocio3ActionPerformed
-
-    private void btnGuardarSocio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSocio2ActionPerformed
-        try {
-            connection = Conexion.Cadena();
-            Date fechaActual = new Date();
-            //System.out.println(fechaActual);
-            Calendar fecha = Calendar.getInstance();
-            int año = fecha.get(Calendar.YEAR);
-            int mes = fecha.get(Calendar.MONTH) + 1;
-            int dia = fecha.get(Calendar.DAY_OF_MONTH);
-            int hora = fecha.get(Calendar.HOUR_OF_DAY);
-            int minuto = fecha.get(Calendar.MINUTE);
-            int segundo = fecha.get(Calendar.SECOND);
-            String anio= Integer.toString(año);
-
-            int numCat=0;
-            String cat =ComboBoxCategoriaSocio.getSelectedItem().toString().toLowerCase();
-            switch(cat){
-                case "profesional":
-                numCat=01;
-                break;
-                case "idoneo":
-                numCat=02;
-                break;
-                case "auxiliar informatico":
-                numCat=03;
-                break;
-            }
-
-            String numCateg = Integer.toString(numCat);
-            String dniSocio = txtDNISocio.getText();
-            String leg =dniSocio+"/"+numCateg+"/"+anio;//el legajo es una concatencacion de el num. de categoria y el año + Dni + año
-            System.out.println("leg: "+leg);
-            preparedStatement = connection.prepareStatement("INSERT INTO socio (nombre, apellido,dni,telefono,domicilio,categoria,cuilcuit,email,legajo_socio,fechaNac) VALUES (?,?,?,?,?,?,?,?,?,?)");
-            preparedStatement.setString(1, txtNombreSocio.getText());
-            preparedStatement.setString(2, txtApellidoSocio.getText());
-            preparedStatement.setString(3, dniSocio);
-            preparedStatement.setString(4, txtTelefonoSocio.getText());
-            preparedStatement.setString(5, txtDomicilioSocio.getText());
-            preparedStatement.setString(6, ComboBoxCategoriaSocio.getSelectedItem().toString());
-            preparedStatement.setString(7, txtCuilSocio.getText());
-            preparedStatement.setString(8, txtEmailSocio.getText());
-            preparedStatement.setString(9, leg);
-            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-            String fechaNac = formatoFecha.format(fechaNac_socio.getDate());
-            preparedStatement.setString(10,fechaNac);
-
-            int res = preparedStatement.executeUpdate();
-            if (res > 0) {
-                JOptionPane.showMessageDialog(null, "Socio Guardado");
-                //registro de actividad
-                Usuario user = new Usuario();
-                String nombre = user.getNombreLogueado();
-                String contraseña =  user.getContraseñaLogueada();
-                user = user.buscarUsuario(nombre, contraseña);
-                int id_desc=2;
-                Registro reg= new Registro();
-                reg.gaurdarReg(user.getId(), id_desc);
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
-                //LimpiarCajas();
-            }
-
-            connection.close();
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_btnGuardarSocio2ActionPerformed
-
-    private void txtTelefonoSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoSocioActionPerformed
-
-    private void txtNombreSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreSocioActionPerformed
-
-    private void ComboBoxCategoriaSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxCategoriaSocioActionPerformed
-
-    private void txtDNISocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNISocioKeyTyped
-        //validar campo dni
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtDNISocioKeyTyped
-
-    private void txtNombreSocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreSocioKeyTyped
-        //validar el campo Nombre:
-        char n = evt.getKeyChar();
-        if ((n < 'a' || n > 'z') && (n < 'A' || n > 'Z')) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtNombreSocioKeyTyped
-
-    private void txtApellidoSocioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoSocioKeyTyped
-
-        //validar el campo Apellido:
-        char a = evt.getKeyChar();
-        if ((a < 'a' || a > 'z') && (a < 'A' || a > 'Z')) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtApellidoSocioKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1173,8 +1175,8 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardarSocio2;
     private javax.swing.JButton btnGuardarSocio3;
     public javax.swing.JButton btnListar;
-    public javax.swing.JButton btn_BuscarSocio;
-    public javax.swing.JButton editar_socio;
+    private javax.swing.JButton btn_BuscarSocio;
+    private javax.swing.JButton editar_socio;
     private javax.swing.JLabel fechaNac_editar;
     private com.toedter.calendar.JDateChooser fechaNac_socio;
     private com.toedter.calendar.JDateChooser fechaNac_socio1;
@@ -1224,9 +1226,9 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel_Edtar_socio;
-    public javax.swing.JPanel jPanel_socios;
-    public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTabbedPane jTabbedPane_socios;
+    private javax.swing.JPanel jPanel_socios;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane_socios;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelApellido;
     private javax.swing.JLabel labelCategoria;
@@ -1241,7 +1243,7 @@ public class gestionarSocios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel label_id_socio;
     private javax.swing.JTextField txtApellidoSocio;
     private javax.swing.JTextField txtApellidoSocio1;
-    public javax.swing.JTextField txtBuscarSocio;
+    private javax.swing.JTextField txtBuscarSocio;
     private javax.swing.JTextField txtCuilSocio;
     private javax.swing.JTextField txtCuilSocio1;
     private javax.swing.JTextField txtDNISocio;

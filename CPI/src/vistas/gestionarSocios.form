@@ -6,8 +6,12 @@
       <Border info="null"/>
     </Property>
     <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[731, 594]"/>
+    </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[900, 600]"/>
+      <Dimension value="[731, 594]"/>
     </Property>
     <Property name="visible" type="boolean" value="false"/>
   </Properties>
@@ -44,7 +48,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Component id="jTabbedPane_socios" min="-2" pref="517" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -88,7 +92,6 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Component id="label_id_socio" min="-2" max="-2" attributes="0"/>
@@ -111,7 +114,8 @@
                                       <Component id="editar_socio" min="-2" pref="113" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPanel1" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" min="-2" pref="681" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -297,7 +301,7 @@
                                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                                       <Group type="102" attributes="0">
                                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="labelLegajo" alignment="1" pref="90" max="32767" attributes="0"/>
+                                                              <Component id="labelLegajo" alignment="1" max="32767" attributes="0"/>
                                                               <Component id="LabelDNI" alignment="1" max="32767" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace max="-2" attributes="0"/>
@@ -684,7 +688,7 @@
                               <Component id="jLabel17" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="215" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -747,7 +751,7 @@
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnGuardarSocio2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="152" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1043,7 +1047,7 @@
                           </Group>
                           <Component id="fechaNac_socio1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="145" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

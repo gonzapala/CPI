@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Datos;
+package controladores;
 
+import Datos.Socio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;

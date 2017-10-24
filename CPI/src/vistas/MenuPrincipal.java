@@ -7,7 +7,7 @@ package vistas;
 
 import Datos.Rol;
 import Datos.Socio;
-import Datos.SocioController;
+import controladores.SocioController;
 import java.awt.Panel;
 import java.sql.SQLException;
 import java.util.ArrayList;
