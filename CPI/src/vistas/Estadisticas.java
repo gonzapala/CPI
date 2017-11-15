@@ -24,11 +24,11 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author Anahi Silvana Brao
  */
 public class Estadisticas extends javax.swing.JInternalFrame {
-    
+
     DefaultTableModel model;
     private Statement sentencia;
     private ResultSet rsDatos;
-    
+
     Connection connection;//para la Conexion
     PreparedStatement preparedStatement;//para preparar las querys
     ResultSet resultSet;//para recibir resultados de una cosulta
@@ -40,7 +40,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     public Estadisticas() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -230,80 +230,80 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxComboCatEst, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(buscarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscarPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTotalIdoneo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTotalProf, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnGrafico)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(303, 303, 303)
+                                .addComponent(btnGrafico2)
+                                .addGap(22, 22, 22))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelMorosos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(labelActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTotalMoroso, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtTotalActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(44, 44, 44)))))))
+                .addGap(0, 31, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(btnListarSocios)
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel4))
-                                        .addGap(24, 24, 24)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtTotalIdoneo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTotalProf, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTotalAInfor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnGrafico)))
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(303, 303, 303)
-                                        .addComponent(btnGrafico2)
-                                        .addGap(22, 22, 22))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(119, 119, 119)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(labelMorosos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(labelActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(25, 25, 25)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtTotalMoroso, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtTotalActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(44, 44, 44))))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(101, 101, 101)
-                                    .addComponent(btnListarSocios)
-                                    .addGap(53, 53, 53)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtTotalRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addGap(91, 91, 91))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)))
-                                    .addComponent(cbxOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(38, 38, 38)
-                                    .addComponent(cbxComboCatEst, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(buscarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(buscarPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1)))))
-                .addGap(0, 37, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1))
                     .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbxOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxComboCatEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,11 +314,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListarSocios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTotalRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
+                        .addComponent(txtTotalRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnListarSocios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
@@ -348,7 +348,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGrafico)
                     .addComponent(btnGrafico2))
-                .addGap(68, 68, 68))
+                .addGap(41, 41, 41))
         );
 
         pack();
@@ -417,71 +417,89 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         }
          */
     }//GEN-LAST:event_buscarTodoKeyPressed
-    
+
     public void limpiarCampos1() {
-        
+
         txtTotalActivo.setText(null);
-        txtTotalMoroso.setText(null);        
+        txtTotalMoroso.setText(null);
         txtTotalRegistros.setText(null);
     }
-    
+
     public void limpiarCampos2() {
-        
+
         txtTotalProf.setText(null);
         txtTotalIdoneo.setText(null);
-        txtTotalAInfor.setText(null);        
+        txtTotalAInfor.setText(null);
         txtTotalRegistros.setText(null);
     }
-    
+
     public void graficarEstado() {
-        
+
         String TAct = txtTotalActivo.getText();
         // String TAsp = txtTotalAspirante.getText();
         String TMor = txtTotalMoroso.getText();
-        
+
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         //  pieDataset.setValue("Aspirante", new Integer(TAsp));
         pieDataset.setValue("Activo", new Integer(TAct));
         pieDataset.setValue("Moroso", new Integer(TMor));
-        
+
         JFreeChart chart = ChartFactory.createPieChart3D("Estado de los Socios", pieDataset, true, true, true);
         PiePlot3D p = (PiePlot3D) chart.getPlot();
-        
+
         ChartFrame frame = new ChartFrame("Grafico de Torta", chart);
         frame.setVisible(true);
         frame.setSize(700, 500);
     }
-    
+
     public void graficarCategoria() {
 
         // este es el que anda "bien"
-        String TProf = txtTotalProf.getText();
-        String TId = txtTotalIdoneo.getText();
-        String TAInf = txtTotalAInfor.getText();
+        int TProf = 0;
+        String TProf2 = txtTotalProf.getText();
+        int TId = 0;
+        String TId2 = txtTotalIdoneo.getText();
+        int TAInf = 0;
+        String TAInf2 = txtTotalAInfor.getText();
+
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-        
-        pieDataset.setValue("Profesional", new Integer(TProf));
-        System.out.println(" de nuevo el valor de TProf: " + TProf);
-        
-        pieDataset.setValue("Idoneo", new Integer(TId));
-        System.out.println("de nuevo el valor de TId: " + TId);
-        
-        pieDataset.setValue("Auxiliar Informatico", new Integer(TAInf));
-        System.out.println("de nuevo el valor de TAInf: " + TAInf);
-        
+
+        if (txtTotalProf.getText().equals("")) {
+            TProf = 0;
+            txtTotalProf.setText(String.valueOf(TId));
+            pieDataset.setValue("Profesional", new Integer(TProf));
+        } else {
+            pieDataset.setValue("Profesional", new Integer(TProf2));
+        }
+        if (txtTotalIdoneo.getText().equals("")) {
+            TId = 0;
+            txtTotalIdoneo.setText(String.valueOf(TId));
+            pieDataset.setValue("Idoneo", new Integer(TId));
+        } else {
+            pieDataset.setValue("Idoneo", new Integer(TId2));
+        }
+        if (txtTotalAInfor.getText().equals("")) {
+            TAInf = 0;
+            txtTotalAInfor.setText(String.valueOf(TAInf));
+            pieDataset.setValue("Auxiliar Informatico", new Integer(TAInf));
+        } else {
+            pieDataset.setValue("Auxiliar Informatico", new Integer(TAInf2));
+        }
+
         JFreeChart chart = ChartFactory.createPieChart3D("Categoria de los Socios", pieDataset, true, true, true);
         PiePlot3D p = (PiePlot3D) chart.getPlot();
-        
+
         ChartFrame frame = new ChartFrame("Grafico de Torta", chart);
         frame.setVisible(true);
         frame.setSize(700, 500);
     }
 
+
     private void btnListarSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarSociosActionPerformed
-        
+
         limpiarCampos1();
         limpiarCampos2();
-      
+
         String[] titulos = {"id_socio", "legajo_socio", "nombre", "apellido", "dni",
             //"telefono", "domicilio", "estado_pago", 
             "categoria", "estado",};
@@ -489,14 +507,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
         String[] registros = new String[50];
         String sql = "SELECT *FROM socio";
-        
+
         model = new DefaultTableModel(null, titulos);
-        
+
         try {
             Connection cn = Conexion.Cadena();
             sentencia = (Statement) cn.createStatement();
             rsDatos = sentencia.executeQuery(sql);
-            
+
             while (rsDatos.next()) {
                 registros[0] = rsDatos.getString("id_socio");
                 registros[1] = rsDatos.getString("legajo_socio");
@@ -519,7 +537,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                     txtTotalRegistros.setText("" + x);
                 }
             }
-            
+
             tabla_Socios.setModel(model);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, closable, title, HEIGHT);
@@ -533,14 +551,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTotalRegistrosActionPerformed
 
     private void buscarPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPruebaActionPerformed
-        
+
         String[] titulos = {"id_socio", "legajo_socio", "nombre", "apellido", "dni",
             // "telefono", "domicilio","estado_pago", 
             "categoria", "estado"};
         //"cuilcuit", "email", "fechaNac"};
 
         String[] registros = new String[50];
-        
+
         String sql = "SELECT *FROM socio WHERE id_socio LIKE '%" + buscarTodo.getText() + "%'"
                 + "OR legajo_socio LIKE '%" + buscarTodo.getText() + "%'"
                 + "OR nombre LIKE '%" + buscarTodo.getText() + "%'"
@@ -556,14 +574,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         //    + "OR fechaNac LIKE '%" + buscarTodo.getText() + "%'";
 
         model = new DefaultTableModel(null, titulos);
-        
+
         try {
             connection = Conexion.Cadena();
             sentencia = (Statement) connection.createStatement();
             rsDatos = sentencia.executeQuery(sql);
-            
+
             while (rsDatos.next()) {
-                
+
                 registros[0] = rsDatos.getString("id_socio");
                 registros[1] = rsDatos.getString("legajo_socio");
                 registros[2] = rsDatos.getString("nombre");
@@ -579,11 +597,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 // registros[12] = rsDatos.getString("fechaNac");
                 model.addRow(registros);
             }
-            
+
             tabla_Socios.setModel(model);
-            
+
             elegirOpcionEnCbx();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -591,35 +609,35 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
     //Para Combobox Anidados
     public String[] getOpcion(String opc) {
-        
+
         String[] opciones = new String[3];
-        
+
         if (opc.equalsIgnoreCase("Categoria")) {
-            
+
             opciones[0] = "Profesional";
             opciones[1] = "Idoneo";
             opciones[2] = "Auxiliar Informatico";
         }
-        
+
         if (opc.equalsIgnoreCase("Estado")) {
 
-            //opciones[0] = "Aspirante";
+            //  opciones[0] = "Aspirante";
             opciones[0] = "Activo";
             opciones[1] = "Moroso";
         }
         //agregado desde aqui
         if (opc.equalsIgnoreCase("Año de Ingreso")) {
-            
+
             opciones[0] = "2015";
             opciones[1] = "2016";
             opciones[2] = "2017";
-            
+
         }
         return opciones;
     }
 
     private void cbxOpcionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxOpcionItemStateChanged
-        
+
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             if (this.cbxOpcion.getSelectedIndex() > 0) {
                 this.cbxComboCatEst.setModel(new DefaultComboBoxModel(this.getOpcion(this.cbxOpcion.getSelectedItem().toString())));
@@ -629,7 +647,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
 
     //Pasa la opcion seleccionada en el cbx al jtext
     private void cbxComboCatEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComboCatEstActionPerformed
-        
+
         buscarTodo.setText(cbxComboCatEst.getSelectedItem().toString());
     }//GEN-LAST:event_cbxComboCatEstActionPerformed
 
@@ -659,10 +677,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGraficoActionPerformed
 
     private void btnGrafico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafico2ActionPerformed
-        
+
         graficarEstado();
     }//GEN-LAST:event_btnGrafico2ActionPerformed
-    
+
     public void elegirOpcionEnCbx() {
 
         //año de ingreso
@@ -680,7 +698,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 contarCategoriaSocios();
                 txtTotalRegistros.setText(null);
                 limpiarCampos1();
-                
+
             } else {
                 if ((buscarTodo.getText().equals("Activo")) || (buscarTodo.getText().equals("Moroso"))) {
                     contarEstadoSocios();
@@ -692,9 +710,9 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         }
         txtTotalRegistros.setText("" + x);
     }
-    
+
     public void contarEstadoSocios() {
-        
+
         for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
             if (buscarTodo.getText().equals("Activo")) {
                 txtTotalActivo.setText("" + x);
@@ -706,18 +724,26 @@ public class Estadisticas extends javax.swing.JInternalFrame {
             txtTotalRegistros.setText("" + x);
         }
     }
-    
+
     public void contarCategoriaSocios() {
-        
-        for (int x = 0; x <= tabla_Socios.getRowCount(); x++) {
+
+        int TP = 0;
+        int Id = 0;
+        int AI = 0;
+        int x;
+
+        for (x = 0; x < tabla_Socios.getRowCount(); x++) {
             if (buscarTodo.getText().equals("Profesional")) {
-                txtTotalProf.setText("" + x);
+                TP++;
+                txtTotalProf.setText(String.valueOf(TP));
             } else {
                 if (buscarTodo.getText().equals("Idoneo")) {
-                    txtTotalIdoneo.setText("" + x);
+                    Id++;
+                    txtTotalIdoneo.setText(String.valueOf(Id));
                 } else {
                     if (buscarTodo.getText().equals("Auxiliar Informatico")) {
-                        txtTotalAInfor.setText("" + x);
+                        AI++;
+                        txtTotalAInfor.setText(String.valueOf(AI));
                     }
                 }
             }
