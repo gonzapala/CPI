@@ -115,13 +115,12 @@ public class SocioTest {
     @Test
     public void testGetId_socio() {
         System.out.println("getId_socio");
-        //Socio instance = new Socio();
         int expResult = 2;
         int result = instance.getId_socio();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         if(result == expResult){
-            System.out.println("Es Correcto");
+            System.out.println(" -Es Correcto");
         }else{
             fail("The test case is a prototype.");
         }
@@ -155,7 +154,7 @@ public class SocioTest {
         assertEquals(expLegajo, legajo);
         // TODO review the generated test code and remove the default call to fail.
         if(legajo.equals(expLegajo)){
-            System.out.println("Es Correcto");
+            System.out.println(" -Es Correcto");
         }else{
             fail("The test case is a prototype.");
         }
