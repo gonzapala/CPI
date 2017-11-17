@@ -570,6 +570,15 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 nuevoS.cambiarEstado(NS, estadoES);
                 limpiarFormulario();
                 
+                // Registrar Actividad
+                Usuario user = new Usuario();
+                String nombreUsuario = user.getNombreLogueado();
+                String contraseña =  user.getContraseñaLogueada();
+                user = user.buscarUsuario(nombreUsuario, contraseña);
+                int id_desc = 1;
+                Registro reg= new Registro();
+                reg.gaurdarReg(user.getId(), id_desc);
+                
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
             } else {
                 JOptionPane.showMessageDialog(null, "Error de Operación");

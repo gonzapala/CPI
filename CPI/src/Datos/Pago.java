@@ -18,13 +18,25 @@ public class Pago {
     
     
     private int id_pago;
-    private int numero_pago;
+    private String numero_pago;
     private int tipo;
     private String forma;
-    private int cant_cuotas;
     private float monto;
     private String fecha;
     private int id_socio;
+
+    public Pago() {
+    }
+    public Pago(int id, String numero_pago, int tipo, String forma, float monto, String fecha, int id_socio) {
+        this.id_pago = id;
+        this.numero_pago = numero_pago;
+        this.tipo = tipo;
+        this.forma = forma;
+        this.monto = monto;
+        this.fecha = fecha;
+        this.id_socio = id_socio;
+    }
+ 
 
     /**
      * @return the id_pago
@@ -40,16 +52,10 @@ public class Pago {
     /**
      * @return the numero_pago
      */
-    public int getNumero_pago() {
+    public String getNumero_pago() {
         return numero_pago;
     }
 
-    /**
-     * @param numero_pago the numero_pago to set
-     */
-    public void setNumero_pago(int numero_pago) {
-        this.numero_pago = numero_pago;
-    }
 
     /**
      * @return the tipo
@@ -79,19 +85,8 @@ public class Pago {
         this.forma = forma;
     }
 
-    /**
-     * @return the cant_cuotas
-     */
-    public int getCant_cuotas() {
-        return cant_cuotas;
-    }
 
-    /**
-     * @param cant_cuotas the cant_cuotas to set
-     */
-    public void setCant_cuotas(int cant_cuotas) {
-        this.cant_cuotas = cant_cuotas;
-    }
+
 
     /**
      * @return the monto
@@ -139,7 +134,7 @@ public class Pago {
 //                    num_pago=rsDatos.getInt("numero_pago");
 //                    System.out.println("num pago: "+ num_pago);
                                         
-                    ultimoPago.setNumero_pago(rsDatos.getInt("numero_pago"));
+                    ultimoPago.setNumero_pago(rsDatos.getString("numero_pago"));
                     ultimoPago.setTipo(rsDatos.getInt("tipo"));
                     ultimoPago.setForma(rsDatos.getString("forma"));
                     ultimoPago.setFecha(rsDatos.getString("fecha"));
@@ -166,7 +161,7 @@ public class Pago {
             while (rsDatos.next()) {
                     Pago Pago = new Pago();
                     Pago.setId_pago(rsDatos.getInt("id_pago"));
-                    Pago.setNumero_pago(rsDatos.getInt("numero_pago"));
+                    Pago.setNumero_pago(rsDatos.getString("numero_pago"));
                     Pago.setTipo(rsDatos.getInt("tipo"));
                     Pago.setForma(rsDatos.getString("forma"));
                     Pago.setMonto(rsDatos.getInt("monto_total"));
@@ -196,5 +191,12 @@ public class Pago {
      */
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @param numero_pago the numero_pago to set
+     */
+    public void setNumero_pago(String numero_pago) {
+        this.numero_pago = numero_pago;
     }
 }
