@@ -4,3 +4,5 @@
 CPI/nbproject/project\.properties
 
 CPI/src/Datos/Conexion\.java
+
+CPI/\.jacocoverage/

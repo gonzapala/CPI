@@ -22,7 +22,7 @@ import Datos.Pago;
 import Datos.Registro;
 import Datos.Usuario;
 import Datos.Pago_cuota;
-import Datos.SocioController;
+import controladores.SocioController;
 import controladores.PagosController;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -569,6 +569,15 @@ public class Gestionar_Pagos extends javax.swing.JInternalFrame {
                 Socio nuevoS = new Socio();
                 nuevoS.cambiarEstado(NS, estadoES);
                 limpiarFormulario();
+                
+                // Registrar Actividad
+                Usuario user = new Usuario();
+                String nombreUsuario = user.getNombreLogueado();
+                String contraseña =  user.getContraseñaLogueada();
+                user = user.buscarUsuario(nombreUsuario, contraseña);
+                int id_desc = 1;
+                Registro reg= new Registro();
+                reg.gaurdarReg(user.getId(), id_desc);
                 
                 JOptionPane.showMessageDialog(null, "Pago Realizado");
             } else {

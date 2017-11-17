@@ -57,7 +57,7 @@ public class Registro {
     public void gaurdarReg(int id_user, int id_desc) {                                                   
         
         try {
-            
+            System.out.println("------ Registro de Actividad -----");
             Connection connection = Conexion.Cadena();
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO registro (id_usuario,fecha,descripcion) VALUES (?,?,?)");
             
@@ -67,7 +67,7 @@ public class Registro {
             String desc="";
             switch(id_desc){
                         case 1:
-                            desc="Realizo un Nuevo Pago";
+                            desc="Registró un Nuevo Pago";
                         break;
                         case 2:
                             desc="Agrego un Nuevo Socio";

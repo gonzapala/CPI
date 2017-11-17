@@ -6,6 +6,7 @@
 package Datos;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -27,7 +28,8 @@ public class SocioTest {
     @Before
     public void before(){
     
-     instance = new Socio(2,"123/1/2016","Carlos","Perez",789456,35156,"Catamarca","Pagado","Profesional","Activo","20-789456-1","carlos@hotmail.com","1992-01-01");
+     instance = new Socio(2,"123/1/2016","Carlos","Perez",789456,35156,"Catamarca",
+             "Pagado","Profesional","Activo","20-789456-1","carlos@hotmail.com","1992-01-01");
     
     }
     
@@ -62,19 +64,6 @@ public class SocioTest {
         
     }
     
-    /**
-     * Test of setLegajo_socio method, of class Socio.
-     */
-    @Test
-    public void testSetLegajo_socio() {
-        System.out.println("setLegajo_socio");
-        String legajo_socio = "555/1/2016";
-        Socio instance = new Socio();
-        instance.setLegajo_socio(legajo_socio);
-        System.out.println("cambio de estado"+ instance.getLegajo_socio());
-       
-    }
-
     /**
      * Test of getNombre method, of class Socio.
      */
@@ -118,194 +107,75 @@ public class SocioTest {
         String apellido = "Sanchez";       
         instance.setApellido(apellido);        
     }
-//
-//    /**
-//     * Test of getDni method, of class Socio.
-//     */
+
+
+    /**
+     * Test of getId_socio method, of class Socio.
+     */
     @Test
-    public void testGetDni() {
-        System.out.println("getDni");     
-        int expResult = 789456;
-        int result = instance.getDni();
+    public void testGetId_socio() {
+        System.out.println("getId_socio");
+        int expResult = 2;
+        int result = instance.getId_socio();
         assertEquals(expResult, result);
-        
-    }
-//
-//    /**
-//     * Test of setDni method, of class Socio.
-//     */
-    @Test
-    public void testSetDni() {
-        System.out.println("setDni");
-        int dni = 37130154;       
-        instance.setDni(dni);       
-    }
-//
-//    /**
-//     * Test of getTelefono method, of class Socio.
-//     */
-    @Test
-    public void testGetTelefono() {
-        System.out.println("getTelefono");      
-        int expResult = 35156;
-        int result = instance.getTelefono();
-        assertEquals(expResult, result);
-        
-       
-    }
-//
-//    /**
-//     * Test of setTelefono method, of class Socio.
-//     */
-    @Test
-    public void testSetTelefono() {
-        System.out.println("setTelefono");
-        int telefono = 421937;
-        Socio instance = new Socio();
-        instance.setTelefono(telefono);
-        
-        
-    }
-//
-//    /**
-//     * Test of getDomicilio method, of class Socio.
-//     */
-    @Test
-    public void testGetDomicilio() {
-        System.out.println("getDomicilio");       
-        String expResult = "Catamarca";
-        String result = instance.getDomicilio();
-        assertEquals(expResult, result);
-       
-      
-    }
-//
-//    /**
-//     * Test of setDomicilio method, of class Socio.
-//     */
-    @Test
-    public void testSetDomicilio() {
-        System.out.println("setDomicilio");
-        String domicilio = "Tomas Edison";    
-        instance.setDomicilio(domicilio);
-       
-      
-    }
-//
-//    /**
-//     * Test of getEstado_pago method, of class Socio.
-//     */
-    @Test
-    public void testGetEstado_pago() {
-        System.out.println("getEstado_pago");       
-        String expResult = "Pagado";
-        String result = instance.getEstado_pago();
-        assertEquals(expResult, result);
-       
+        // TODO review the generated test code and remove the default call to fail.
+        if(result == expResult){
+            System.out.println(" -Es Correcto");
+        }else{
+            fail("The test case is a prototype.");
+        }
     }
 
-//    /**
-//     * Test of setEstado_pago method, of class Socio.
-//     */
+    /**
+     * Test of setID method, of class Socio.
+     */
     @Test
-    public void testSetEstado_pago() {
-        System.out.println("setEstado_pago");
-        String estado_pago = "Debe";       
-        instance.setEstado_pago(estado_pago);
-       
-    }
-//
-//    /**
-//     * Test of getCategoria method, of class Socio.
-//     */
-    @Test
-    public void testGetCategoria() {
-        System.out.println("getCategoria");       
-        String expResult = "Profesional";
-        String result = instance.getCategoria();
-        assertEquals(expResult, result);
-       
-    }
-//
-//    /**
-//     * Test of setCategoria method, of class Socio.
-//     */
-    @Test
-    public void testSetCategoria() {
-        System.out.println("setCategoria");
-        String categoria = "Idoneo";        
-        instance.setCategoria(categoria);
-       
-    }
-//
-//    /**
-//     * Test of getEstado method, of class Socio.
-//     */
-    @Test
-    public void testGetEstado() {
-        System.out.println("getEstado");      
-        String expResult = "Activo";
-        String result = instance.getEstado();
-        assertEquals(expResult, result);
-       
-    }
-//
-//    /**
-//     * Test of setEstado method, of class Socio.
-//     */
-    @Test
-    public void testSetEstado() {
-        System.out.println("setEstado");
-        String estado = "Suspendido";     
-        instance.setEstado(estado);
-       
-    }
-//
-//    /**
-//     * Test of getCuilcuit method, of class Socio.
-//     */
-    @Test
-    public void testGetCuilcuit() {
-        System.out.println("getCuilcuit");       
-        String expResult = "20-789456-1";
-        String result = instance.getCuilcuit();
-        assertEquals(expResult, result);
-        
-    }
-//
-//    /**
-//     * Test of setCuilcuit method, of class Socio.
-//     */
-    @Test
-    public void testSetCuilcuit() {
-        System.out.println("setCuilcuit");
-        String cuilcuit = "20-37130154-2";
+    public void testSetID() {
+        System.out.println("setID");
+        int id = 0;
         Socio instance = new Socio();
-        instance.setCuilcuit(cuilcuit);
-       
+        instance.setID(id);
+        // TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
     }
-//
-//    /**
-//     * Test of getEmail method, of class Socio.
-//     */
+
+    /**
+     * Test of BuscarX method, of class Socio.
+     */
     @Test
-    public void testGetEmail() {
-        System.out.println("getEmail");     
-        String expResult = "carlos@hotmail.com";
-        String result = instance.getEmail();
-        assertEquals(expResult, result);
-       
+    public void testBuscarX() throws Exception {
+        System.out.println("BuscarX");
+        String Legajo = "123/1/2016";// 123/1/2016
+        Socio instancia = new Socio();
+        Socio expResult = instance;
+        String expLegajo = expResult.getLegajo_socio();
+        Socio result = instancia.BuscarX(Legajo);
+        String legajo = result.getLegajo_socio();
+        assertEquals(expLegajo, legajo);
+        // TODO review the generated test code and remove the default call to fail.
+        if(legajo.equals(expLegajo)){
+            System.out.println(" -Es Correcto");
+        }else{
+            fail("The test case is a prototype.");
+        }
     }
-//
-//    /**
-//     * Test of setEmail method, of class Socio.
-//     */
-    @Test
-    public void testSetEmail() {
-        System.out.println("setEmail");
-        String email = "carlos@gmail.com";       
-        instance.setEmail(email);
-       
-    }
+
+
+   
+
+    /**
+     * Test of cambiarEstado method, of class Socio.
+     */
+//    @Test
+//    public void testCambiarEstado() {
+//        System.out.println("cambiarEstado");
+//        Socio socioX = null;
+//        int tipo_estado = 0;
+//        Socio instance = new Socio();
+//        instance.cambiarEstado(socioX, tipo_estado);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
    
 }

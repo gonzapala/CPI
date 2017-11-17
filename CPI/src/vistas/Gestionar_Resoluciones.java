@@ -9,7 +9,7 @@ import Datos.Conexion;
 import Datos.Pago;
 import Datos.Socio;
 import Datos.Resolucion;
-import Datos.SocioController;
+import controladores.SocioController;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
