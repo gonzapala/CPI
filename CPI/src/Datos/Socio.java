@@ -430,6 +430,49 @@ public class Socio {
     public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
     }
+     
+    public void guardar(String nombre, String apellido, int dni, int telefono, String domicilio, String categoria, String cuil, String email, String legajo, String fechaNacimiento) throws ClassNotFoundException, SQLException{
+        System.out.println("Guardar");
+        try {
+            System.out.println("Guardar");
+            System.out.println(nombre + "/n" + apellido + "/n" + dni + "/n" + telefono + "/n" + domicilio + "/n" + estado + "/n" + cuil + "/n" + email + "/n" + legajo + "/n" + fechaNacimiento);
+            connection = Conexion.Cadena();
+            preparedStatement = connection.prepareStatement("INSERT INTO socio (legajo_socio, nombre, apellido, dni, telefono, domicilio, categoria, cuilcuit, email) VALUES (?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setString(1, legajo);
+            preparedStatement.setString(2, nombre);
+            preparedStatement.setString(3, apellido);
+            preparedStatement.setInt(4, dni);
+            preparedStatement.setInt(5, telefono);
+            preparedStatement.setString(6, domicilio);
+            preparedStatement.setString(7, categoria);
+            preparedStatement.setString(8, cuil);
+            preparedStatement.setString(9, email);
+            //preparedStatement.setString(10,fechaNacimiento);
+
+            int res = preparedStatement.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Socio Guardado");
+
+                //registro de actividad
+//                Usuario user = new Usuario();
+//                String nombreUsuario = user.getNombreLogueado();
+//                String contraseña =  user.getContraseñaLogueada();
+//                user = user.buscarUsuario(nombreUsuario, contraseña);
+//                int id_desc=2;
+//                Registro reg= new Registro();
+//                reg.gaurdarReg(user.getId(), id_desc);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al Guardar Personal");
+                //LimpiarCajas();
+            }
+
+            connection.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }
     
     public void cambiarEstado(Socio socioX,int tipo_estado){
         //Estados que puede tener el socio

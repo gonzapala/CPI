@@ -682,7 +682,7 @@
                                               <Component id="txtCuilSocio" min="-2" pref="104" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="btnGuardarSocio2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_guardarNuevoSocio" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel17" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
@@ -750,7 +750,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnGuardarSocio2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_guardarNuevoSocio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -856,7 +856,7 @@
                 <Property name="text" type="java.lang.String" value="Apellido"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnGuardarSocio2">
+            <Component class="javax.swing.JButton" name="btn_guardarNuevoSocio">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/save.png"/>
@@ -864,7 +864,7 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarSocio2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_guardarNuevoSocioActionPerformed"/>
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="fechaNac_socio">
@@ -917,7 +917,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnGuardarSocio3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btn_actualizarSocio" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="ComboBoxCategoriaSocio1" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -1043,7 +1043,7 @@
                                   <Component id="ComboBoxCategoriaSocio1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="btnGuardarSocio3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_actualizarSocio" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="fechaNac_socio1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1053,7 +1053,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnGuardarSocio3">
+            <Component class="javax.swing.JButton" name="btn_actualizarSocio">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/save.png"/>
@@ -1062,7 +1062,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarSocio3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_actualizarSocioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCuilSocio1">
